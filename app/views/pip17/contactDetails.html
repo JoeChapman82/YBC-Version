@@ -18,21 +18,21 @@
 					{{ elements.header(page,question) }}
 
 					<fieldset class="form-group">
-						<legend class="form-label">Your address</legend>
+						<legend class="form-label-bold">Your address</legend>
 						{{ elements.textInput('address1',answers.address1) }}
 						{{ elements.textInput('address2',answers.address2) }}
 						{{ elements.textInput('address3',answers.address3) }}
 
-						{{ elements.genericInput('postcode',question.question2, answers.postcode,"","form-control-1-4") }}
+						{{ elements.genericInput('postcode',question.question2, answers.postcode) }}
 					</fieldset>
 
 					<fieldset class="form-group">
 						<label class="block-label" for="radio-1" data-target="correspondenceAddress">
 			        <input id="radio-1" type="checkbox" name="radioCorrespondence" value="Yes" {% if answers.radioCorrespondence == 'Yes' %} checked=checked {% endif %}>
-							You need any letters to go to a different address
+					You need to have letters sent to a different address
 			      </label>
 						<div class="panel-indent {% if answers.radioCorrespondence != 'Yes' %} js-hidden {% endif %}" id="correspondenceAddress">
-							<legend class="form-label">Send letters to:</legend>
+							<legend class="form-label-bold">Your address</legend>
 							{{ elements.textInput('correspondenceAddress1',answers.correspondenceAddress1) }}
 							{{ elements.textInput('correspondenceAddress2',answers.correspondenceAddress2) }}
 							{{ elements.textInput('correspondenceAddress3',answers.correspondenceAddress3) }}
@@ -41,16 +41,20 @@
 						</div>
 					</fieldset>
 
-					{{ elements.genericInputPhone('phone',question.question4, answers.phone,answers.textPhone,question.q4HintText) }}
+					{{ elements.genericInputPhone('phone',question.question4  |  safe, answers.phone) }}
+
+					<label class="block-label" for="checkbox-telephone-number">
+				    <input id="checkbox-telephone-number" name="textPhone" type="checkbox" value="true" {% if answerTextPhone == 'true' %} checked=checked {% endif %}>
+				    You have hearing loss and need to be contacted using a text phone
+				  </label>
 
 
-					{{ elements.genericInput('altPhone',question.question5, answers.altPhone) }}
-					{{ elements.genericInput('email',question.question6, answers.email) }}
+					{{ elements.genericInput('altPhone',question.question5  |  safe, answers.altPhone) }}
 
 					{{ elements.submit(page,question) }}
-
         </form>
 			</div>
+				{{ elements.helpline(page) }}
 	</div>
 
 </main>

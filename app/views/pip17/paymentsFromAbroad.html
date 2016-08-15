@@ -33,19 +33,20 @@
 							{"id":"benefitsAbroadPayment","value":"Yes"},
 							{"id":"benefitsAbroadPayment", "value":"No"}
 						] %}
-						{{ elements.radioSelect('benefitsAbroadPayment',question.question2,"",answers.benefitsAbroadPayment,seq2,"inline") }}
+						{{ elements.radioSelect('benefitsAbroadPayment',question.question2  |  safe,"",answers.benefitsAbroadPayment,seq2,"inline") }}
 
 						{% set seq3  = [
 							{"id":"payInsuranceAbroad","value":"Yes"},
 							{"id":"payInsuranceAbroad", "value":"No"}
 						] %}
-						{{ elements.radioSelect('payInsuranceAbroad',question.question3,"",answers.payInsuranceAbroad,seq3,"inline") }}
+						{{ elements.radioSelect('payInsuranceAbroad',question.question3  |  safe,"",answers.payInsuranceAbroad,seq3,"inline") }}
 					</div>
 
-					{{ elements.returnToMenu(page,question) }}
+					{{ elements.submit(page,question) }}
 
         </form>
 			</div>
+				{{ elements.helpline(page) }}
 	</div>
 
 </main>

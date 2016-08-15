@@ -17,19 +17,54 @@
 				<form action="/pip17/aboutYou{% if edit %}?edit=true{% endif %}" method="post" class="form">
 					{{ elements.header(page,question) }}
 
+
+<!-- Your name heading and title dropdown -->
+
+<legend class="form-label-bold add-padding">Your name</legend>
+
+
+<div class="form-group" id="form-group-title">
+
+			<label class="form-label" for="title">
+
+
+Title
+
+			</label>
+
+			<select id="title" name="title" class="form-control form-select-control ">
+					<option>Please select</option>
+					 <option value="Mr">Mr</option>
+					 <option value="Miss">Miss</option>
+					 <option value="Mrs">Mrs</option>
+			</select>
+
+	</div>
+
+	<div class="form-group" id="form-group-firstName">
+
+	 <label class="form-label" for="firstName">
+
+
+	<!--End title dropdown-->
+
+
 					{{ elements.genericInput('firstName',question.question, answers.firstName) }}
 					{{ elements.genericInput('middleName',question.question2, answers.middleName) }}
 					{{ elements.genericInput('surname',question.question3, answers.surname) }}
 
-					{{ elements.date('aboutYou',question.question4,answers) }}
+					{{ elements.genericInput('nino',question.question5  |  safe, answers.nino) }}
 
-					{{ elements.genericInput('nino',question.question5, answers.nino) }}
+					{{ elements.date('aboutYou',question.question4  |  safe,answers) }}
 
 
 					{{ elements.submit(page,question) }}
 
+				</div>
+
         </form>
 			</div>
+			{{ elements.helpline(page) }}
 	</div>
 
 </main>

@@ -1,3 +1,4 @@
+
 {% macro header(page,question) %}
 <header>
   <h1 class="form-title heading-xlarge">
@@ -7,7 +8,7 @@
 <p class="lede">{{ question.introText|safe }}</p>
 {% endmacro %}
 
-{% macro submit(data,questions,backLink) %}
+{% macro submit(data,questions,backLink,showReturnToMenu) %}
 <div id="submit-group" class="form-group">
     {% if questions.warningMsg %}
       <p>{{questions.warningMsg}}</p>
@@ -15,7 +16,9 @@
     <input type="submit" class="button"
     value="{% if questions.submit %} {{questions.submit}} {% else %} {{data.continue}} {% endif %}"
     name="saveAndcontinue">
-    <input type="submit" value="{{data.saveExit}}" name="saveAndMenu" class="exit-link">
+    {% if showReturnToMenu != false %}
+      <input type="submit" value="{{data.saveExit}}" name="saveAndMenu" class="exit-link">
+    {% endif %}
     {% if backLink != false %}
       <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
     {% endif %}
@@ -44,7 +47,7 @@
     <span class="form-hint">{{ hintText }}</span>
   {% endif %}
   </label>
-  <input type="{{ type }}" class="form-control {% if inputSize %}{{ inputSize }}{% endif %}" id="{{ id }}"  name="{{ id }}" value="{{ answer }}">
+  <input type="{{ type }}" class="form-control  {% if inputSize %}{{ inputSize }}{% endif %}" id="{{ id }}"  name="{{ id }}" value="{{ answer }}">
 </div>
 {% endmacro %}
 
@@ -74,7 +77,10 @@
   {% endif %}
   class="form-control {% if inputSize %}{{ inputSize }}{% endif %}" id="{{ id }}"  name="{{ id }}" value="{{ answer }}">
 
-
+  <label class="form-checkbox" for="checkbox-telephone-number">
+    <input id="checkbox-telephone-number" name="textPhone" type="checkbox" value="true" {% if answerTextPhone == 'true' %} checked=checked {% endif %}>
+    You have hearing difficulties and need to be contacted using a text phone
+  </label>
 </div>
 {% endmacro %}
 
@@ -101,9 +107,16 @@
 </fieldset>
 {% endmacro %}
 
-{% macro radioSelect(id,question,hintText,answer,radioOptions,inline) %}
-<fieldset class="form-group {% if inline %}inline{% endif %}">
-  <legend id="{{ id }}" for="{{ id }}">
+{% macro radioSelect(id,question,hintText,answer,radioOptions,inline,dayshelptext,freqHelpText) %}
+<fieldset id="{{ id }}" class="form-group {% if inline %}inline{% endif %}"
+{% if dayshelptext %}
+  data-dayshelptext="{{dayshelptext}}"
+{% endif %}
+{% if freqHelpText %}
+  data-freqhelptext="{{freqHelpText}}"
+{% endif %}
+>
+  <legend for="{{ id }}">
     <span class="frequency-question">{{ question }}</span>
     {% if hintText %}
       <span class="form-hint">{{ hintText }}</span>
@@ -135,7 +148,7 @@
   </label>
   {% if reveleaingHelpText %}
     <p>{{ helpTextHd }}</p>
-    <ul class="list-bullet list-help-text">
+    <ul id="explain-how" class="list-bullet list-help-text">
       {% for item in reveleaingHelpText %}
         <li>{{ item }}</li>
       {% endfor %}
@@ -149,8 +162,15 @@
 </div>
 {% endmacro %}
 
-{% macro checkbox(id,type,question,hintText,checkboxOptions,answers,optionAnswers,fieldsetClass) %}
-<fieldset class="form-group {% if fieldsetClass %} {{ fieldsetClass }} {% endif %}">
+{% macro checkbox(id,type,question,hintText,checkboxOptions,answers,optionAnswers,fieldsetClass,dayshelptext,freqHelpText) %}
+<fieldset id="{{ id }}" class="form-group {% if fieldsetClass %} {{ fieldsetClass }} {% endif %}"
+  {% if dayshelptext %}
+    data-dayshelptext="{{dayshelptext}}"
+  {% endif %}
+  {% if freqHelpText %}
+    data-freqhelptext="{{freqHelpText}}"
+  {% endif %}
+>
   <legend>{{ question }}</legend>
   {% if hintText %}
     <p class="form-hint">{{ hintText }}</p>
@@ -174,8 +194,20 @@
       {% if item.hidePanel %}
         data-hide="{{ item.hidePanel }}"
       {% endif %}
+      {% if item.target %}
+        data-target="{{ item.target }}"
+      {% endif %}
       >
-      <input id="{{ item.id }}" name="{{ id }}" type="{{ type }}" value="{{ item.value }}"
+      <input id="{{ item.id }}" name="{{ id }}"
+      {% if item.helpText %}
+        data-helpText="{{item.helpText}}"
+      {% endif %}
+      {% if item.helpText2 %}
+        data-helpText2="{{item.helpText2}}"
+      {% endif %}
+
+      type="{{ type }}" value="{{ item.value }}"
+
       {% set inputValue = item.value %}
       {% for answer in optionAnswers %}
         {% if loop.first %}
@@ -192,7 +224,7 @@
         {% endif %}
       {% endfor %}
       >
-      {{ item.label|safe }}
+    {{ item.label|safe }}
     </label>
     {% if item.textarea %}
       <fieldset id="{{ item.target }}" class="js-hidden panel-indent form-group-related" aria-hidden="false"
@@ -236,7 +268,7 @@ open
 {% endmacro %}
 
 
-{% macro frequency(frequencyList,id,question,answers,optionAnswer) %}
+{% macro frequency(frequencyList,id,question,answers,optionAnswer,dayshelptext,freqHelpText) %}
 {% for frequency in frequencyList %}
 {% set seq2 = [
   {"id":"freq1", "label":frequency.allTime, "value":frequency.allTime },
@@ -249,7 +281,7 @@ open
     "textboxAnswer" : answers.ownWords
   }
 ] %}
-{{ checkbox(id,"radio",question,'',seq2,answers,optionAnswer) }}
+{{ checkbox(id,"radio",question,'',seq2,answers,optionAnswer,"",dayshelptext,freqHelpText) }}
 {% endfor %}
 {% endmacro %}
 
@@ -352,19 +384,19 @@ open
 
         {% endif %}
       </ul>
-      <a href="/pip17/{{pageKey}}?edit=true">{{question.changeLinkTxt}}</a>
+      <a href="/pip21/{{pageKey}}?edit=true">{{question.changeLinkTxt}}</a>
     </div>
   </div>
 {% endfor %}
 {% endmacro %}
 
-<!-- enter/change answers for non-linear in pip17 -->
-{% macro EnterChangeAnswers(question,pageKey) %}
+<!-- enter/change answers for non-linear in pip21 -->
+{% macro EnterChangeAnswers(question,pageKey,page) %}
 <div id="{{pageKey}}" class"column-third">
   {% if question %}
-    <a href="{{pageKey}}" class="change-this">change your answers</a>
+    <a href="{{pageKey}}" class="change-this">{{ page.changeAnswer}}</a>
   {% else %}
-    <a href="{{pageKey}}" class="answer-this">enter your answers</a>
+    <a href="{{pageKey}}" class="answer-this">{{ page.enterAnswer  }}</a>
   {% endif %}
 </div>
 {% endmacro %}
@@ -372,7 +404,7 @@ open
 {% macro helpline(page) %}
 {% for helpline in page.helpline %}
 <div class="column-third">
-  <div id="ad-helpline" class="">
+  <div id="ad-helpline" class="border-top">
     <p>{{helpline.p1}}</p>
     <h3 class="heading-medium tel">{{helpline.p2}}</h3>
     <p class="form-hint">{{helpline.p3}}</p>
@@ -381,7 +413,9 @@ open
     <p class="form-hint">{{helpline.p6}}</p>
     <p>{{helpline.p7}}</p>
     <p>{{helpline.p8}}</p>
+    <p>{{helpline.p9}}</p>
   </div>
+
 </div>
 {% endfor %}
 {% endmacro %}

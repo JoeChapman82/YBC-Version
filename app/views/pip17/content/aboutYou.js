@@ -3,10 +3,24 @@ var data = [ {
   "maxPages"           : "36",
   "title"              : "Title of page",
   "introText"          : "Introduction paragraph which should be over two or three lines maximum ideally. Maybe two or three sentences.",
-  "continue"           : "Save and go to next question",
-  "saveExit"           : "Save and return to menu",
+  "continue"           : "Save and continue",
+  "saveExit"           : "Save and come back later",
   "backText"           : "Back",
   "tickAll"            : "Tick all that apply",
+
+
+  "helpline"           : [
+    {
+    "p1"               : "If you need help call:",
+    "p2"               : "0113 2327118",
+    "p3"               : "Calls charged at local rate from landlines, calls from mobiles may cost more.",
+    "p4"               : "Or text:",
+    "p5"               : "07867 687 141",
+    "p6"               : "Texts are charged at your standard rate",
+    "p7"               : "Mon to Fri: 9am to 5pm",
+    "p8"               : "Closed public holidays."
+  },
+],
   "frequency"          : [
     {
       "allTime"        : "All the time",
@@ -19,7 +33,7 @@ var data = [ {
     {
       "page"             : "1",
       "heading"          : "Help with your application",
-      "introText"        : "Many people find it helps to have someone with them to complete their application. ",
+      "introText"        : "It can help to have someone with you when you fill in this application. ",
       "question"         : "Is someone helping you fill in this application?",
       "question2"        : "The name of the person helping you",
       "question3"        : "How you know them",
@@ -30,24 +44,24 @@ var data = [ {
   "aboutYou" : [
     {
       "page"             : "2",
-      "heading"          : "About you",
+      "heading"          : "Personal Details",
       "question"         : "First name",
       "question2"        : "Middle name(s)",
       "question3"        : "Last name",
-      "question4"        : "Your date of birth",
-      "question5"        : "National Insurance number",
+      "question4"        : "<strong>Date of birth</strong>",
+      "question5"        : "<strong>National Insurance number</strong>",
       "backLink"         : "/pip17/helper"
     },
   ],
   "contactDetails" : [
     {
       "page"             : "3",
-      "heading"          : "Your contact details",
+      "heading"          : "Contact details",
       "question"         : "Your address",
       "question2"        : "Postcode",
       "question3"        : "Postcode",
-      "question4"        : "Your phone number",
-      "question5"        : "Alternative phone number",
+      "question4"        : "<strong>Your phone number</strong>",
+      "question5"        : "<strong>Alternative phone number</strong>",
       "question6"        : "Email address",
       "backLink"         : "/pip17/aboutYou"
     },
@@ -58,15 +72,28 @@ var data = [ {
       "heading"          : "How you want to be contacted",
       "question"         : "Do you want to get text messages about the progress of your claim?",
       "question2"        : "Mobile number",
-      "question3"        : "You will get your decision letter in the post. Do you need this in a different format eg braille, large print or audio CD?",
+      "question3"        : "You will get your decision letter in the post. Do you need this in a different format eg braille, large print or CD?",
       "checkbox1"        : "Large print",
       "checkbox2"        : "Braille",
       "checkbox3"        : "Audio CD",
       "checkbox4"        : "Other",
       "textareaQ"        : "What format do you need?",
-      "textareaHintText" : "We can only provide this if it’s necessary because of your condition.",
+      "textareaHintText" : "This can only be provided if it's necessary because of your disability.",
       "backLink"         : "/pip17/contactDetails"
     },
+  ],
+  "bankDetails" : [
+    {
+      "page"             : "8",
+      "heading"          : "Bank account details",
+      "introText"        : "If your claim is successful, money will be paid into your bank account. If you give your details now this could stop delays in the future.",
+      "question"         : "How would you like to get paid?",
+      "question2"        : "Sort code",
+      "question3"        : "Account number",
+      "question4"        : "Building society roll or reference number",
+      "submit"           : "Save and continue",
+      "backLink"         : "/pip17/contactPref"
+    }
   ],
   "currentWhereabouts" : [
     {
@@ -74,9 +101,9 @@ var data = [ {
       "heading"          : "Where you are now",
       "question"         : "Are you currently staying in:",
       "question2"        : "When did you start staying there?",
-      "question3"        : "The address",
+      "question3"        : "<strong>The address</strong>",
       "question4"        : "Postcode",
-      "backLink"         : "/pip17/contactPref"
+      "backLink"         : "/pip17/nationality"
     }
   ],
   "nationality" : [
@@ -86,10 +113,10 @@ var data = [ {
       "question"         : "What is your nationality?",
       "question2"        : "Your nationality",
       "question3"        : "Do you currently live in England, Scotland or Wales?",
-      "question4"        : "Where you live",
-      "question5"        : "Have you been out of England, Scotland or Wales for more than a year in the last 3 years?",
-      "q5HintText"       : "This could be one trip or a number of trips adding up to a year.",
-      "backLink"         : "/pip17/currentWhereabouts"
+      "question4"        : "Country you live in",
+      "question5"        : "Have you been out of England, Scotland or Wales for more than 4 weeks at a time in the last 3 years?",
+      "q5HintText"       : "",
+      "backLink"         : "/pip17/bankDetails"
     },
   ],
   "paymentsFromAbroad" : [
@@ -97,15 +124,24 @@ var data = [ {
       "page"             : "7",
       "heading"          : "Payments from abroad",
       "introText"        : "This question is to check that we are the correct country to pay your benefit.",
-      "question"         : "Have you or any of your close family worked abroad or been paid benefits from outside the United Kingdom?",
+      "question"         : "Are you or any of your close family working abroad or being paid benefits or a pension from outside the United Kingdom?",
       "qHintText"        : "This means your partner or a parent that you're financially dependent on.",
       "countriesIntro"   : "These questions are about the following countries:",
       "countries"        : "Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Gibraltar, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden and Switzerland.",
-      "question2"        : "Are you or your close family claiming or being paid any benefits or pensions from any of these countries?",
-      "question3"        : "Are you or your close family working or paying National Insurance in any of these countries?",
-      "backLink"         : "/pip17/nationality"
+      "question2"        : "<strong>Are you or your close family claiming or being paid any benefits or pensions from any of these countries?</strong>",
+      "question3"        : "<strong>Are you or your close family working or paying National Insurance in any of these countries?</strong>",
+      "backLink"         : "/pip17/currentWhereabouts"
     },
   ],
+
+  "yourCondition" : [
+    {
+      "page"             : "26",
+      "heading"          : "Your Condition",
+      "backLink"         : "/pip17/declaration"
+    },
+  ],
+
   "conditionDetails" : [
     {
       "page"             : "8",
@@ -115,7 +151,7 @@ var data = [ {
       "conditionHd"      : "Name of condition",
       "startedHd"        : "When it started",
       "removeLink"       : "Remove this",
-      "backLink"         : "/pip17/summaryMain?show=yourCondition&next=conditionDetails&back=paymentsFromAbroad"
+      "backLink"         : "/pip17/healthcareprofessional"
     },
   ],
   "medications" : [
@@ -212,16 +248,17 @@ var data = [ {
     {
       "page"             : "15",
       "heading"          : "Professionals who know about your condition",
-      "introText"        : "We want to know who can tell us more about how your condition affects you.  You do not have to give this information but it could delay your decision if you do not. They could be your counsellor, key worker, doctor or anyone else who has information about the effects of your condition.",
-      "question"         : "Do you agree to us getting this information?",
+      "introText"        : "<p>We want to know who can tell us more about how your condition affects you.</p><p>They could be your counsellor, teacher, key worker, doctor or anyone else who has information about the effects of your condition.</p>",
+      "prequestion1"     : "They could be your counsellor, key worker, doctor or anyone else who has information about the effects of your condition.",
+      "question"         : "Do you agree that we can ask professionals to share information about your condition with us?",
       "rowHd"            : "Professional",
       "nameHd"           : "Their name",
       "professionHd"     : "Their profession",
       "addressHd"        : "Their address",
-      "phoneHd"          : "Their phone number",
-      "lastSeenHd"       : "When you last saw them",
+      "phoneHd"          : "Phone number",
+      "lastSeenHd"       : "When did you last see them?",
       "removeLink"       : "Remove this",
-      "backLink"         : "/pip17/monitoringCondition"
+      "backLink"         : "/pip17/yourCondition"
     },
   ],
   "submitEvidence" : [
@@ -706,8 +743,8 @@ var data = [ {
       "listHeading"      : "By sending this application you agree:",
       "list"             : ["the information in this application is complete and correct as far as you know","to promptly <a href='#' data-target='legalDetails' class='showLegal'>report any changes to your circumstances</a>"],
       "disclaimer"       : "You might have to go to court or pay a penalty if you deliberately give false or incomplete information, or do not report changes. Your Personal Independence Payment may also be stopped or reduced.",
-      "submit"           : "I agree - send my application",
-      "backLink"         : "/pip17/additionalInfo"
+      "submit"           : "I agree - contine my application",
+      "backLink"         : "/pip17/paymentsFromAbroad"
     },
   ],
   "thankYou" : [

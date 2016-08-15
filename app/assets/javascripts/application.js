@@ -127,6 +127,7 @@ $(document).ready(function() {
     Prototype pip 14
     ********************************/
     $(".add-another").click(function() {
+
         var dataTarget = $(this).attr('data-target');
         $("li." + dataTarget + ".js-hidden").first().removeClass('js-hidden');
 

@@ -24,6 +24,8 @@ module.exports = function (app) {
 
   });
 
+
+
   /*******************
   summaryMain
   *******************/
@@ -114,7 +116,28 @@ module.exports = function (app) {
     if (req.body.saveAndMenu) {
       res.redirect('/pip17/checkYourAnswers#contactPref');
     } else {
-      res.redirect('/pip17/currentWhereabouts');
+      res.redirect('/pip17/bankDetails');
+    }
+  });
+
+  /*******************
+  bankDetails
+  *******************/
+  app.get('/pip17/bankDetails', function (req, res) {
+      res.render('pip17/bankDetails', {
+        answers : req.session['pip17-bankDetails'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/pip17/bankDetails', function (req, res) {
+    req.session['pip17-bankDetails'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/pip17/checkYourAnswers#aboutYou');
+    } else {
+      res.redirect('/pip17/nationality');
     }
   });
 
@@ -135,7 +158,7 @@ module.exports = function (app) {
     if (req.body.saveAndMenu) {
       res.redirect('/pip17/checkYourAnswers#currentWhereabouts');
     } else {
-      res.redirect('/pip17/nationality');
+      res.redirect('/pip17/paymentsFromAbroad');
     }
   });
 
@@ -156,7 +179,7 @@ module.exports = function (app) {
     if (req.body.saveAndMenu) {
       res.redirect('/pip17/checkYourAnswers#nationality');
     } else {
-      res.redirect('/pip17/paymentsFromAbroad');
+      res.redirect('/pip17/currentWhereabouts');
     }
   });
 
@@ -177,7 +200,28 @@ module.exports = function (app) {
     if (req.body.saveAndMenu) {
       res.redirect('/pip17/checkYourAnswers#paymentsFromAbroad');
     } else {
-      res.redirect('/pip17/checkYourAnswers#paymentsFromAbroad');
+      res.redirect('/pip17/declaration');
+    }
+  });
+
+  /*******************
+  yourCondition
+  *******************/
+  app.get('/pip17/yourCondition', function (req, res) {
+      res.render('pip17/yourCondition', {
+        answers : req.session['pip17-yourCondition'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/pip17/yourCondition', function (req, res) {
+    req.session['pip17-yourCondition'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/pip17/healthcareprofessional');
+    } else {
+      res.redirect('/pip17/healthcareprofessional');
     }
   });
 
@@ -380,7 +424,7 @@ module.exports = function (app) {
     if (req.body.saveAndMenu) {
       res.redirect('/pip17/checkYourAnswers#healthcareprofessional');
     } else {
-      res.redirect('/pip17/submitEvidence');
+      res.redirect('/pip17/conditionDetails');
     }
   });
 
@@ -840,7 +884,7 @@ module.exports = function (app) {
 
   app.post('/pip17/declaration', function (req, res) {
     req.session['pip17-declaration'] = req.body;
-    res.redirect('/pip17/thankYou');
+    res.redirect('/pip17/yourCondition');
   });
 
   /*******************

@@ -32,7 +32,7 @@
 						{{ elements.genericInput('when',question.question2, answers.when) }}
 
 						<fieldset class="form-group">
-							<legend class="form-label">{{ question.question3 }}</legend>
+							<legend class="form-label">{{ question.question3 |  safe}}</legend>
 							{{ elements.textInput('address1',answers.address1) }}
 							{{ elements.textInput('address2',answers.address2) }}
 							{{ elements.textInput('address3',answers.address3) }}
@@ -45,6 +45,7 @@
 
         </form>
 			</div>
+			{{ elements.helpline(page) }}
 	</div>
 
 </main>
