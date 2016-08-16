@@ -13,7 +13,7 @@ var data = [ {
     {
     "p1"               : "If you need help call:",
     "p2"               : "0113 2327118",
-    "p3"               : "Calls charged at local rate from landlines, calls from mobiles may cost more.",
+    "p3"               : "Calls charged at standard rate from landlines, calls from mobiles may cost more.",
     "p4"               : "Or text:",
     "p5"               : "07867 687 141",
     "p6"               : "Texts are charged at your standard rate",
@@ -150,7 +150,7 @@ var data = [ {
       "rowHd"            : "Condition",
       "conditionHd"      : "Name of condition",
       "startedHd"        : "When it started",
-      "removeLink"       : "Remove this",
+      "removeLink"       : "",
       "backLink"         : "/pip17/healthcareprofessional"
     },
   ],
@@ -162,9 +162,9 @@ var data = [ {
       "rowHd"            : "Medication",
       "medicationHd"     : "Name of medication",
       "dosageHd"         : "Dosage",
-      "dosageHintText"   : "For example, 40mg",
+      "dosageHintText"   : "",
       "oftenHd"          : "How often you take it",
-      "oftenHintText"    : "For example, 2 tablets, twice a day",
+      "oftenHintText"    : "",
       "removeLink"       : "Remove this",
       "backLink"         : "/pip17/conditionDetails"
     },
@@ -179,9 +179,9 @@ var data = [ {
       "howoften2"        : "More than half the time",
       "howoften3"        : "Less than half the time",
       "howoften4"        : "Explain how often in your own words",
-      "ownWords"         : "Include how many days out of a week or month you’re affected",
+      "ownWords"         : "",
       "question3"        : "How do you manage your medication?",
-      "question4"        : "In your own words, describe how you manage your medication on a typical day.",
+      "question4"        : "In your own words, describe how your condition affects you managing your medication on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["you could end up at risk","what you’re able to do depends on the type of day you’re having"],
       "backLink"         : "/pip17/medications"
@@ -196,7 +196,7 @@ var data = [ {
       "rowHd"            : "Treatment or therapy",
       "treatmentHd"      : "Name of treatment or therapy",
       "oftenHd"          : "When or how often",
-      "removeLink"       : "Remove this",
+      "removeLink"       : "",
       "question2"        : "Do you have treatment or therapy at your home?",
       "backLink"         : "/pip17/manageMedications"
     },
@@ -208,8 +208,8 @@ var data = [ {
       "question"         : "Does someone need to help you manage your treatment or therapy at home?",
       "qHintText"        : "This includes if you need them to supervise you or remind you.",
       "question2"        : "How many hours a week they help you",
-      "question3"        : "Why does someone need to help you manage your treatment or therapy at home?",
-      "question4"        : "How does someone help you manage your treatment or therapy at home?",
+      "question3"        : "<strong>Why does someone need to help you manage your treatment or therapy at home?</strong>",
+      "question4"        : "<strong>How does someone help you manage your treatment or therapy at home?</strong>",
       "backLink"         : "/pip17/treatments"
     },
   ],
@@ -218,7 +218,7 @@ var data = [ {
       "page"             : "12",
       "heading"          : "Side effects",
       "question"         : "Do you get side effects from any medication, treatment or therapy?",
-      "question2"        : "Describe the side effects you get and how often you get them.",
+      "question2"        : "<strong>Describe the side effects you get and how often you get them.</strong>",
       "backLink"         : "/pip17/treatments"
     },
   ],
@@ -237,11 +237,22 @@ var data = [ {
     {
       "page"             : "14",
       "heading"          : "Monitoring your condition",
-      "question"         : "Does someone need to monitor your condition most days because, if they do not, you could be at risk, or a danger to yourself or others?",
+      "question"         : "Do you have a condition that, if not monitored, means you could be at risk or a danger to yourself or others?",
       "question2"        : "How many hours does someone need to help monitor your condition?",
       "question3"        : "In your own words, decribe why someone needs to monitor your condition on a typical day.",
       "question4"        : "How do they monitor your condition?",
-      "backLink"         : "/pip17/treatments"
+      "backLink"         : "/pip17/sideEffects"
+    },
+  ],
+  "helpMonitoring" : [
+    {
+      "page"             : "",
+      "heading"          : "Help monitoring your condition",
+      "question"         : "Do you need someone else to help monitor your condition most days?",
+      "question2"        : "How many hours does someone need to help monitor your condition?",
+      "question3"        : "<strong>Why does someone need to monitor your condition?</strong>",
+      "question4"        : "<strong>How do they monitor your condition?</strong>",
+      "backLink"         : "/pip17/monitoringCondition"
     },
   ],
   "healthcareprofessional" : [
@@ -257,21 +268,55 @@ var data = [ {
       "addressHd"        : "Their address",
       "phoneHd"          : "Phone number",
       "lastSeenHd"       : "When did you last see them?",
-      "removeLink"       : "Remove this",
+      "removeLink"       : "",
       "backLink"         : "/pip17/yourCondition"
     },
   ],
   "submitEvidence" : [
     {
       "page"             : "16",
-      "heading"          : "Information you can send",
-      "introText"        : "<p>It can help your application if you send information that gives more detail about the effects of your condition.</p><p>Only send what you have to hand - nothing you have to pay to get hold of.</p><p>You need to send this within the next 2 weeks or a decision could be made without it. We cannot return any paperwork, so send photocopies if you can.</p>",
+      "heading"          : "Medical information",
+      "introText"        : "<p>It can help your application if you send information that gives more detail about the effects of your condition.</p><p>Only send what you have to hand - nothing you have to pay to get hold of.</p><p>You need to send this within the next 2 weeks or a decision could be made without it. We cannot return any paperwork, so send photocopies if you can. The address will also be at the end of the application.</p>",
       "question"         : "You will send your:",
       "q2HintText"       : "Tick all that apply",
       "question3"        : "How will you send the information?",
-      "backLink"         : "/pip17/healthcareprofessional"
+      "backLink"         : "/pip17/helpMonitoring"
     },
   ],
+
+  "youAndYourHome" : [
+    {
+      "page"             : "26",
+      "heading"          : "Your and Your Home",
+      "backLink"         : "/pip17/submitEvidence"
+    },
+  ],
+
+  "caringForYourself" : [
+    {
+      "page"             : "26",
+      "heading"          : "Caring for yourself",
+      "backLink"         : "/pip17/speech"
+    },
+  ],
+
+  "leavingYourHome" : [
+    {
+      "page"             : "26",
+      "heading"          : "Leaving your home",
+      "backLink"         : "/pip17/eatingAndDrinking"
+    },
+  ],
+
+  "makingSenseOfThings" : [
+    {
+      "page"             : "26",
+      "heading"          : "Making sense of things",
+      "backLink"         : "/pip17/mixing"
+    },
+  ],
+
+
   "specialAids" : [
     {
       "page"              : "17",
@@ -286,16 +331,16 @@ var data = [ {
       "kitchenTextareaQ"  : "List the aids or adaptations you have to use in your kitchen or dining area.",
       "loungeLabel"       : "Lounge or sitting room",
       "loungeTextareaQ"   : "List the aids or adaptations you have to use in your lounge or sitting room.",
-      "bedroomLabel"      : "Bedroom",
+      "bedroomLabel"      : "Your bedroom",
       "bedroomTextareaQ"  : "List the aids or adaptations you have to use in your bedroom.",
       "bathroomLabel"     : "Bathroom or toilet",
       "bathroomTextareaQ" : "List the aids or adaptations you have to use in your bathroom or toilet.",
-      "outsideLabel"      : "Outside your home",
+      "outsideLabel"      : "Outside",
       "outsideTextareaQ"  : "List the aids or adaptations you have to use when you're outside.",
       "doesntLabel"       : "You do <span class='bold-small'>not</span> rely on aids or adaptations",
-      "question2"         : "List anything else you have to use all or most of the time.",
-      "q2HintText"        : "This might include things like a wheelchair, hearing aid or prosthetic limb.",
-      "backLink"          : "/pip17/submitEvidence"
+      "question2"         : "<strong>List any other aids or adaptations you have to use all or most of the time.</strong>",
+      "q2HintText"        : "This might include things like a hearing aid, wheelchair or prosthetic limb.",
+      "backLink"          : "/pip17/youAndYourHome"
     },
   ],
   "sight" : [
@@ -304,9 +349,9 @@ var data = [ {
       "heading"          : "Your sight",
       "question"         : "Does your condition affect your sight?",
       "qHintText"        : "If your sight is fine when you wear glasses, choose 'no'.",
-      "question2"        : "How often is your sight affected?",
+      "question2"        : "<strong>How often are you affected?</strong>",
       "qHintText2"       : "Include how many days out of each week or month you're affected.",
-      "question3"        : "Explain how your sight is affected.",
+      "question3"        : "<strong>How does your condition affect your sight</strong>",
       "helpTextHd"       : "Explain if your level of sight changes depending on:",
       "helpText"         : ["how light it is","where you are"],
       "question4"        : "Are you registered:",
@@ -314,7 +359,7 @@ var data = [ {
       "partiallyLabel"   : "partially sighted",
       "neitherLabel"     : "neither",
       "allTime"          : "Is your sight affected all the time?",
-      "backLink"         : "/pip17/specialAids"
+      "backLink"         : "/pip17/gettingUp"
     },
   ],
   "speech" : [
@@ -322,8 +367,8 @@ var data = [ {
       "page"             : "19",
       "heading"          : "Your speech",
       "question"         : "Does your condition affect your speech?",
-      "question2"        : "Does your condition affect your speech all the time?",
-      "question3"        : "How often is your speech affected?",
+      "question2"        : "<strong>How often are you affected?</strong>",
+      "question3"        : "<strong>Explain how your condition affect your speech.</strong>",
       "qHintText3"       : "Include how many days out of each week or month you're affected.",
       "question4"        : "Explain how your condition affects your speech.",
       "helpTextHd"       : "Include if your speech changes depending on:",
@@ -343,7 +388,7 @@ var data = [ {
       "somethingLabel"   : "You rely on something else",
       "somethingTxtQ"    : "Explain what your rely on",
       "someoneLabel"     : "You rely on someone to help you communicate",
-      "someoneTxtQ"      : "Explain how they help you",
+      "someoneTxtQ"      : "How they help you",
       "cantHearLabel"    : "You cannot hear at all",
       "cantHearTxtQ"     : "Explain how you communicate",
       "manageLabel"      : "You manage in a different way",
@@ -366,24 +411,24 @@ var data = [ {
       "movingRoomsLabel" : "moving between rooms",
       "stairsLabel"      : "using the stairs",
       "otherWayLabel"    : "in another way",
-      "doesntLabel"      : "Your condition does <span class='bold-small'>not</span> affect you moving around your home",
+      "doesntLabel"      : "Your condition does not affect you moving around your home",
       "question2"        : "How often does your condition affect you moving around your home?",
       "question3"        : "How do you get up and move around your home?",
       "encourageLabel"   : "Someone has to encourage you to get out of bed",
       "helpLabel"        : "Someone has to help you move",
       "relyLabel"        : "You rely on aids or something else to help",
       "manageLabel"      : "You manage without help, but with difficulty",
-      "question4"        : "In your own words, describe how you get up and move around on a typical day..",
+      "question4"        : "In your own words, describe how you get up and move around on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["it takes a long time","what you’re able to do depends on the type of day you’re having","you risk having an accident or hurting yourself","moving around has an effect on your condition"],
-      "backLink"         : "/pip17/summaryMain?show=yourHome&next=gettingUp&back=hearing"
+      "backLink"         : "/pip17/specialAids"
     },
   ],
   "toilet" : [
     {
       "page"             : "22",
       "heading"          : "Using the toilet",
-      "introText"        : "This question is about using the toilet, not getting to the toilet. If you have difficulty climbing stairs to get to the toilet, or undressing to use it, you’ll have chance to explain this in other questions.",
+      "introText"        : "",
       "question"         : "Does your condition affect you:",
       "onOffLabel"       : "getting on or off the toilet",
       "cleaningLabel"    : "cleaning yourself",
@@ -556,8 +601,8 @@ var data = [ {
   "gettingOut" : [
     {
       "page"             : "27",
-      "heading"          : "Getting out and about",
-      "question"         : "Which of the following affects you getting out and about?",
+      "heading"          : "Getting out and walking about",
+      "question"         : "Does your condition affect you getting out and walking about?",
       "motivatedLabel"   : "You have to use a wheelchair",
       "distanceLabel"    : "You have 2 prosthetic legs",
       "carLabel"         : "You rely on aids to walk",
@@ -596,7 +641,7 @@ var data = [ {
       "distressLabel"    : "mixing with people without feeling anxious or distressed",
       "otherWayLabel"    : "in another way",
       "doesntLabel"      : "Your condition does <span class='bold-small'>not</span> affect you mixing with people",
-      "question2"        : "How often does your condition affect you mixing with people?",
+      "question2"        : "Does your condition affect you mixing or communicating with people?",
       "frequency"          : [
         {
           "allTime"        : "Every time you have to mix with people",
@@ -621,14 +666,15 @@ var data = [ {
       "page"             : "29",
       "heading"          : "Planning a local journey",
       "introText"        : "This question is about how you would plan to get to somewhere local that you’ve never been before - it’s not about getting there. If you would not plan a journey yourself, explain whether you could if you had to.",
-      "question2"        : "How would you plan a local journey to somewhere you’ve never been before?",
+      "question2"        : "How would you plan a local journey to somewhere you have never been before?",
       "relyLabel"        : "Someone else would have to plan the journey",
       "helpLabel"        : "Someone would have to help you understand maps or bus timetables",
       "ownLabel"         : "You would manage without help, but with difficulty",
       "otherWayLabel"    : "In another way",
       "noLabel"          : "Your condition would <span class='bold-small'>not</span> affect you planning a local journey",
-      "question3"        : "In your own words, describe how you would plan a local journey if you had to.",
+      "question3"        : "In your own words describe how your condition affects you planning a local journey.",
       "q3HintText"       : "Include if it would take you a long time to plan a local journey.",
+      "helpText"         : ["if it would take a long time to plan a journey"],
       "backLink"         : "/pip17/summaryMain?show=understanding&next=localJourney&back=mixing"
     },
   ],
@@ -687,7 +733,7 @@ var data = [ {
       "question"         : "Does your condition affect your understanding of:",
       "wordsLabel"       : "words or simple sentences",
       "sentencesLabel"   : "long or complicated sentences",
-      "symbolsLabel"     : "symbols, such as pound signs or exclamation marks",
+      "symbolsLabel"     : "symbols such as pound signs (£) or exclamation marks (!)",
       "datesLabel"       : "dates",
       "signsLabel"       : "signs, such as safety signs",
       "elseLabel"        : "something else",
@@ -709,7 +755,7 @@ var data = [ {
       "heading"          : "Dealing with money",
       "introText"        : "If you do not deal with money or bills, explain whether you could if you had to.",
       "question"         : "Does your condition affect you:",
-      "motivatedLabel"   : "being motivated to pay bills",
+      "motivatedLabel"   : "you need to be encouraged to pay bills",
       "billsLabel"       : "understanding bills",
       "spendLabel"       : "budgeting",
       "costLabel"        : "understanding how much things cost",
@@ -732,7 +778,7 @@ var data = [ {
     {
       "page"             : "35",
       "heading"          : "Additional information",
-      "introText"        : "Include anything else that explains how your condition or disability affects you.",
+      "introText"        : "<strong>Include anything else that explains how your condition or disability affects you.</strong>",
       "backLink"         : "/pip17/checkYourAnswers"
     },
   ],

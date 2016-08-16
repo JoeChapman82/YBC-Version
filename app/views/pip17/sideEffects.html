@@ -25,13 +25,14 @@
 					{{ elements.radioSelect('anySideEffects',question.question,"",answers.anySideEffects,seq,"inline") }}
 
           <div class="form-group panel-indent {% if answers.anySideEffects != 'Yes' %}js-hidden{% endif %}" id="sideEffectsDetails">
-            {{ elements.textarea("sideEffects",question.question2,answers.sideEffects) }}
+            {{ elements.textarea("sideEffects",question.question2  |  safe,answers.sideEffects) }}
           </div>
 
 					{{ elements.submit(page,question) }}
 
         </form>
 			</div>
+			{{ elements.helpline(page) }}
 	</div>
 
 </main>

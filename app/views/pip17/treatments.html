@@ -35,7 +35,7 @@
 										{{ elements.genericInputList("often" + i,question.oftenHd, answers["often" + i] ,"often-1") }}
 								</li>
 							{% endfor %}
-							<li><a href="add-another" class="add-another secondary-button" data-target="condition-row">Add another</a></li>
+							<li><a href="add-another" class="add-another" data-target="condition-row">Add another treatment or therapy</a></li>
 						</ul>
 
 						{% set seq2  = [
@@ -50,6 +50,7 @@
 
         </form>
 			</div>
+			{{ elements.helpline(page) }}
 	</div>
 
 </main>

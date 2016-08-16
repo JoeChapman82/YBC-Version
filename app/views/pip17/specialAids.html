@@ -71,12 +71,13 @@
 						] %}
 						{{ elements.checkbox('optionsName',"checkbox",question.question,question.qHintText,seq,answers,answers.optionsName) }}
 
-						{{ elements.textarea("anythingElse",question.question2,answers.anythingElse,question.q2HintText) }}
+						{{ elements.textarea("anythingElse",question.question2  |  safe,answers.anythingElse,question.q2HintText) }}
 
 					{{ elements.submit(page,question) }}
 
         </form>
 			</div>
+				{{ elements.helpline(page) }}
 	</div>
 
 </main>

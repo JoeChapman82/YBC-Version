@@ -29,13 +29,6 @@
 
 							{"id":"hearing2", "label":question.2hearingAidLabel, "value":question.2hearingAidLabel},
 							{"id":"hearing3", "label":question.implantLabel, "value":question.implantLabel},
-							{"id":"hearing4", "label":question.somethingLabel, "value":question.somethingLabel,
-								"target"         : "hearingSomething",
-								"textarea"       : true,
-								"textareaId"     : "textreadId1",
-								"textareaLabel"  : question.somethingTxtQ,
-								"textareaAnswer" : answers.textreadId1
-							},
 							{"id":"hearing5", "label":question.someoneLabel, "value":question.someoneLabel,
 								"target"         : "hearingSomeone",
 								"textarea"       : true,
@@ -50,12 +43,12 @@
 								"textareaLabel"  : question.cantHearTxtQ,
 								"textareaAnswer" : answers.textreadId3
 							},
-							{"id":"hearing7", "label":question.manageLabel, "value":question.manageLabel,
-								"target"         : "hearingManage",
+							{"id":"hearing4", "label":question.somethingLabel, "value":question.somethingLabel,
+								"target"         : "hearingSomething",
 								"textarea"       : true,
-								"textareaId"     : "textreadId4",
-								"textareaLabel"  : question.manageTxtQ,
-								"textareaAnswer" : answers.textreadId4
+								"textareaId"     : "textreadId1",
+								"textareaLabel"  : question.somethingTxtQ,
+								"textareaAnswer" : answers.textreadId1
 							}
 						] %}
 						{{ elements.checkbox('optionsName',"checkbox",question.question2,question.qHintText,seq,answers,answers.optionsName) }}
@@ -68,6 +61,7 @@
 
         </form>
 			</div>
+			{{ elements.helpline(page) }}
 	</div>
 
 </main>

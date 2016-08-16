@@ -2,9 +2,9 @@ var data = [ {
   "checkYourAnswers" : [
     {
       "page"               : "34",
-      "heading"            : "Your application",
+      "heading"            : "Menu",
       "changeLinkTxt"      : "Answer this question",
-      "introText"          : "You can answer the questions in any order, but you must answer every question. You can save any answers you enter and return to your application any time before [date].",
+      "introText"          : "You can use this menu to view any page of release 2.1<br>Click the menu button on any page to return to this menu",
       "warningMsg"        : "You will not be able to change your answers after you send your application.",
       "backLink"           : "/pip17/money",
 
