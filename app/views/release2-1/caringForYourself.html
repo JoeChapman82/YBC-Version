@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-1/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.caringForYourself %}
+<main id="content" role="main">
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-1/caringForYourself{% if edit %}?edit=true{% endif %}" method="post" class="form form-group-frequency">
+					{{ elements.header(page,question) }}
+
+					<p>You&#39;ll be asked if your condition affects you:</p>
+						<ul class="list-bullet">
+							<li>using the toilet</li>
+							<li>washing yourself</li>
+							<li>getting dressed</li>
+							<li>preparing and cooking food</li>
+							<li>eating and drinking</li>
+						</ul>
+						<br>
+						<p>Include as much information as you can in your answers, such as:</p>
+						<ul class="list-bullet">
+							<li>if you can do all of the activity, or if you can do some parts but not others</li>
+							<li>if you can do it as often as you need to, or if it varies depending on what kind of day you&#39;re having</li>
+							<li>how long it takes you</li>
+							<li>if you risk hurting yourself or having an accident when you&#39;re doing it</li>
+							<li>how you feel during and after you&#39;ve done it</li>
+						</ul>
+						<p class="panel-indent">You'll have a chance to review what you&#39;ve written at the end of the application.</p>
+
+
+					{{ elements.submit(page,question) }}
+
+        </form>
+			</div>
+			{{ elements.helpline(page) }}
+	</div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

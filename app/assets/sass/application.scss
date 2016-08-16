@@ -428,11 +428,11 @@ Pip-16
   padding:10px 15px 8px 15px;
 }
 
-.pip-16 .checkYourAnswersCont ul li {
+.pip-16 .yscMenuCont ul li {
   padding:10px 0 8px;
 }
 
-.pip-16 .checkYourAnswersCont ul li:nth-child(even) {
+.pip-16 .yscMenuCont ul li:nth-child(even) {
   background:$highlight-colour;
 }
 
@@ -442,7 +442,7 @@ Pip-16
 }
 
 .pip-16 .change-this {
-  background: url(../images/cya-tick.png) no-repeat 3px 3px;
+  background: url(../images/empty-tick.png) no-repeat 3px 3px;
   padding-left: 30px;
 }
 
@@ -510,36 +510,36 @@ PIP18
 }
 
 //check your answers
-.pip18 .checkYourAnswersCont h2 {
+.pip18 .yscMenuCont h2 {
   margin: 0;
   float: left;
   width: 30%;
 }
 
-.pip18 .checkYourAnswersCont ul {
+.pip18 .yscMenuCont ul {
   float: left;
   width:65%;
   margin-top: 3px;
 }
 
-.pip18 .checkYourAnswersCont ul li {
+.pip18 .yscMenuCont ul li {
   margin-bottom: 15px;
 }
 
-.pip18 .checkYourAnswersCont ul li:last-child {
+.pip18 .yscMenuCont ul li:last-child {
   margin:0;
 }
 
-.pip18 .checkYourAnswersCont > div {
+.pip18 .yscMenuCont > div {
   border-top: 2px solid $border-colour;
   padding:15px 0;
 }
 
-.checkYourAnswersCont > div:first-child {
+.yscMenuCont > div:first-child {
   border-top :4px solid $border-colour;
 }
 
-.checkYourAnswersCont > div:last-child {
+.yscMenuCont > div:last-child {
   border:0;
 }
 

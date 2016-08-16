@@ -1,12 +1,12 @@
 module.exports = function (app) {
 
-  var styleguide        = require('./views/pip17/content/styleguide'),
-      aboutYou          = require('./views/pip17/content/aboutYou'),
-      checkYourAnswers  = require('./views/pip17/content/checkYourAnswers');
+  var styleguide        = require('./views/release2-1/content/styleguide'),
+      aboutYou          = require('./views/release2-1/content/aboutYou'),
+      yscMenu  = require('./views/release2-1/content/yscMenu');
 
-  app.get('/pip17/styleguide', function (req, res) {
-    res.render('pip17/styleguide', {
-      answers : req.session['pip17-helper'],
+  app.get('/release2-1/styleguide', function (req, res) {
+    res.render('release2-1/styleguide', {
+      answers : req.session['release2-1-helper'],
       data    : styleguide.getTableData()
     });
   });
@@ -14,13 +14,13 @@ module.exports = function (app) {
   /*******************
   reset answers
   *******************/
-  app.get('/pip17/reset', function (req, res) {
-      res.render('pip17/reset');
+  app.get('/release2-1/reset', function (req, res) {
+      res.render('release2-1/reset');
   });
 
-  app.post('/pip17/reset', function (req, res) {
+  app.post('/release2-1/reset', function (req, res) {
     req.session.destroy();
-    res.redirect('/pip17/apply');
+    res.redirect('/release2-1/apply');
 
   });
 
@@ -29,8 +29,8 @@ module.exports = function (app) {
   /*******************
   summaryMain
   *******************/
-  app.get('/pip17/summaryMain', function (req, res) {
-      res.render('pip17/summaryMain', {
+  app.get('/release2-1/summaryMain', function (req, res) {
+      res.render('release2-1/summaryMain', {
         'show'  : req.param('show'),
         'next'  : req.param('next'),
         'back'  : req.param('back')
@@ -40,9 +40,9 @@ module.exports = function (app) {
   /*******************
   emailLogin
   *******************/
-  app.get('/pip17/emailLogin', function (req, res) {
-      res.render('pip17/emailLogin', {
-        answers : req.session['pip17-emailLogin'],
+  app.get('/release2-1/emailLogin', function (req, res) {
+      res.render('release2-1/emailLogin', {
+        answers : req.session['release2-1-emailLogin'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
@@ -51,9 +51,9 @@ module.exports = function (app) {
   /*******************
   checkYourEmail
   *******************/
-  app.get('/pip17/checkYourEmail', function (req, res) {
-      res.render('pip17/checkYourEmail', {
-        answers : req.session['pip17-checkYourEmail'],
+  app.get('/release2-1/checkYourEmail', function (req, res) {
+      res.render('release2-1/checkYourEmail', {
+        answers : req.session['release2-1-checkYourEmail'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
@@ -62,9 +62,9 @@ module.exports = function (app) {
   /*******************
   resumeApplication
   *******************/
-  app.get('/pip17/resumeApplication', function (req, res) {
-      res.render('pip17/resumeApplication', {
-        answers : req.session['pip17-resumeApplication'],
+  app.get('/release2-1/resumeApplication', function (req, res) {
+      res.render('release2-1/resumeApplication', {
+        answers : req.session['release2-1-resumeApplication'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
@@ -74,284 +74,284 @@ module.exports = function (app) {
   /*******************
   Helper
   *******************/
-  app.get('/pip17/helper', function (req, res) {
-      res.render('pip17/helper', {
-        answers : req.session['pip17-helper'],
+  app.get('/release2-1/helper', function (req, res) {
+      res.render('release2-1/helper', {
+        answers : req.session['release2-1-helper'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/helper', function (req, res) {
-    req.session['pip17-helper'] = req.body;
+  app.post('/release2-1/helper', function (req, res) {
+    req.session['release2-1-helper'] = req.body;
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#helper');
+      res.redirect('/release2-1/yscMenu#helper');
     } else {
-      res.redirect('/pip17/aboutYou');
+      res.redirect('/release2-1/aboutYou');
     }
   });
 
   /*******************
   aboutYou
   *******************/
-  app.get('/pip17/aboutYou', function (req, res) {
-      res.render('pip17/aboutYou', {
-        answers : req.session['pip17-aboutYou'],
+  app.get('/release2-1/aboutYou', function (req, res) {
+      res.render('release2-1/aboutYou', {
+        answers : req.session['release2-1-aboutYou'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/aboutYou', function (req, res) {
-    req.session['pip17-aboutYou'] = req.body;
+  app.post('/release2-1/aboutYou', function (req, res) {
+    req.session['release2-1-aboutYou'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#aboutYou');
+      res.redirect('/release2-1/yscMenu#aboutYou');
     } else {
-      res.redirect('/pip17/contactDetails');
+      res.redirect('/release2-1/contactDetails');
     }
   });
 
   /*******************
   contactDetails
   *******************/
-  app.get('/pip17/contactDetails', function (req, res) {
-      res.render('pip17/contactDetails', {
-        answers : req.session['pip17-contactDetails'],
+  app.get('/release2-1/contactDetails', function (req, res) {
+      res.render('release2-1/contactDetails', {
+        answers : req.session['release2-1-contactDetails'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/contactDetails', function (req, res) {
-    req.session['pip17-contactDetails'] = req.body;
+  app.post('/release2-1/contactDetails', function (req, res) {
+    req.session['release2-1-contactDetails'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#contactDetails');
+      res.redirect('/release2-1/yscMenu#contactDetails');
     } else {
-      res.redirect('/pip17/contactPref');
+      res.redirect('/release2-1/contactPref');
     }
   });
 
   /*******************
   contactPref
   *******************/
-  app.get('/pip17/contactPref', function (req, res) {
-      res.render('pip17/contactPref', {
-        answers : req.session['pip17-contactPref'],
+  app.get('/release2-1/contactPref', function (req, res) {
+      res.render('release2-1/contactPref', {
+        answers : req.session['release2-1-contactPref'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/contactPref', function (req, res) {
-    req.session['pip17-contactPref'] = req.body;
+  app.post('/release2-1/contactPref', function (req, res) {
+    req.session['release2-1-contactPref'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#contactPref');
+      res.redirect('/release2-1/yscMenu#contactPref');
     } else {
-      res.redirect('/pip17/bankDetails');
+      res.redirect('/release2-1/bankDetails');
     }
   });
 
   /*******************
   bankDetails
   *******************/
-  app.get('/pip17/bankDetails', function (req, res) {
-      res.render('pip17/bankDetails', {
-        answers : req.session['pip17-bankDetails'],
+  app.get('/release2-1/bankDetails', function (req, res) {
+      res.render('release2-1/bankDetails', {
+        answers : req.session['release2-1-bankDetails'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/bankDetails', function (req, res) {
-    req.session['pip17-bankDetails'] = req.body;
+  app.post('/release2-1/bankDetails', function (req, res) {
+    req.session['release2-1-bankDetails'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#aboutYou');
+      res.redirect('/release2-1/yscMenu#aboutYou');
     } else {
-      res.redirect('/pip17/nationality');
+      res.redirect('/release2-1/nationality');
     }
   });
 
   /*******************
   currentWhereabouts
   *******************/
-  app.get('/pip17/currentWhereabouts', function (req, res) {
-      res.render('pip17/currentWhereabouts', {
-        answers : req.session['pip17-currentWhereabouts'],
+  app.get('/release2-1/currentWhereabouts', function (req, res) {
+      res.render('release2-1/currentWhereabouts', {
+        answers : req.session['release2-1-currentWhereabouts'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/currentWhereabouts', function (req, res) {
-    req.session['pip17-currentWhereabouts'] = req.body;
+  app.post('/release2-1/currentWhereabouts', function (req, res) {
+    req.session['release2-1-currentWhereabouts'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#currentWhereabouts');
+      res.redirect('/release2-1/yscMenu#currentWhereabouts');
     } else {
-      res.redirect('/pip17/paymentsFromAbroad');
+      res.redirect('/release2-1/paymentsFromAbroad');
     }
   });
 
   /*******************
   nationality
   *******************/
-  app.get('/pip17/nationality', function (req, res) {
-    res.render('pip17/nationality', {
-      answers : req.session['pip17-nationality'],
+  app.get('/release2-1/nationality', function (req, res) {
+    res.render('release2-1/nationality', {
+      answers : req.session['release2-1-nationality'],
       'edit'  : req.body.saveAndMenu,
       data    : aboutYou.getTableData()
     });
   });
 
-  app.post('/pip17/nationality', function (req, res) {
-    req.session['pip17-nationality'] = req.body;
+  app.post('/release2-1/nationality', function (req, res) {
+    req.session['release2-1-nationality'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#nationality');
+      res.redirect('/release2-1/yscMenu#nationality');
     } else {
-      res.redirect('/pip17/currentWhereabouts');
+      res.redirect('/release2-1/currentWhereabouts');
     }
   });
 
   /*******************
   paymentsFromAbroad
   *******************/
-  app.get('/pip17/paymentsFromAbroad', function (req, res) {
-      res.render('pip17/paymentsFromAbroad', {
-        answers : req.session['pip17-paymentsFromAbroad'],
+  app.get('/release2-1/paymentsFromAbroad', function (req, res) {
+      res.render('release2-1/paymentsFromAbroad', {
+        answers : req.session['release2-1-paymentsFromAbroad'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/paymentsFromAbroad', function (req, res) {
-    req.session['pip17-paymentsFromAbroad'] = req.body;
+  app.post('/release2-1/paymentsFromAbroad', function (req, res) {
+    req.session['release2-1-paymentsFromAbroad'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#paymentsFromAbroad');
+      res.redirect('/release2-1/yscMenu#paymentsFromAbroad');
     } else {
-      res.redirect('/pip17/declaration');
+      res.redirect('/release2-1/declaration');
     }
   });
 
   /*******************
   yourCondition
   *******************/
-  app.get('/pip17/yourCondition', function (req, res) {
-      res.render('pip17/yourCondition', {
-        answers : req.session['pip17-yourCondition'],
+  app.get('/release2-1/yourCondition', function (req, res) {
+      res.render('release2-1/yourCondition', {
+        answers : req.session['release2-1-yourCondition'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/yourCondition', function (req, res) {
-    req.session['pip17-yourCondition'] = req.body;
+  app.post('/release2-1/yourCondition', function (req, res) {
+    req.session['release2-1-yourCondition'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/healthcareprofessional');
+      res.redirect('/release2-1/healthcareprofessional');
     } else {
-      res.redirect('/pip17/healthcareprofessional');
+      res.redirect('/release2-1/healthcareprofessional');
     }
   });
 
   /*******************
   conditionDetails
   *******************/
-  app.get('/pip17/conditionDetails', function (req, res) {
-      res.render('pip17/conditionDetails', {
-        answers : req.session['pip17-conditionDetails'],
+  app.get('/release2-1/conditionDetails', function (req, res) {
+      res.render('release2-1/conditionDetails', {
+        answers : req.session['release2-1-conditionDetails'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/conditionDetails', function (req, res) {
-    req.session['pip17-conditionDetails'] = req.body;
+  app.post('/release2-1/conditionDetails', function (req, res) {
+    req.session['release2-1-conditionDetails'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#conditionDetails');
+      res.redirect('/release2-1/yscMenu#conditionDetails');
     } else {
-      res.redirect('/pip17/medications');
+      res.redirect('/release2-1/medications');
     }
   });
 
   /*******************
   medications
   *******************/
-  app.get('/pip17/medications', function (req, res) {
-      res.render('pip17/medications', {
-        answers : req.session['pip17-medications'],
+  app.get('/release2-1/medications', function (req, res) {
+      res.render('release2-1/medications', {
+        answers : req.session['release2-1-medications'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/medications', function (req, res) {
-    req.session['pip17-medications'] = req.body;
+  app.post('/release2-1/medications', function (req, res) {
+    req.session['release2-1-medications'] = req.body;
 
     if(req.body.takingMedication === 'Yes') {
        if (req.body.saveAndMenu) {
-         res.redirect('/pip17/manageMedications?edit=true');
+         res.redirect('/release2-1/manageMedications?edit=true');
        } else {
-         res.redirect('/pip17/manageMedications');
+         res.redirect('/release2-1/manageMedications');
        }
      } else if (req.body.saveAndMenu) {
-       res.redirect('/pip17/checkYourAnswers#medications');
+       res.redirect('/release2-1/yscMenu#medications');
      } else {
-       res.redirect('/pip17/treatments');
+       res.redirect('/release2-1/treatments');
      }
   });
 
   /*******************
   manageMedications
   *******************/
-  app.get('/pip17/manageMedications', function (req, res) {
-      res.render('pip17/manageMedications', {
-        answers : req.session['pip17-manageMedications'],
+  app.get('/release2-1/manageMedications', function (req, res) {
+      res.render('release2-1/manageMedications', {
+        answers : req.session['release2-1-manageMedications'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/manageMedications', function (req, res) {
-    req.session['pip17-manageMedications'] = req.body;
+  app.post('/release2-1/manageMedications', function (req, res) {
+    req.session['release2-1-manageMedications'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#manageMedications');
+      res.redirect('/release2-1/yscMenu#manageMedications');
     } else {
-      res.redirect('/pip17/treatments');
+      res.redirect('/release2-1/treatments');
     }
   });
 
   /*******************
   treatments
   *******************/
-  app.get('/pip17/treatments', function (req, res) {
-      res.render('pip17/treatments', {
-        answers : req.session['pip17-treatments'],
+  app.get('/release2-1/treatments', function (req, res) {
+      res.render('release2-1/treatments', {
+        answers : req.session['release2-1-treatments'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/treatments', function (req, res) {
-    req.session['pip17-treatments'] = req.body;
+  app.post('/release2-1/treatments', function (req, res) {
+    req.session['release2-1-treatments'] = req.body;
 
     if(req.body.atHome === 'Yes') {
        if (req.body.saveAndMenu) {
-         res.redirect('/pip17/manageTreatments?edit=true');
+         res.redirect('/release2-1/manageTreatments?edit=true');
        } else {
-         res.redirect('/pip17/manageTreatments');
+         res.redirect('/release2-1/manageTreatments');
        }
      } else if (req.body.saveAndMenu) {
-       res.redirect('/pip17/checkYourAnswers#treatments');
+       res.redirect('/release2-1/yscMenu#treatments');
      } else {
-       res.redirect('/pip17/sideEffects');
+       res.redirect('/release2-1/sideEffects');
      }
 
   });
@@ -359,21 +359,21 @@ module.exports = function (app) {
   /*******************
   manageTreatments
   *******************/
-  app.get('/pip17/manageTreatments', function (req, res) {
-      res.render('pip17/manageTreatments', {
-        answers : req.session['pip17-manageTreatments'],
+  app.get('/release2-1/manageTreatments', function (req, res) {
+      res.render('release2-1/manageTreatments', {
+        answers : req.session['release2-1-manageTreatments'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/manageTreatments', function (req, res) {
-    req.session['pip17-manageTreatments'] = req.body;
+  app.post('/release2-1/manageTreatments', function (req, res) {
+    req.session['release2-1-manageTreatments'] = req.body;
 
   if (req.body.saveAndMenu) {
-       res.redirect('/pip17/checkYourAnswers#manageTreatments');
+       res.redirect('/release2-1/yscMenu#manageTreatments');
      } else {
-       res.redirect('/pip17/sideEffects');
+       res.redirect('/release2-1/sideEffects');
      }
 
   });
@@ -381,84 +381,84 @@ module.exports = function (app) {
   /*******************
   sideEffects
   *******************/
-  app.get('/pip17/sideEffects', function (req, res) {
-      res.render('pip17/sideEffects', {
-        answers : req.session['pip17-sideEffects'],
+  app.get('/release2-1/sideEffects', function (req, res) {
+      res.render('release2-1/sideEffects', {
+        answers : req.session['release2-1-sideEffects'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/sideEffects', function (req, res) {
-    req.session['pip17-sideEffects'] = req.body;
+  app.post('/release2-1/sideEffects', function (req, res) {
+    req.session['release2-1-sideEffects'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#sideEffects');
+      res.redirect('/release2-1/yscMenu#sideEffects');
     } else {
-      res.redirect('/pip17/monitoringCondition');
+      res.redirect('/release2-1/monitoringCondition');
     }
   });
 
   /*******************
   conditionAffects
   *******************/
-  app.get('/pip17/conditionAffects', function (req, res) {
-      res.render('pip17/conditionAffects', {
-        answers : req.session['pip17-conditionAffects'],
+  app.get('/release2-1/conditionAffects', function (req, res) {
+      res.render('release2-1/conditionAffects', {
+        answers : req.session['release2-1-conditionAffects'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/conditionAffects', function (req, res) {
-    req.session['pip17-conditionAffects'] = req.body;
+  app.post('/release2-1/conditionAffects', function (req, res) {
+    req.session['release2-1-conditionAffects'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#conditionAffects');
+      res.redirect('/release2-1/yscMenu#conditionAffects');
     } else {
-      res.redirect('/pip17/monitoringCondition');
+      res.redirect('/release2-1/monitoringCondition');
     }
   });
 
   /*******************
   monitoringCondition
   *******************/
-  app.get('/pip17/monitoringCondition', function (req, res) {
-      res.render('pip17/monitoringCondition', {
-        answers : req.session['pip17-monitoringCondition'],
+  app.get('/release2-1/monitoringCondition', function (req, res) {
+      res.render('release2-1/monitoringCondition', {
+        answers : req.session['release2-1-monitoringCondition'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/monitoringCondition', function (req, res) {
-    req.session['pip17-monitoringCondition'] = req.body;
+  app.post('/release2-1/monitoringCondition', function (req, res) {
+    req.session['release2-1-monitoringCondition'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#monitoringCondition');
+      res.redirect('/release2-1/yscMenu#monitoringCondition');
     } else {
-      res.redirect('/pip17/helpMonitoring');
+      res.redirect('/release2-1/helpMonitoring');
     }
   });
 
   /*******************
   helpMonitoring
   *******************/
-  app.get('/pip17/helpMonitoring', function (req, res) {
-      res.render('pip17/helpMonitoring', {
-        answers : req.session['pip17-helpMonitoring'],
+  app.get('/release2-1/helpMonitoring', function (req, res) {
+      res.render('release2-1/helpMonitoring', {
+        answers : req.session['release2-1-helpMonitoring'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/helpMonitoring', function (req, res) {
-    req.session['pip17-helpMonitoring'] = req.body;
+  app.post('/release2-1/helpMonitoring', function (req, res) {
+    req.session['release2-1-helpMonitoring'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#monitoringCondition');
+      res.redirect('/release2-1/yscMenu#monitoringCondition');
     } else {
-      res.redirect('/pip17/submitEvidence');
+      res.redirect('/release2-1/submitEvidence');
     }
   });
 
@@ -466,126 +466,126 @@ module.exports = function (app) {
     /*******************
     submitEvidence
     *******************/
-    app.get('/pip17/submitEvidence', function (req, res) {
-        res.render('pip17/submitEvidence', {
-          answers : req.session['pip17-submitEvidence'],
+    app.get('/release2-1/submitEvidence', function (req, res) {
+        res.render('release2-1/submitEvidence', {
+          answers : req.session['release2-1-submitEvidence'],
           'edit'  : req.body.saveAndMenu,
           data    : aboutYou.getTableData()
         });
     });
 
-    app.post('/pip17/submitEvidence', function (req, res) {
-      req.session['pip17-submitEvidence'] = req.body;
+    app.post('/release2-1/submitEvidence', function (req, res) {
+      req.session['release2-1-submitEvidence'] = req.body;
 
       if (req.body.saveAndMenu) {
-        res.redirect('/pip17/checkYourAnswers#submitEvidence');
+        res.redirect('/release2-1/yscMenu#submitEvidence');
       } else {
-        res.redirect('/pip17/youAndYourHome');
+        res.redirect('/release2-1/youAndYourHome');
       }
     });
 
     /*******************
     youAndYourHome
     *******************/
-    app.get('/pip17/youAndYourHome', function (req, res) {
-        res.render('pip17/youAndYourHome', {
-          answers : req.session['pip17-youAndYourHome'],
+    app.get('/release2-1/youAndYourHome', function (req, res) {
+        res.render('release2-1/youAndYourHome', {
+          answers : req.session['release2-1-youAndYourHome'],
           'edit'  : req.body.saveAndMenu,
           data    : aboutYou.getTableData()
         });
     });
 
-    app.post('/pip17/youAndYourHome', function (req, res) {
-      req.session['pip17-youAndYourHome'] = req.body;
+    app.post('/release2-1/youAndYourHome', function (req, res) {
+      req.session['release2-1-youAndYourHome'] = req.body;
 
       if (req.body.saveAndMenu) {
-        res.redirect('/pip17/checkYourAnswers#submitEvidence');
+        res.redirect('/release2-1/yscMenu#submitEvidence');
       } else {
-        res.redirect('/pip17/specialAids');
+        res.redirect('/release2-1/specialAids');
       }
     });
 
     /*******************
     caringForYourself
     *******************/
-    app.get('/pip17/caringForYourself', function (req, res) {
-        res.render('pip17/caringForYourself', {
-          answers : req.session['pip17-caringForYourself'],
+    app.get('/release2-1/caringForYourself', function (req, res) {
+        res.render('release2-1/caringForYourself', {
+          answers : req.session['release2-1-caringForYourself'],
           'edit'  : req.body.saveAndMenu,
           data    : aboutYou.getTableData()
         });
     });
 
-    app.post('/pip17/caringForYourself', function (req, res) {
-      req.session['pip17-caringForYourself'] = req.body;
+    app.post('/release2-1/caringForYourself', function (req, res) {
+      req.session['release2-1-caringForYourself'] = req.body;
 
       if (req.body.saveAndMenu) {
-        res.redirect('/pip17/checkYourAnswers#speech');
+        res.redirect('/release2-1/yscMenu#speech');
       } else {
-        res.redirect('/pip17/toilet');
+        res.redirect('/release2-1/toilet');
       }
     });
 
     /*******************
     leavingYourHome
     *******************/
-    app.get('/pip17/leavingYourHome', function (req, res) {
-        res.render('pip17/leavingYourHome', {
-          answers : req.session['pip17-leavingYourHome'],
+    app.get('/release2-1/leavingYourHome', function (req, res) {
+        res.render('release2-1/leavingYourHome', {
+          answers : req.session['release2-1-leavingYourHome'],
           'edit'  : req.body.saveAndMenu,
           data    : aboutYou.getTableData()
         });
     });
 
-    app.post('/pip17/leavingYourHome', function (req, res) {
-      req.session['pip17-leavingYourHome'] = req.body;
+    app.post('/release2-1/leavingYourHome', function (req, res) {
+      req.session['release2-1-leavingYourHome'] = req.body;
 
       if (req.body.saveAndMenu) {
-        res.redirect('/pip17/checkYourAnswers#eatingAndDrinking');
+        res.redirect('/release2-1/yscMenu#eatingAndDrinking');
       } else {
-        res.redirect('/pip17/gettingOut');
+        res.redirect('/release2-1/gettingOut');
       }
     });
 
     /*******************
     makingSenseOfThings
     *******************/
-    app.get('/pip17/makingSenseOfThings', function (req, res) {
-        res.render('pip17/makingSenseOfThings', {
-          answers : req.session['pip17-makingSenseOfThings'],
+    app.get('/release2-1/makingSenseOfThings', function (req, res) {
+        res.render('release2-1/makingSenseOfThings', {
+          answers : req.session['release2-1-makingSenseOfThings'],
           'edit'  : req.body.saveAndMenu,
           data    : aboutYou.getTableData()
         });
     });
 
-    app.post('/pip17/makingSenseOfThings', function (req, res) {
-      req.session['pip17-makingSenseOfThings'] = req.body;
+    app.post('/release2-1/makingSenseOfThings', function (req, res) {
+      req.session['release2-1-makingSenseOfThings'] = req.body;
 
       if (req.body.saveAndMenu) {
-        res.redirect('/pip17/checkYourAnswers#mixing');
+        res.redirect('/release2-1/yscMenu#mixing');
       } else {
-        res.redirect('/pip17/localJourney');
+        res.redirect('/release2-1/localJourney');
       }
     });
 
   /*******************
   healthcareprofessional
   *******************/
-  app.get('/pip17/healthcareprofessional', function (req, res) {
-      res.render('pip17/healthcareprofessional', {
-        answers : req.session['pip17-healthcareprofessional'],
+  app.get('/release2-1/healthcareprofessional', function (req, res) {
+      res.render('release2-1/healthcareprofessional', {
+        answers : req.session['release2-1-healthcareprofessional'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/healthcareprofessional', function (req, res) {
-    req.session['pip17-healthcareprofessional'] = req.body;
+  app.post('/release2-1/healthcareprofessional', function (req, res) {
+    req.session['release2-1-healthcareprofessional'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#healthcareprofessional');
+      res.redirect('/release2-1/yscMenu#healthcareprofessional');
     } else {
-      res.redirect('/pip17/conditionDetails');
+      res.redirect('/release2-1/conditionDetails');
     }
   });
 
@@ -593,231 +593,231 @@ module.exports = function (app) {
   /*******************
   specialAids
   *******************/
-  app.get('/pip17/specialAids', function (req, res) {
-      res.render('pip17/specialAids', {
-        answers : req.session['pip17-specialAids'],
+  app.get('/release2-1/specialAids', function (req, res) {
+      res.render('release2-1/specialAids', {
+        answers : req.session['release2-1-specialAids'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/specialAids', function (req, res) {
-    req.session['pip17-specialAids'] = req.body;
+  app.post('/release2-1/specialAids', function (req, res) {
+    req.session['release2-1-specialAids'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#specialAids');
+      res.redirect('/release2-1/yscMenu#specialAids');
     } else {
-      res.redirect('/pip17/gettingUp');
+      res.redirect('/release2-1/gettingUp');
     }
   });
 
   /*******************
   sight
   *******************/
-  app.get('/pip17/sight', function (req, res) {
-      res.render('pip17/sight', {
-        answers : req.session['pip17-sight'],
+  app.get('/release2-1/sight', function (req, res) {
+      res.render('release2-1/sight', {
+        answers : req.session['release2-1-sight'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/sight', function (req, res) {
-    req.session['pip17-sight'] = req.body;
+  app.post('/release2-1/sight', function (req, res) {
+    req.session['release2-1-sight'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#sight');
+      res.redirect('/release2-1/yscMenu#sight');
     } else {
-      res.redirect('/pip17/hearing');
+      res.redirect('/release2-1/hearing');
     }
   });
 
   /*******************
   speech
   *******************/
-  app.get('/pip17/speech', function (req, res) {
-      res.render('pip17/speech', {
-        answers : req.session['pip17-speech'],
+  app.get('/release2-1/speech', function (req, res) {
+      res.render('release2-1/speech', {
+        answers : req.session['release2-1-speech'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/speech', function (req, res) {
-    req.session['pip17-speech'] = req.body;
+  app.post('/release2-1/speech', function (req, res) {
+    req.session['release2-1-speech'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#speech');
+      res.redirect('/release2-1/yscMenu#speech');
     } else {
-      res.redirect('/pip17/caringForYourself');
+      res.redirect('/release2-1/caringForYourself');
     }
   });
 
   /*******************
   hearing
   *******************/
-  app.get('/pip17/hearing', function (req, res) {
-      res.render('pip17/hearing', {
-        answers : req.session['pip17-hearing'],
+  app.get('/release2-1/hearing', function (req, res) {
+      res.render('release2-1/hearing', {
+        answers : req.session['release2-1-hearing'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/hearing', function (req, res) {
-    req.session['pip17-hearing'] = req.body;
+  app.post('/release2-1/hearing', function (req, res) {
+    req.session['release2-1-hearing'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/speech');
+      res.redirect('/release2-1/speech');
     } else {
-      res.redirect('/pip17/speech');
+      res.redirect('/release2-1/speech');
     }
   });
 
   /*******************
   gettingUp
   *******************/
-  app.get('/pip17/gettingUp', function (req, res) {
-      res.render('pip17/gettingUp', {
-        answers : req.session['pip17-gettingUp'],
+  app.get('/release2-1/gettingUp', function (req, res) {
+      res.render('release2-1/gettingUp', {
+        answers : req.session['release2-1-gettingUp'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/gettingUp', function (req, res) {
-    req.session['pip17-gettingUp'] = req.body;
+  app.post('/release2-1/gettingUp', function (req, res) {
+    req.session['release2-1-gettingUp'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#gettingUp');
+      res.redirect('/release2-1/yscMenu#gettingUp');
     } else {
-      res.redirect('/pip17/sight');
+      res.redirect('/release2-1/sight');
     }
   });
 
   /*******************
   toilet
   *******************/
-  app.get('/pip17/toilet', function (req, res) {
-      res.render('pip17/toilet', {
-        answers : req.session['pip17-toilet'],
+  app.get('/release2-1/toilet', function (req, res) {
+      res.render('release2-1/toilet', {
+        answers : req.session['release2-1-toilet'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/toilet', function (req, res) {
-    req.session['pip17-toilet'] = req.body;
+  app.post('/release2-1/toilet', function (req, res) {
+    req.session['release2-1-toilet'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#toilet');
+      res.redirect('/release2-1/yscMenu#toilet');
     } else {
-      res.redirect('/pip17/washing');
+      res.redirect('/release2-1/washing');
     }
   });
 
   /*******************
   washing
   *******************/
-  app.get('/pip17/washing', function (req, res) {
-      res.render('pip17/washing', {
-        answers : req.session['pip17-washing'],
+  app.get('/release2-1/washing', function (req, res) {
+      res.render('release2-1/washing', {
+        answers : req.session['release2-1-washing'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/washing', function (req, res) {
-    req.session['pip17-washing'] = req.body;
+  app.post('/release2-1/washing', function (req, res) {
+    req.session['release2-1-washing'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#washing');
+      res.redirect('/release2-1/yscMenu#washing');
     } else {
-      res.redirect('/pip17/gettingDressed');
+      res.redirect('/release2-1/gettingDressed');
     }
   });
 
   /*******************
   gettingDressed
   *******************/
-  app.get('/pip17/gettingDressed', function (req, res) {
-      res.render('pip17/gettingDressed', {
-        answers : req.session['pip17-gettingDressed'],
+  app.get('/release2-1/gettingDressed', function (req, res) {
+      res.render('release2-1/gettingDressed', {
+        answers : req.session['release2-1-gettingDressed'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/gettingDressed', function (req, res) {
-    req.session['pip17-gettingDressed'] = req.body;
+  app.post('/release2-1/gettingDressed', function (req, res) {
+    req.session['release2-1-gettingDressed'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#gettingDressed');
+      res.redirect('/release2-1/yscMenu#gettingDressed');
     } else {
-      res.redirect('/pip17/hotMeal');
+      res.redirect('/release2-1/hotMeal');
     }
   });
 
   /*******************
   hotMeal
   *******************/
-  app.get('/pip17/hotMeal', function (req, res) {
-      res.render('pip17/hotMeal', {
-        answers : req.session['pip17-hotMeal'],
+  app.get('/release2-1/hotMeal', function (req, res) {
+      res.render('release2-1/hotMeal', {
+        answers : req.session['release2-1-hotMeal'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/hotMeal', function (req, res) {
-    req.session['pip17-hotMeal'] = req.body;
+  app.post('/release2-1/hotMeal', function (req, res) {
+    req.session['release2-1-hotMeal'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#hotMeal');
+      res.redirect('/release2-1/yscMenu#hotMeal');
     } else {
-      res.redirect('/pip17/eatingAndDrinking');
+      res.redirect('/release2-1/eatingAndDrinking');
     }
   });
 
   /*******************
   eatingAndDrinking
   *******************/
-  app.get('/pip17/eatingAndDrinking', function (req, res) {
-      res.render('pip17/eatingAndDrinking', {
-        answers : req.session['pip17-eatingAndDrinking'],
+  app.get('/release2-1/eatingAndDrinking', function (req, res) {
+      res.render('release2-1/eatingAndDrinking', {
+        answers : req.session['release2-1-eatingAndDrinking'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/eatingAndDrinking', function (req, res) {
-    req.session['pip17-eatingAndDrinking'] = req.body;
+  app.post('/release2-1/eatingAndDrinking', function (req, res) {
+    req.session['release2-1-eatingAndDrinking'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/leavingYourHome');
+      res.redirect('/release2-1/leavingYourHome');
     } else {
-      res.redirect('/pip17/leavingYourHome');
+      res.redirect('/release2-1/leavingYourHome');
     }
   });
 
   /*******************
   gettingOut
   *******************/
-  app.get('/pip17/gettingOut', function (req, res) {
-      res.render('pip17/gettingOut', {
-        answers : req.session['pip17-gettingOut'],
+  app.get('/release2-1/gettingOut', function (req, res) {
+      res.render('release2-1/gettingOut', {
+        answers : req.session['release2-1-gettingOut'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/gettingOut', function (req, res) {
-    req.session['pip17-gettingOut'] = req.body;
+  app.post('/release2-1/gettingOut', function (req, res) {
+    req.session['release2-1-gettingOut'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#gettingOut');
+      res.redirect('/release2-1/yscMenu#gettingOut');
     } else {
-      res.redirect('/pip17/mixing');
+      res.redirect('/release2-1/mixing');
     }
   });
 
@@ -825,215 +825,215 @@ module.exports = function (app) {
   /*******************
   mixing
   *******************/
-  app.get('/pip17/mixing', function (req, res) {
-      res.render('pip17/mixing', {
-        answers : req.session['pip17-mixing'],
+  app.get('/release2-1/mixing', function (req, res) {
+      res.render('release2-1/mixing', {
+        answers : req.session['release2-1-mixing'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/mixing', function (req, res) {
-    req.session['pip17-mixing'] = req.body;
+  app.post('/release2-1/mixing', function (req, res) {
+    req.session['release2-1-mixing'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/makingSenseOfThings');
+      res.redirect('/release2-1/makingSenseOfThings');
     } else {
-      res.redirect('/pip17/makingSenseOfThings');
+      res.redirect('/release2-1/makingSenseOfThings');
     }
   });
 
   /*******************
   localJourney
   *******************/
-  app.get('/pip17/localJourney', function (req, res) {
-      res.render('pip17/localJourney', {
-        answers : req.session['pip17-localJourney'],
+  app.get('/release2-1/localJourney', function (req, res) {
+      res.render('release2-1/localJourney', {
+        answers : req.session['release2-1-localJourney'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/localJourney', function (req, res) {
-    req.session['pip17-localJourney'] = req.body;
+  app.post('/release2-1/localJourney', function (req, res) {
+    req.session['release2-1-localJourney'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#localJourney');
+      res.redirect('/release2-1/yscMenu#localJourney');
     } else {
-      res.redirect('/pip17/somewhereNeverBeenBefore');
+      res.redirect('/release2-1/somewhereNeverBeenBefore');
     }
   });
 
   /*******************
   somewhereNeverBeenBefore
   *******************/
-  app.get('/pip17/somewhereNeverBeenBefore', function (req, res) {
-      res.render('pip17/somewhereNeverBeenBefore', {
-        answers : req.session['pip17-somewhereNeverBeenBefore'],
+  app.get('/release2-1/somewhereNeverBeenBefore', function (req, res) {
+      res.render('release2-1/somewhereNeverBeenBefore', {
+        answers : req.session['release2-1-somewhereNeverBeenBefore'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/somewhereNeverBeenBefore', function (req, res) {
-    req.session['pip17-somewhereNeverBeenBefore'] = req.body;
+  app.post('/release2-1/somewhereNeverBeenBefore', function (req, res) {
+    req.session['release2-1-somewhereNeverBeenBefore'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#somewhereNeverBeenBefore');
+      res.redirect('/release2-1/yscMenu#somewhereNeverBeenBefore');
     } else {
-      res.redirect('/pip17/understanding');
+      res.redirect('/release2-1/understanding');
     }
   });
 
   /*******************
   somewhereYouKnow
   *******************/
-  app.get('/pip17/somewhereYouKnow', function (req, res) {
-      res.render('pip17/somewhereYouKnow', {
-        answers : req.session['pip17-somewhereYouKnow'],
+  app.get('/release2-1/somewhereYouKnow', function (req, res) {
+      res.render('release2-1/somewhereYouKnow', {
+        answers : req.session['release2-1-somewhereYouKnow'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/somewhereYouKnow', function (req, res) {
-    req.session['pip17-somewhereYouKnow'] = req.body;
+  app.post('/release2-1/somewhereYouKnow', function (req, res) {
+    req.session['release2-1-somewhereYouKnow'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#somewhereYouKnow');
+      res.redirect('/release2-1/yscMenu#somewhereYouKnow');
     } else {
-      res.redirect('/pip17/understanding');
+      res.redirect('/release2-1/understanding');
     }
   });
 
   /*******************
   understanding
   *******************/
-  app.get('/pip17/understanding', function (req, res) {
-      res.render('pip17/understanding', {
-        answers : req.session['pip17-understanding'],
+  app.get('/release2-1/understanding', function (req, res) {
+      res.render('release2-1/understanding', {
+        answers : req.session['release2-1-understanding'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/understanding', function (req, res) {
-    req.session['pip17-understanding'] = req.body;
+  app.post('/release2-1/understanding', function (req, res) {
+    req.session['release2-1-understanding'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/checkYourAnswers#understanding');
+      res.redirect('/release2-1/yscMenu#understanding');
     } else {
-      res.redirect('/pip17/money');
+      res.redirect('/release2-1/money');
     }
   });
 
   /*******************
   money
   *******************/
-  app.get('/pip17/money', function (req, res) {
-      res.render('pip17/money', {
-        answers : req.session['pip17-money'],
+  app.get('/release2-1/money', function (req, res) {
+      res.render('release2-1/money', {
+        answers : req.session['release2-1-money'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/money', function (req, res) {
-    req.session['pip17-money'] = req.body;
+  app.post('/release2-1/money', function (req, res) {
+    req.session['release2-1-money'] = req.body;
 
     if (req.body.saveAndMenu) {
-      res.redirect('/pip17/additionalInfo');
+      res.redirect('/release2-1/additionalInfo');
     } else {
-      res.redirect('/pip17/additionalInfo');
+      res.redirect('/release2-1/additionalInfo');
     }
   });
 
   /*******************
-  checkYourAnswers
+  yscMenu
   *******************/
-  app.get('/pip17/checkYourAnswers', function (req, res) {
-      res.render('pip17/checkYourAnswers', {
+  app.get('/release2-1/yscMenu', function (req, res) {
+      res.render('release2-1/yscMenu', {
         data                     : aboutYou.getTableData(),
-        dataCheckChange          : checkYourAnswers.getTableData(),
-        helper                   : req.session['pip17-helper'],
-        aboutYou                 : req.session['pip17-aboutYou'],
-        contactDetails           : req.session['pip17-contactDetails'],
-        contactPref              : req.session['pip17-contactPref'],
-        currentWhereabouts       : req.session['pip17-currentWhereabouts'],
-        nationality              : req.session['pip17-nationality'],
-        paymentsFromAbroad       : req.session['pip17-paymentsFromAbroad'],
-        conditionDetails         : req.session['pip17-conditionDetails'],
-        medications              : req.session['pip17-medications'],
-        manageMedications        : req.session['pip17-manageMedications'],
-        treatments               : req.session['pip17-treatments'],
-        sideEffects              : req.session['pip17-sideEffects'],
-        conditionAffects         : req.session['pip17-conditionAffects'],
-        monitoringCondition      : req.session['pip17-monitoringCondition'],
-        healthcareprofessional   : req.session['pip17-healthcareprofessional'],
-        submitEvidence           : req.session['pip17-submitEvidence'],
-        specialAids              : req.session['pip17-specialAids'],
-        sight                    : req.session['pip17-sight'],
-        speech                   : req.session['pip17-speech'],
-        hearing                  : req.session['pip17-hearing'],
-        gettingUp                : req.session['pip17-gettingUp'],
-        toilet                   : req.session['pip17-toilet'],
-        washing                  : req.session['pip17-washing'],
-        gettingDressed           : req.session['pip17-gettingDressed'],
-        hotMeal                  : req.session['pip17-hotMeal'],
-        eatingAndDrinking        : req.session['pip17-eatingAndDrinking'],
-        gettingOut               : req.session['pip17-gettingOut'],
-        mixing                   : req.session['pip17-mixing'],
-        localJourney             : req.session['pip17-localJourney'],
-        somewhereNeverBeenBefore : req.session['pip17-somewhereNeverBeenBefore'],
-        somewhereYouKnow         : req.session['pip17-somewhereYouKnow'],
-        understanding            : req.session['pip17-understanding'],
-        money                    : req.session['pip17-money']
+        dataCheckChange          : yscMenu.getTableData(),
+        helper                   : req.session['release2-1-helper'],
+        aboutYou                 : req.session['release2-1-aboutYou'],
+        contactDetails           : req.session['release2-1-contactDetails'],
+        contactPref              : req.session['release2-1-contactPref'],
+        currentWhereabouts       : req.session['release2-1-currentWhereabouts'],
+        nationality              : req.session['release2-1-nationality'],
+        paymentsFromAbroad       : req.session['release2-1-paymentsFromAbroad'],
+        conditionDetails         : req.session['release2-1-conditionDetails'],
+        medications              : req.session['release2-1-medications'],
+        manageMedications        : req.session['release2-1-manageMedications'],
+        treatments               : req.session['release2-1-treatments'],
+        sideEffects              : req.session['release2-1-sideEffects'],
+        conditionAffects         : req.session['release2-1-conditionAffects'],
+        monitoringCondition      : req.session['release2-1-monitoringCondition'],
+        healthcareprofessional   : req.session['release2-1-healthcareprofessional'],
+        submitEvidence           : req.session['release2-1-submitEvidence'],
+        specialAids              : req.session['release2-1-specialAids'],
+        sight                    : req.session['release2-1-sight'],
+        speech                   : req.session['release2-1-speech'],
+        hearing                  : req.session['release2-1-hearing'],
+        gettingUp                : req.session['release2-1-gettingUp'],
+        toilet                   : req.session['release2-1-toilet'],
+        washing                  : req.session['release2-1-washing'],
+        gettingDressed           : req.session['release2-1-gettingDressed'],
+        hotMeal                  : req.session['release2-1-hotMeal'],
+        eatingAndDrinking        : req.session['release2-1-eatingAndDrinking'],
+        gettingOut               : req.session['release2-1-gettingOut'],
+        mixing                   : req.session['release2-1-mixing'],
+        localJourney             : req.session['release2-1-localJourney'],
+        somewhereNeverBeenBefore : req.session['release2-1-somewhereNeverBeenBefore'],
+        somewhereYouKnow         : req.session['release2-1-somewhereYouKnow'],
+        understanding            : req.session['release2-1-understanding'],
+        money                    : req.session['release2-1-money']
       });
   });
 
-  app.post('/pip17/checkYourAnswers', function (req, res) {
-    req.session['pip17-checkYourAnswers'] = req.body;
-    res.redirect('/pip17/additionalInfo');
+  app.post('/release2-1/yscMenu', function (req, res) {
+    req.session['release2-1-yscMenu'] = req.body;
+    res.redirect('/release2-1/additionalInfo');
   });
 
   /*******************
   additionalInfo
   *******************/
-  app.get('/pip17/additionalInfo', function (req, res) {
-      res.render('pip17/additionalInfo', {
-        answers : req.session['pip17-additionalInfo'],
+  app.get('/release2-1/additionalInfo', function (req, res) {
+      res.render('release2-1/additionalInfo', {
+        answers : req.session['release2-1-additionalInfo'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/additionalInfo', function (req, res) {
-    req.session['pip17-additionalInfo'] = req.body;
-    res.redirect('/pip17/checkYourAnswers');
+  app.post('/release2-1/additionalInfo', function (req, res) {
+    req.session['release2-1-additionalInfo'] = req.body;
+    res.redirect('/release2-1/yscMenu');
   });
 
   /*******************
   declaration
   *******************/
-  app.get('/pip17/declaration', function (req, res) {
-      res.render('pip17/declaration', {
-        answers : req.session['pip17-declaration'],
+  app.get('/release2-1/declaration', function (req, res) {
+      res.render('release2-1/declaration', {
+        answers : req.session['release2-1-declaration'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
   });
 
-  app.post('/pip17/declaration', function (req, res) {
-    req.session['pip17-declaration'] = req.body;
-    res.redirect('/pip17/yourCondition');
+  app.post('/release2-1/declaration', function (req, res) {
+    req.session['release2-1-declaration'] = req.body;
+    res.redirect('/release2-1/yourCondition');
   });
 
   /*******************
   thankYou
   *******************/
-  app.get('/pip17/thankYou', function (req, res) {
-      res.render('pip17/thankYou', {
-        answers : req.session['pip17-thankYou'],
+  app.get('/release2-1/thankYou', function (req, res) {
+      res.render('release2-1/thankYou', {
+        answers : req.session['release2-1-thankYou'],
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
