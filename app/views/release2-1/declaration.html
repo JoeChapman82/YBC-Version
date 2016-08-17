@@ -1,5 +1,6 @@
 {% extends "layout.html" %} {% block pageTitle %} GOV.UK prototyping kit {% endblock %} {% block content %} {% import "release2-1/macros/elements.html" as elements %} {% for page in data %} {% for question in page.declaration %}
 <main id="content" role="main" class="release2-1">
+	{{ elements.backButton(page,question) }}
 
 	<div class="grid-row">
 		<div class="column-two-thirds">

@@ -16,11 +16,9 @@
     <input type="submit" class="button"
     value="{% if questions.submit %} {{questions.submit}} {% else %} {{data.continue}} {% endif %}"
     name="saveAndcontinue">
+    <br>
     {% if showReturnToMenu != false %}
       <input type="submit" value="{{data.saveExit}}" name="saveAndMenu" class="exit-link">
-    {% endif %}
-    {% if backLink != false %}
-      <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
     {% endif %}
 </div>
 {% endmacro %}
@@ -28,10 +26,11 @@
 {% macro returnToMenu(data,questions,backlink) %}
 <div id="submit-group" class="form-group">
     <input type="submit" class="button" value="{{data.saveExit}}" name="saveAndMenu" class="exit-link">
-    {% if backLink != false %}
-      <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
-    {% endif %}
 </div>
+{% endmacro %}
+
+{% macro backButton(data,questions,backlink) %}
+      <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
 {% endmacro %}
 
 {% macro textInput (id,answer) %}
@@ -413,7 +412,7 @@ open
     <p class="form-hint">{{helpline.p6}}</p>
     <p>{{helpline.p7}}</p>
     <p>{{helpline.p8}}</p>
-    <p>{{helpline.p9}}</p>
+    <p>{{helpline.p9  |  safe}}</p>
   </div>
 
 </div>
