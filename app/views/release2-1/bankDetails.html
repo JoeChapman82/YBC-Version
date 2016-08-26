@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% import "release2-1/macros/elements.html" as elements %}
+{% import "release2-1/elements.html" as elements %}
 {% for page in data %}
 {% for question in page.bankDetails %}
 <main id="content" role="main" class="pip21">
@@ -100,7 +100,7 @@
       </form>
     </div>
 			{{ elements.helpline(page) }}
-{{ elements.validation(page,question) }}
+					{{ elements.validation(page,question) }}
 	</div>
 
 </main>

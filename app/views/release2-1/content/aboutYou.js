@@ -213,6 +213,7 @@ var data = [ {
       "question2"        : "How many hours a week they help you",
       "question3"        : "<strong>Why does someone need to help you manage your treatment or therapy at home?</strong>",
       "question4"        : "<strong>How does someone help you manage your treatment or therapy at home?</strong>",
+      "validateLink"     : "/release2-1/validationPage",
       "backLink"         : "/release2-1/treatments"
     },
   ],

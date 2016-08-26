@@ -418,3 +418,7 @@ open
 </div>
 {% endfor %}
 {% endmacro %}
+
+{% macro validation(data,questions,validateLink) %}
+      <center><a href="{{questions.validateLink}}">{{data.validateText}}</a></center>
+{% endmacro %}
