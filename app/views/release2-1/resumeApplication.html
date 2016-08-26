@@ -11,7 +11,6 @@
 {% for question in page.healthcareprofessional %}
 
 <main id="content" role="main">
-	{{ elements.backButton(page,question) }}
 
 	<div class="grid-row">
 
@@ -65,6 +64,7 @@ Continue your application		</h1>
 
   <div>
   	{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
   	</div>
   </div>
   </div>

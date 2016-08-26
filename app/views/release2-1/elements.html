@@ -148,6 +148,32 @@
 </div>
 {% endmacro %}
 
+{% macro textarea2(id,label,answer,hintText,helpTextHd,reveleaingHelpText,maxlength=30000,characterCount) %}
+<div class="form-group">
+  <label for="{{ id }}">
+    <span class="form-label">
+      {{ label }}
+    </span>
+    {% if hintText %}
+      <span class="form-hint">{{ hintText }}</span>
+    {% endif %}
+  </label>
+  {% if reveleaingHelpText %}
+    <p>{{ helpTextHd }}</p>
+    <ul class="list-bullet list-help-text">
+      {% for item in reveleaingHelpText %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <textarea  {% if characterCount != false %} maxlength="{{ maxlength }}" {% endif %} class="form-control form-control-3-4" id="{{ id }}" name="{{ id }}">{{answer}}</textarea>
+
+  {% if characterCount != false %}
+    <span class="font-xsmall form-control-3-4 character-count"><span class="char-count">{{ maxlength }}</span> characters left</span>
+  {% endif %}
+</div>
+{% endmacro %}
+
 {% macro checkbox(id,type,question,hintText,checkboxOptions,answers,optionAnswers,fieldsetClass) %}
 <fieldset class="form-group {% if fieldsetClass %} {{ fieldsetClass }} {% endif %}">
   <legend>{{ question }}</legend>
@@ -368,7 +394,7 @@ open
 </div>
 {% endmacro %}
 
-{% macro helpline(page) %}
+{% macro helpline(page,data) %}
 {% for helpline in page.helpline %}
 <div class="column-third">
   <div id="ad-helpline" class="">
@@ -380,8 +406,14 @@ open
     <p class="form-hint">{{helpline.p6}}</p>
     <p>{{helpline.p7}}</p>
     <p>{{helpline.p8}}</p>
+    <br>
     <p>{{helpline.p9  |  safe}}</p>
+
   </div>
 </div>
 {% endfor %}
+{% endmacro %}
+
+{% macro validation(data,questions,validateLink) %}
+      <center><a href="{{questions.validateLink}}">{{data.validateText}}</a></center>
 {% endmacro %}

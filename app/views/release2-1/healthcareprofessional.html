@@ -26,9 +26,9 @@
 					] %}
 					{{ elements.radioSelect('contactHcp',question.question,"",answers.contactHcp,seq,"inline") }}
 
-					<div class="form-group panel-indent {% if answers.contactHcp != 'Yes' %}js-hidden{% endif %}" id="hcpDetails">
+					<div class="form-group {% if answers.contactHcp != 'Yes' %}js-hidden{% endif %}" id="hcpDetails">
 						<ul class="list-user-input">
-							{% for i in range(1, 11) -%}
+							{% for i in range(1, 6) -%}
 
 								<li id="condition-row-{{i}}" class="condition-row {% if not loop.first and not answers['name' + i] %} js-hidden {% endif %}">
 
@@ -81,9 +81,18 @@ What is their profession?
 
 										{{ elements.genericInputList("lastSeen" + i,question.lastSeenHd, answers["lastSeen" + i]) }}
 
+										{% if loop.last %}	<div class="form-group">
+													<label class="heading-medium" for="otherHCPS">
+														List any other professionals we can contact to get more information about your condition.</label>
+														{{ elements.textarea("howDoes",question.question4,answers.howDoes,"",question.helpTextHd,question.helpText) }}
+									</div> {% endif %}
+
 								</li>
 							{% endfor %}
-							<li><a href="add-another" class="add-another" data-target="condition-row">Add another professional</a></li>
+
+							<a href="add-another" class="add-another" data-target="condition-row">Add another professional</a>
+
+
 						</ul>
 						<details class="help-text form-group">
 
@@ -105,6 +114,7 @@ What is their profession?
         </form>
 			</div>
 				{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
 	</div>
 
 </main>

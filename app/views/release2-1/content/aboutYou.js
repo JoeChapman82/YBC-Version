@@ -6,6 +6,7 @@ var data = [ {
   "continue"           : "Save and continue",
   "saveExit"           : "Save and come back later",
   "backText"           : "Back",
+  "validateText"       : "View validation",
   "tickAll"            : "Tick all that apply",
 
 
@@ -19,7 +20,7 @@ var data = [ {
     "p6"               : "Texts are charged at your standard rate",
     "p7"               : "Mon to Fri: 9am to 5pm",
     "p8"               : "Closed public holidays.",
-    "p9"               : "<br><center><a href=/release2-1/yscMenu>Return to menu</a></center>"
+    "p9"               : "<center><a href=/release2-1/yscMenu>Return to menu</a></center>"
   },
 ],
   "frequency"          : [
@@ -185,6 +186,7 @@ var data = [ {
       "question4"        : "In your own words, describe how your condition affects you managing your medication on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["you could end up at risk","what you’re able to do depends on the type of day you’re having"],
+      "validateLink"     : "/release2-1/validationPage",
       "backLink"         : "/release2-1/medications"
     },
   ],
@@ -797,14 +799,14 @@ var data = [ {
   "thankYou" : [
     {
       "heading"          : "Your application has been sent",
-      "heading2"         : "Send more information",
-      "p1"               : "You said you’re going to send information about the effects of your condition. Write your National Insurance number on each page you send and post it before [date in two weeks]. If you do not send it before then, a decision could be made without it.",
+      "heading2"         : "What happens next?",
+      "p1"               : "You'll get a letter in the next 4 weeks. This will either tell you the decision, ask for more information or invite you to meet a medical professional to discuss how your condition affects you in more detail.",
       "postTo"           : "Post to:",
       "address"          : ["Freepost DWP PIP 3","Mail Handling Site A","Wolverhampton","WV98 1AD"],
-      "heading3"         : "What happens next",
-      "p2"               : "You'll get a letter in the next 4 weeks. It will either tell you a decision, or invite you to meet a medical professional.",
+      "heading3"         : "Your views can improve this application",
+      "p2"               : "If you have any queries about your claim, call 0113 2327118 or text 07867 687 141.",
       "p3"               : "You must <a href='#' rel='external'>report any change to your circumstances</a>.",
-      "p4"               : "If you have any queries about your claim, phone 0345 850 3322. You’ll need your National Insurance number.",
+      "p4"               : "Now you've finished the application, tell us how you got on. Any feedback you give will not affect your claim.",
       "button"           : "Return to GOV.UK"
     },
   ],

@@ -17,7 +17,7 @@
 
 				<form action="/release2-1/additionalInfo{% if edit %}?edit=true{% endif %}" method="post" class="form">
 					{{ elements.header(page,question) }}
-					{{ elements.textarea("additionalInfo","",answers.additionalInfo,"","","",30000) }}
+					{{ elements.textarea2("additionalInfo","",answers.additionalInfo,"","","",30000) }}
 
 					<div id="submit-group" class="form-group">
 						<input type="submit" class="button" value="Save and continue" name="saveAndMenu">
@@ -27,6 +27,7 @@
         </form>
 			</div>
 			{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
 	</div>
 
 </main>
