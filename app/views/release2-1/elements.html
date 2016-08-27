@@ -394,7 +394,7 @@ open
 </div>
 {% endmacro %}
 
-{% macro helpline(page,data) %}
+{% macro helpline(page,data,questions,validateLink) %}
 {% for helpline in page.helpline %}
 <div class="column-third">
   <div id="ad-helpline" class="">
@@ -415,5 +415,9 @@ open
 {% endmacro %}
 
 {% macro validation(data,questions,validateLink) %}
-      <center><a href="{{questions.validateLink}}">{{data.validateText}}</a></center>
+<div style="float:right; width:22.5%">
+  <div id="validation" class="">
+      <a href="{{questions.validateLink}}">{{data.validateText}}</a>
+    </div>
+  </div>
 {% endmacro %}

@@ -40,6 +40,7 @@ var data = [ {
       "question2"        : "The name of the person helping you",
       "question3"        : "How you know them",
       "question4"        : "Why they're helping you",
+      "validateLink"     : "/release2-1/validationPage#helper",
       "backLink"         : "/release2-1/yscMenu"
     },
   ],
@@ -52,6 +53,7 @@ var data = [ {
       "question3"        : "Last name",
       "question4"        : "<strong>Date of birth</strong>",
       "question5"        : "<strong>National Insurance number</strong>",
+      "validateLink"     : "/release2-1/validationPage#aboutYou",
       "backLink"         : "/release2-1/helper"
     },
   ],
@@ -65,6 +67,7 @@ var data = [ {
       "question4"        : "<strong>Your phone number</strong>",
       "question5"        : "<strong>Alternative phone number</strong>",
       "question6"        : "Email address",
+      "validateLink"     : "/release2-1/validationPage#contactDetails",
       "backLink"         : "/release2-1/aboutYou"
     },
   ],
@@ -81,6 +84,7 @@ var data = [ {
       "checkbox4"        : "Other",
       "textareaQ"        : "What format do you need?",
       "textareaHintText" : "This can only be provided if it's necessary because of your disability.",
+      "validateLink"     : "/release2-1/validationPage#contactPref",
       "backLink"         : "/release2-1/contactDetails"
     },
   ],
@@ -94,6 +98,7 @@ var data = [ {
       "question3"        : "Account number",
       "question4"        : "Building society roll or reference number",
       "submit"           : "Save and continue",
+      "validateLink"     : "/release2-1/validationPage#bankDetails",
       "backLink"         : "/release2-1/contactPref"
     }
   ],
@@ -105,6 +110,7 @@ var data = [ {
       "question2"        : "When did you start staying there?",
       "question3"        : "<strong>The address</strong>",
       "question4"        : "Postcode",
+      "validateLink"     : "/release2-1/validationPage#currentWhereabouts",
       "backLink"         : "/release2-1/nationality"
     }
   ],
@@ -118,6 +124,7 @@ var data = [ {
       "question4"        : "Country you live in",
       "question5"        : "Have you been out of England, Scotland or Wales for more than 4 weeks at a time in the last 3 years?",
       "q5HintText"       : "",
+      "validateLink"     : "/release2-1/validationPage#nationality",
       "backLink"         : "/release2-1/bankDetails"
     },
   ],
@@ -132,6 +139,7 @@ var data = [ {
       "countries"        : "Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Gibraltar, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden and Switzerland.",
       "question2"        : "<strong>Are you or your close family claiming or being paid any benefits or pensions from any of these countries?</strong>",
       "question3"        : "<strong>Are you or your close family working or paying National Insurance in any of these countries?</strong>",
+      "validateLink"     : "/release2-1/validationPage#paymentsFromAbroad",
       "backLink"         : "/release2-1/currentWhereabouts"
     },
   ],
@@ -140,6 +148,7 @@ var data = [ {
     {
       "page"             : "26",
       "heading"          : "Your Condition",
+      "validateLink"     : "/release2-1/validationPage#yourCondition",
       "backLink"         : "/release2-1/declaration"
     },
   ],
@@ -153,6 +162,7 @@ var data = [ {
       "conditionHd"      : "Name of condition",
       "startedHd"        : "When it started",
       "removeLink"       : "",
+      "validateLink"     : "/release2-1/validationPage#conditionDetails",
       "backLink"         : "/release2-1/healthcareprofessional"
     },
   ],
@@ -168,6 +178,7 @@ var data = [ {
       "oftenHd"          : "How often you take it",
       "oftenHintText"    : "",
       "removeLink"       : "Remove this",
+      "validateLink"     : "/release2-1/validationPage#medications",
       "backLink"         : "/release2-1/conditionDetails"
     },
   ],
@@ -186,7 +197,7 @@ var data = [ {
       "question4"        : "In your own words, describe how your condition affects you managing your medication on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["you could end up at risk","what you’re able to do depends on the type of day you’re having"],
-      "validateLink"     : "/release2-1/validationPage",
+      "validateLink"     : "/release2-1/validationPage#manageMedications",
       "backLink"         : "/release2-1/medications"
     },
   ],
@@ -201,6 +212,7 @@ var data = [ {
       "oftenHd"          : "When or how often",
       "removeLink"       : "",
       "question2"        : "Do you have treatment or therapy at your home?",
+      "validateLink"     : "/release2-1/validationPage#treatments",
       "backLink"         : "/release2-1/manageMedications"
     },
   ],
@@ -213,7 +225,7 @@ var data = [ {
       "question2"        : "How many hours a week they help you",
       "question3"        : "<strong>Why does someone need to help you manage your treatment or therapy at home?</strong>",
       "question4"        : "<strong>How does someone help you manage your treatment or therapy at home?</strong>",
-      "validateLink"     : "/release2-1/validationPage",
+      "validateLink"     : "/release2-1/validationPage#manageTreatments",
       "backLink"         : "/release2-1/treatments"
     },
   ],
@@ -223,6 +235,7 @@ var data = [ {
       "heading"          : "Side effects",
       "question"         : "Do you get side effects from any medication, treatment or therapy?",
       "question2"        : "<strong>Describe the side effects you get and how often you get them.</strong>",
+      "validateLink"     : "/release2-1/validationPage#sideEffects",
       "backLink"         : "/release2-1/treatments"
     },
   ],
@@ -234,6 +247,7 @@ var data = [ {
       "qHintText"        : "This includes if some days, weeks or months are worse than others.",
       "question3"        : "Explain how the effects of your condition change or vary",
       "q3HintText"       : "Include how many days out of a week or month you're affected.",
+      "validateLink"     : "/release2-1/validationPage#conditionAffects",
       "backLink"         : "/release2-1/sideEffects"
     },
   ],
@@ -245,6 +259,7 @@ var data = [ {
       "question2"        : "How many hours does someone need to help monitor your condition?",
       "question3"        : "In your own words, decribe why someone needs to monitor your condition on a typical day.",
       "question4"        : "How do they monitor your condition?",
+      "validateLink"     : "/release2-1/validationPage#monitoringCondition",
       "backLink"         : "/release2-1/sideEffects"
     },
   ],
@@ -256,6 +271,7 @@ var data = [ {
       "question2"        : "How many hours does someone need to help monitor your condition?",
       "question3"        : "<strong>Why does someone need to monitor your condition?</strong>",
       "question4"        : "<strong>How do they monitor your condition?</strong>",
+      "validateLink"     : "/release2-1/validationPage#helpMonitoring",
       "backLink"         : "/release2-1/monitoringCondition"
     },
   ],
@@ -273,6 +289,7 @@ var data = [ {
       "phoneHd"          : "Phone number",
       "lastSeenHd"       : "When did you last see them?",
       "removeLink"       : "",
+      "validateLink"     : "/release2-1/validationPage#healthcareprofessional",
       "backLink"         : "/release2-1/yourCondition"
     },
   ],
@@ -284,6 +301,7 @@ var data = [ {
       "question"         : "You will send your:",
       "q2HintText"       : "Tick all that apply",
       "question3"        : "How will you send the information?",
+      "validateLink"     : "/release2-1/validationPage#submitEvidence",
       "backLink"         : "/release2-1/helpMonitoring"
     },
   ],
@@ -292,6 +310,7 @@ var data = [ {
     {
       "page"             : "26",
       "heading"          : "Your and Your Home",
+      "validateLink"     : "/release2-1/validationPage#youAndYourHome",
       "backLink"         : "/release2-1/submitEvidence"
     },
   ],
@@ -300,6 +319,7 @@ var data = [ {
     {
       "page"             : "26",
       "heading"          : "Caring for yourself",
+      "validateLink"     : "/release2-1/validationPage#caringForYourself",
       "backLink"         : "/release2-1/speech"
     },
   ],
@@ -308,6 +328,7 @@ var data = [ {
     {
       "page"             : "26",
       "heading"          : "Leaving your home",
+      "validateLink"     : "/release2-1/validationPage#leavingYourHome",
       "backLink"         : "/release2-1/eatingAndDrinking"
     },
   ],
@@ -316,6 +337,7 @@ var data = [ {
     {
       "page"             : "26",
       "heading"          : "Making sense of things",
+      "validateLink"     : "/release2-1/validationPage#makingSenseOfThings",
       "backLink"         : "/release2-1/mixing"
     },
   ],
@@ -344,6 +366,7 @@ var data = [ {
       "doesntLabel"       : "You do <span class='bold-small'>not</span> rely on aids or adaptations",
       "question2"         : "<strong>List any other aids or adaptations you have to use all or most of the time.</strong>",
       "q2HintText"        : "This might include things like a hearing aid, wheelchair or prosthetic limb.",
+      "validateLink"     : "/release2-1/validationPage#specialAids",
       "backLink"          : "/release2-1/youAndYourHome"
     },
   ],
@@ -363,6 +386,7 @@ var data = [ {
       "partiallyLabel"   : "partially sighted",
       "neitherLabel"     : "neither",
       "allTime"          : "Is your sight affected all the time?",
+      "validateLink"     : "/release2-1/validationPage#sight",
       "backLink"         : "/release2-1/gettingUp"
     },
   ],
@@ -377,6 +401,7 @@ var data = [ {
       "question4"        : "Explain how your condition affects your speech.",
       "helpTextHd"       : "Include if your speech changes depending on:",
       "helpText"         : ["where you are","what you’re doing","who you’re with"],
+      "validateLink"     : "/release2-1/validationPage#speech",
       "backLink"         : "/release2-1/sight"
     },
   ],
@@ -400,6 +425,7 @@ var data = [ {
       "question3"        : "In your own words, describe how your hearing is affected on a typical day.",
       "helpTextHd"       : "Include if the effects change depending on:",
       "helpText"         : ["where you are","what you’re doing"],
+      "validateLink"     : "/release2-1/validationPage#hearing",
       "backLink"         : "/release2-1/speech"
     },
   ],
@@ -425,6 +451,7 @@ var data = [ {
       "question4"        : "In your own words, describe how you get up and move around on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["it takes a long time","what you’re able to do depends on the type of day you’re having","you risk having an accident or hurting yourself","moving around has an effect on your condition"],
+      "validateLink"     : "/release2-1/validationPage#gettingUp",
       "backLink"         : "/release2-1/specialAids"
     },
   ],
@@ -457,6 +484,7 @@ var data = [ {
           "ownWords"       : "Explain how often in your own words"
         },
       ],
+      "validateLink"     : "/release2-1/validationPage#toilet",
       "backLink"         : "/release2-1/caringForYourself"
     },
   ],
@@ -492,6 +520,7 @@ var data = [ {
           "ownWords"       : "Explain how often in your own words"
         },
       ],
+      "validateLink"     : "/release2-1/validationPage#washing",
       "backLink"         : "/release2-1/toilet"
     },
   ],
@@ -527,6 +556,7 @@ var data = [ {
           "ownWords"       : "Explain how often in your own words"
         },
       ],
+      "validateLink"     : "/release2-1/validationPage#gettingDressed",
       "backLink"         : "/release2-1/washing"
     },
   ],
@@ -564,6 +594,7 @@ var data = [ {
       "question4"        : "In your own words, describe how you would prepare or cook a hot meal from fresh ingredients on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["it takes a long time","what you’re able to do depends on the type of day you’re having","you risk having an accident or hurting yourself","cooking a meal has an effect on your condition"],
+      "validateLink"     : "/release2-1/validationPage#hotMeal",
       "backLink"         : "/release2-1/washing"
     },
   ],
@@ -599,6 +630,7 @@ var data = [ {
       "question4"        : "In your own words, describe how you eat and drink on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["eating or drinking takes a long time","what you’re able to do depends on the type of day you’re having","you risk having an accident or hurting yourself","eating or drinking has an effect on your condition"],
+      "validateLink"     : "/release2-1/validationPage#eatingAndDrinking",
       "backLink"         : "/release2-1/hotMeal"
     },
   ],
@@ -626,6 +658,7 @@ var data = [ {
       "question4"        : "In your own words, describe how you get out and walk about on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["it takes a long time","what you’re able to do depends on the type of day you’re having","you risk having an accident or hurting yourself","getting out or walking about has an effect on your condition"],
+      "validateLink"     : "/release2-1/validationPage#gettingOut",
       "backLink"         : "/release2-1/summaryMain?show=gettingOut&next=gettingOut&back=eatingAndDrinking"
     },
   ],
@@ -662,6 +695,7 @@ var data = [ {
       "question4"        : "In your own words, describe how you mix with people when you have to",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["what you’re able to do depends on the type of day you’re having","mixing with people could put you or others at risk","if mixing with people has an effect on your condition"],
+      "validateLink"     : "/release2-1/validationPage#mixing",
       "backLink"         : "/release2-1/eatingAndDrinking"
     },
   ],
@@ -679,6 +713,7 @@ var data = [ {
       "question3"        : "In your own words describe how your condition affects you planning a local journey.",
       "q3HintText"       : "Include if it would take you a long time to plan a local journey.",
       "helpText"         : ["if it would take a long time to plan a journey"],
+      "validateLink"     : "/release2-1/validationPage#localJourney",
       "backLink"         : "/release2-1/mixing"
     },
   ],
@@ -704,6 +739,7 @@ var data = [ {
       "question3"        : "In your own words, describe how you would follow a route if you had to.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["what you can do depends if you have been to the place before","what you can do depends on the type of day you’re having","you risk having an accident or hurting yourself","your condition would affect how long it takes you to get somewhere","getting somewhere you have never been would have an effect on your condition"],
+      "validateLink"     : "/release2-1/validationPage#somewhereNeverBeenBefore",
       "backLink"         : "/release2-1/localJourney"
     },
   ],
@@ -727,6 +763,7 @@ var data = [ {
       "question3"        : "In your own words, describe how you would get somewhere you know if you had to.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["what you’re able to do depends on the type of day you’re having","you risk having an accident or hurting yourself","your condition affects how long it takes you to get there","getting somewhere has an effect on your condition"],
+      "validateLink"     : "/release2-1/validationPage#somewhereYouKnow",
       "backLink"         : "/release2-1/somewhereNeverBeenBefore"
     },
   ],
@@ -750,6 +787,7 @@ var data = [ {
       "question3"        : "In your own words, describe how you understand written information on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["it can take you a long time to work out what things mean","not understanding things puts you at risk"],
+      "validateLink"     : "/release2-1/validationPage#understanding",
       "backLink"         : "/release2-1/somewhereNeverBeenBefore"
     },
   ],
@@ -775,6 +813,7 @@ var data = [ {
       "question3"        : "In your own words, describe how you would deal with money if you had to.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["what you’re able to do depends on the type of day you’re having","it can take a long time to work things out","you could end up at risk"],
+      "validateLink"     : "/release2-1/validationPage#money",
       "backLink"         : "/release2-1/understanding"
     },
   ],
@@ -783,6 +822,7 @@ var data = [ {
       "page"             : "35",
       "heading"          : "Additional information",
       "introText"        : "<strong>Include anything else that explains how your condition or disability affects you.</strong>",
+      "validateLink"     : "/release2-1/validationPage#additionalInfo",
       "backLink"         : "/release2-1/yscMenu"
     },
   ],
@@ -794,6 +834,7 @@ var data = [ {
       "list"             : ["the information in this application is complete and correct as far as you know","to promptly <a href='#' data-target='legalDetails' class='showLegal'>report any changes to your circumstances</a>"],
       "disclaimer"       : "You might have to go to court or pay a penalty if you deliberately give false or incomplete information, or do not report changes. Your Personal Independence Payment may also be stopped or reduced.",
       "submit"           : "I agree - contine my application",
+      "validateLink"     : "/release2-1/validationPage#declaration",
       "backLink"         : "/release2-1/paymentsFromAbroad"
     },
   ],
