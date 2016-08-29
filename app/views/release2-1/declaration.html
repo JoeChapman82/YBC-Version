@@ -1,4 +1,15 @@
-{% extends "layout.html" %} {% block pageTitle %} GOV.UK prototyping kit {% endblock %} {% block content %} {% import "release2-1/macros/elements.html" as elements %} {% for page in data %} {% for question in page.declaration %}
+	{% extends "layout.html" %}
+
+	{% block pageTitle %}
+	GOV.UK prototyping
+ 	{% endblock %}
+
+ 	{% block content %}
+
+  {% import "release2-1/elements.html" as elements %}
+	{% for page in data %}
+  {% for question in page.declaration %}
+
 <main id="content" role="main" class="release2-1">
 	{{ elements.backButton(page,question) }}
 
@@ -22,18 +33,21 @@
 				<form>
 					<fieldset>
 
-						<legend class="visuallyhidden">Which types of waste do you transport regularly?</legend>
+						<legend class="visuallyhidden">declaraion</legend>
 
-						<label class="block-label" for="waste-type-1">
-							<input id="waste-type-1" name="waste-types" type="checkbox" value="waste-animal"> the information I have given so far in this application is complete and correct
+						<label class="block-label" for="declaration1">
+							<input id="declaration1" name="declaration1" type="checkbox" value="declaration1">
+							the information I have given so far in this application is complete and correct
 						</label>
-						<label class="block-label" for="waste-type-2">
-							<input id="waste-type-2" name="waste-types" type="checkbox" value="waste-mines"> the information I will give in the rest of the application will be complete and correct
+						<label class="block-label" for="declaration2">
+							<input id="declaration2" name="declaration2" type="checkbox" value="declaration2">
+							the information I will give in the rest of the application will be complete and correct
 						</label>
-						<label class="block-label" for="waste-type-3" data-target="legalDetails">
-							<input id="waste-type-3" name="waste-types" type="checkbox" value="waste-farm-agricultural"> I will promptly report any changes to my circumstances
+						<label class="block-label" for="declaration3" data-target="declarationDetails">
+							<input id="declaration3" name="declaration3" type="checkbox" value="declaration3">
+							I will promptly report any changes to my circumstances
 						</label>
-						<div id="legalDetails" class="js-hidden form-group" style="margin-left:25px;">
+						<div id="declarationDetails" class="js-hidden form-group" style="margin-left:25px;">
 							<p>You must call 0345 850 3322, or textphone 0345 601 6677 if:</p>
 							<ul class="list-bullet" style="margin-top:-10px;">
 								<li> your personal details change, eg your name, address or doctor</li>
@@ -46,8 +60,9 @@
 
 						<p style="clear:both; margin-top:20px; float:left;">I understand that:</p>
 
-						<label class="block-label" for="waste-type-4">
-							<input id="waste-type-4" name="waste-types" type="checkbox" value="waste-mines"> I may have to go to court or pay a penalty if I deliberately give false or incomplete information, or do not report changes, and that my Personal Independence Payment may be stopped or reduced
+						<label class="block-label" for="declaration4">
+							<input id="declaration4" name="declaration4" type="checkbox" value="declaration4">
+							I may have to go to court or pay a penalty if I deliberately give false or incomplete information, or do not report changes, and that my Personal Independence Payment may be stopped or reduced
 						</label>
 
 						{{ elements.submit(page,question,true,false) }}

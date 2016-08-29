@@ -29,10 +29,6 @@
 </div>
 {% endmacro %}
 
-{% macro backButton(data,questions,backlink) %}
-      <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
-{% endmacro %}
-
 {% macro textInput (id,answer) %}
 <div class="form-group" id="form-group-{{ id }}">
   <input type="text" class="form-control " id="{{ id }}" name="{{ id }}" value="{{ answer }}">
@@ -419,6 +415,13 @@ open
 {% endfor %}
 {% endmacro %}
 
+<!-- Macros for YSC version -->
+
 {% macro validation(data,questions,validateLink) %}
       <center><a href="{{questions.validateLink}}">{{data.validateText}}</a></center>
+{% endmacro %}
+
+
+{% macro backButton(data,questions,backlink) %}
+      <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
 {% endmacro %}

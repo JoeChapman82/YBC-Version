@@ -35,70 +35,63 @@
 									<h2 class="heading-small">{{ question.rowHd }} {{i}}</h2>
 									{% if not loop.first %}<a href="#" class="remove">{{ question.removeLink }}</a>{% endif %}
 
-<!-- Profession dropdown from QA -->
+
+	 <!-- dropdown list-->
 
 
-									<div class="form-group" id="form-group-healthcareProfessionalList[0].profession">
+	 {% set seq  = [
+		{"id":"hcpType","value":"Please Select"},
+	 	{"id":"hcpType","value":"Community Psychiatric Nurse"},
+		{"id":"hcpType","value":"Counsellor"},
+		{"id":"hcpType","value":"Doctor"},
+		{"id":"hcpType","value":"GP"},
+		{"id":"hcpType","value":"Key Worker"},
+		{"id":"hcpType","value":"Occupational Therapist"},
+		{"id":"hcpType","value":"Physiotherapist"},
+		{"id":"hcpType","value":"Social Worker"},
+		{"id":"hcpType","value":"Specialist Nurse"},
+		{"id":"hcpType","value":"Teacher"},
+	 	{"id":"hcpType", "value":"Other","showPanel":"otherHCP"}
+	 ] %}
 
-			 <label class="form-label" for="healthcareProfessionalList[0].profession">
-What is their profession?
- 			 </label>
+	 {{ elements.dropDown('hcpType', question.question2, answers.hcpType, seq) }}
 
-			 <select id="healthcareProfessionalList[0].profession" name="healthcareProfessionalList[0].profession" class="form-control form-select-control  hc-profession ">
-					 <option>Please select</option>
-						<option value="Community Psychiatric Nurse">Community Psychiatric Nurse</option>
-						<option value="Counsellor">Counsellor</option>
-						<option value="Doctor">Doctor</option>
-						<option value="GP">GP</option>
-						<option value="Key Worker">Key Worker</option>
-						<option value="Occupational Therapist">Occupational Therapist</option>
-						<option value="Physiotherapist">Physiotherapist</option>
-						<option value="Social Worker">Social Worker</option>
-						<option value="Specialist Nurse">Specialist Nurse</option>
-						<option value="Teacher">Teacher</option>
-						<option value="Other">Other</option>
-			 </select>
-	 </div>
+	 <div class="form-group {% if answers.hcpType != 'Other' %}js-hidden{% endif %}" id="otherHCP">
+	 {{ elements.genericInput('otherHCP', question.question3, answers.otherHCP) }}
+	</div>
 
-
-
-
-	 <!-- End of Profession dropdown from QA -->
+	 <!-- End of dropdown -->
 
 										{{ elements.genericInputList("name" + i,question.nameHd, answers["name" + i]) }}
 
 										<fieldset class="form-group">
 											<legend class="form-label">Address</legend>
-											{{ elements.textInput('address1',answers.address1) }}
-											{{ elements.textInput('address2',answers.address2) }}
-											{{ elements.textInput('address3',answers.address3) }}
+											{{ elements.textInput('HCPaddress1',answers.HCPaddress1) }}
+											{{ elements.textInput('HCPaddress2',answers.HCPaddress2) }}
+											{{ elements.textInput('HCPaddress3',answers.HCPaddress3) }}
 											<legend class="form-label">Postcode</legend>
-											{{ elements.genericInput('postcode',question.question2, answers.postcode) }}
+											{{ elements.genericInput('HCPpostcode', answers.HCPpostcode) }}
 										</fieldset>
 
 										{{ elements.genericInputList("phone" + i,question.phoneHd, answers["phone" + i]) }}
 
 										{{ elements.genericInputList("lastSeen" + i,question.lastSeenHd, answers["lastSeen" + i]) }}
 
-										{% if loop.last %}	<div class="form-group">
-													<label class="heading-medium" for="otherHCPS">
-														List any other professionals we can contact to get more information about your condition.</label>
-														{{ elements.textarea("howDoes",question.question4,answers.howDoes,"",question.helpTextHd,question.helpText) }}
-									</div> {% endif %}
+										{% if loop.last %}
+										{{ elements.textarea("moreHCP",question.question4  |  safe,answers.moreHCP) }}
+									{% endif %}
 
 								</li>
 							{% endfor %}
 
 							<a href="add-another" class="add-another" data-target="condition-row">Add another professional</a>
-
-
 						</ul>
-						<details class="help-text form-group">
 
-		        <summary><span class="summary">If you change your mind about letting us get information from the professional(s) you've listed, contact us</span></summary>
+
+						<details class="help-text form-group">
+		        <summary><span class="summary">If you change your mind about getting information from the professional(s) you've listed, contact us</span></summary>
 
 		          <div class="panel-indent">
-
 		            <p>phone: <span class="tel">0345 850 3322</span></p>
 		            <p>textphone: <span class="tel">0345 601 6677</span></p>
 		            <p>Monday to Friday, 8am to 6pm</p>
@@ -113,8 +106,8 @@ What is their profession?
         </form>
 			</div>
 				{{ elements.helpline(page) }}
-{{ elements.validation(page,question) }}
-	</div>
+				{{ elements.validation(page,question) }}
+			</div>
 
 </main>
 

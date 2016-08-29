@@ -591,6 +591,27 @@ module.exports = function (app) {
 
 
   /*******************
+  hcptest
+  *******************/
+  app.get('/release2-1/hcptest', function (req, res) {
+      res.render('release2-1/hcptest', {
+        answers : req.session['release2-1-hcptest'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/hcptest', function (req, res) {
+    req.session['release2-1-hcptest'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu#hcptest');
+    } else {
+      res.redirect('/release2-1/conditionDetails');
+    }
+  });
+
+  /*******************
   specialAids
   *******************/
   app.get('/release2-1/specialAids', function (req, res) {
@@ -1037,6 +1058,22 @@ module.exports = function (app) {
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
+  });
+
+  /*******************
+  validationPage
+  *******************/
+  app.get('/release2-1/validationPage', function (req, res) {
+      res.render('release2-1/validationPage', {
+        answers : req.session['release2-1-validationPage'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/validationPage', function (req, res) {
+    req.session['release2-1-validationPage'] = req.body;
+    res.redirect('/release2-1/yourCondition');
   });
 
 

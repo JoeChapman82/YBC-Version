@@ -18,37 +18,19 @@
 				<form action="/release2-1/aboutYou{% if edit %}?edit=true{% endif %}" method="post" class="form">
 					{{ elements.header(page,question) }}
 
+<legend class="form-label-bold">Your name</legend>
 
-<!-- Your name heading and title dropdown -->
+		 <!-- dropdown -->
+		 {% set seq  = [
+			{"id":"yourTitle","value":"Please Select"},
+			{"id":"yourTitle","value":"Mr"},
+			{"id":"yourTitle","value":"Miss"},
+			{"id":"yourTitle","value":"Mrs"}
 
-<legend class="form-label-bold add-padding">Your name</legend>
+		 ] %}
 
-
-<div class="form-group" id="form-group-title">
-
-			<label class="form-label" for="title">
-
-
-Title
-
-			</label>
-
-			<select id="title" name="title" class="form-control form-select-control ">
-					<option>Please select</option>
-					 <option value="Mr">Mr</option>
-					 <option value="Miss">Miss</option>
-					 <option value="Mrs">Mrs</option>
-			</select>
-
-	</div>
-
-	<div class="form-group" id="form-group-firstName">
-
-	 <label class="form-label" for="firstName">
-
-
+		 {{ elements.dropDown('yourTitle', question.question6, answers.yourTitle, seq) }}
 	<!--End title dropdown-->
-
 
 					{{ elements.genericInput('firstName',question.question, answers.firstName) }}
 					{{ elements.genericInput('middleName',question.question2, answers.middleName) }}
@@ -61,7 +43,6 @@ Title
 
 					{{ elements.submit(page,question) }}
 
-				</div>
 
         </form>
 			</div>

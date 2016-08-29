@@ -26,10 +26,6 @@
 </div>
 {% endmacro %}
 
-{% macro backButton(data,questions,backlink) %}
-      <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
-{% endmacro %}
-
 {% macro textInput (id,answer) %}
 <div class="form-group" id="form-group-{{ id }}">
   <input type="text" class="form-control " id="{{ id }}" name="{{ id }}" value="{{ answer }}">
@@ -394,7 +390,7 @@ open
 </div>
 {% endmacro %}
 
-{% macro helpline(page,data,questions,validateLink) %}
+{% macro helpline(page,data,questions) %}
 {% for helpline in page.helpline %}
 <div class="column-third">
   <div id="ad-helpline" class="">
@@ -406,18 +402,44 @@ open
     <p class="form-hint">{{helpline.p6}}</p>
     <p>{{helpline.p7}}</p>
     <p>{{helpline.p8}}</p>
-    <br>
-    <p>{{helpline.p9  |  safe}}</p>
-
   </div>
 </div>
 {% endfor %}
 {% endmacro %}
 
+<!-- Macros for YSC Version -->
+
 {% macro validation(data,questions,validateLink) %}
-<div style="float:right; width:22.5%">
-  <div id="validation" class="">
+<div class="column-third" style="float:right; width:22.5%">
+<div>
+  <br>
+  <a href="/release2-1/YscMenu">Return to Menu</a>
+</div>
+  <div id="validation">
       <a href="{{questions.validateLink}}">{{data.validateText}}</a>
     </div>
   </div>
+{% endmacro %}
+
+<!-- dropdown macro -->
+{% macro dropDown(id,question,answer,dropOptions) %}
+<fieldset class="form-group">
+  <legend id="{{ id }}" for="{{ id }}">
+    <span class="frequency-question">{{ question }}</span>
+  </legend>
+  <select id="{{ id }}" class="form-control form-select-control">
+    {% for item in dropOptions %}
+    <option for="{{ id }}-{{ item.value }}"
+      {% if item.showPanel %} data-target="{{ item.showPanel }}"{% endif %}
+        value="{{ item.value }}" aria-controls="{{ item.showPanel }}">
+        {{ item.value }}
+      </option>
+    {% endfor %}
+  </select>
+</fieldset>
+{% endmacro %}
+<!-- end of dropdown macro -->
+
+{% macro backButton(data,questions,backlink) %}
+      <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
 {% endmacro %}

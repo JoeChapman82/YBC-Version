@@ -20,9 +20,10 @@ var data = [ {
     "p6"               : "Texts are charged at your standard rate",
     "p7"               : "Mon to Fri: 9am to 5pm",
     "p8"               : "Closed public holidays.",
-    "p9"               : "<center><a href=/release2-1/yscMenu>Return to menu</a></center>"
   },
 ],
+
+
   "frequency"          : [
     {
       "allTime"        : "All the time",
@@ -53,6 +54,7 @@ var data = [ {
       "question3"        : "Last name",
       "question4"        : "<strong>Date of birth</strong>",
       "question5"        : "<strong>National Insurance number</strong>",
+      "question6"        : "Title",
       "validateLink"     : "/release2-1/validationPage#aboutYou",
       "backLink"         : "/release2-1/helper"
     },
@@ -282,6 +284,9 @@ var data = [ {
       "introText"        : "<p>We want to know who can tell us more about how your condition affects you.</p><p>They could be your counsellor, teacher, key worker, doctor or anyone else who has information about the effects of your condition.</p>",
       "prequestion1"     : "They could be your counsellor, key worker, doctor or anyone else who has information about the effects of your condition.",
       "question"         : "Do you agree that we can ask professionals to share information about your condition with us?",
+      "question2"        : "What is their profession?",
+      "question3"        : "Their profession",
+      "question4"        : "<strong>List any other professionals we can contact to get more information about your condition.</strong>",
       "rowHd"            : "Professional",
       "nameHd"           : "Their name",
       "professionHd"     : "Their profession",
@@ -293,6 +298,9 @@ var data = [ {
       "backLink"         : "/release2-1/yourCondition"
     },
   ],
+
+
+
   "submitEvidence" : [
     {
       "page"             : "16",
@@ -852,6 +860,17 @@ var data = [ {
       "button"           : "Return to GOV.UK"
     },
   ],
+
+  "validationPage" : [
+    {
+      "page"             : "36",
+      "heading"          : "Validation Page",
+      "validateLink"     : "/release2-1/validationPage#declaration",
+      "backLink"         : "/release2-1/YSCMenu"
+    },
+  ],
+
+
 
 
 }];
