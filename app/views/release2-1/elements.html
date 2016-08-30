@@ -144,7 +144,7 @@
 </div>
 {% endmacro %}
 
-{% macro textarea2(id,label,answer,hintText,helpTextHd,reveleaingHelpText,maxlength=30000,characterCount) %}
+{% macro textarea2(id,label,answer,hintText,helpTextHd,reveleaingHelpText,maxlength=25000,characterCount) %}
 <div class="form-group">
   <label for="{{ id }}">
     <span class="form-label">
@@ -419,19 +419,21 @@ open
   <div id="validation">
       <a href="{{questions.validateLink}}">{{data.validateText}}</a>
     </div>
+    <div>
+      <a href="/release2-1/reset">Reset answers</a>
   </div>
 {% endmacro %}
 
 <!-- dropdown macro -->
 {% macro dropDown(id,question,answer,dropOptions) %}
 <fieldset class="form-group">
-  <legend id="{{ id }}" for="{{ id }}">
-    <span>{{ question }}</span>
+  <legend id="legend-{{ id }}" for="{{ id }}">
+    <label>{{ question }}</label>
   </legend>
-  <select id="{{ id }}" class="form-control form-select-control">
+  <select id="{{ id }}" name="{{id}}" class="form-control form-select-control hcp-select">
     {% for item in dropOptions %}
     <option for="{{ id }}-{{ item.value }}"
-      {% if item.showPanel %} data-target="{{ item.showPanel }}"{% endif %}
+      {% if answer == item.value %} selected {% endif %}
         value="{{ item.value }}" aria-controls="{{ item.showPanel }}">
         {{ item.value }}
       </option>
@@ -440,6 +442,25 @@ open
 </fieldset>
 {% endmacro %}
 <!-- end of dropdown macro -->
+
+<!-- other dropdown-->
+{% macro dropDownTitle(id,question,answer,dropOptions) %}
+<fieldset class="form-group">
+  <legend id="legend-{{ id }}" for="{{ id }}">
+    <label>{{ question }}</label>
+  </legend>
+  <select id="{{ id }}" name="{{id}}" class="form-control form-select-control">
+    {% for item in dropOptions %}
+    <option for="{{ id }}-{{ item.value }}"
+      {% if answer == item.value %} selected {% endif %}
+        value="{{ item.value }}" aria-controls="{{ item.showPanel }}">
+        {{ item.value }}
+      </option>
+    {% endfor %}
+  </select>
+</fieldset>
+{% endmacro %}
+<!-- end of other dropdown -->
 
 {% macro backButton(data,questions,backlink) %}
       <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>

@@ -1,0 +1,50 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-1/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.healthcareprofessional %}
+<main id="content" role="main">
+
+
+	<div class="grid-row">
+		<div class="column-two-thirds">
+
+			<form action="/release2-1/emailLogin" class="form">
+	<a href="/" class="link-back">Back</a>
+
+
+	<header>
+	<h1 class="form-title heading-xlarge ">Enter your email address again</h1>
+	</header>
+	<br>
+				<p>You've not used the service for a while so you&#39;ve been timed out</p>
+      <p>We do this for security. Any information you entered on the page you were last on has not been saved.</p>
+      <p>Any information you entered on the previous pages has been saved</p>
+
+				<div class="form-group">
+
+
+					<input type="submit" class="button" name="retrieve" value='Enter your email address to continue your application'>
+				</div>
+
+			</form>
+		</div>
+
+<div>
+	{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+</div>
+</div>
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

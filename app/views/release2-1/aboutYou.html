@@ -29,7 +29,7 @@
 
 		 ] %}
 
-		 {{ elements.dropDown('yourTitle', question.question6, answers.yourTitle, seq) }}
+		 {{ elements.dropDownTitle('yourTitle', question.question6, answers.yourTitle, seq) }}
 	<!--End title dropdown-->
 
 					{{ elements.genericInput('firstName',question.question, answers.firstName) }}
@@ -38,7 +38,7 @@
 
 					{{ elements.genericInput('nino',question.question5  |  safe, answers.nino) }}
 
-					{{ elements.date('aboutYou',question.question4  |  safe,answers) }}
+					{{ elements.date('aboutYou',question.question4  |  safe,answers.dobDay) }}
 
 
 					{{ elements.submit(page,question) }}

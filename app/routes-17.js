@@ -20,7 +20,7 @@ module.exports = function (app) {
 
   app.post('/release2-1/reset', function (req, res) {
     req.session.destroy();
-    res.redirect('/release2-1/apply');
+    res.redirect('/release2-1/yscMenu');
 
   });
 
@@ -68,6 +68,15 @@ module.exports = function (app) {
         'edit'  : req.body.saveAndMenu,
         data    : aboutYou.getTableData()
       });
+  });
+
+  app.post('/release2-1/resumeApplication', function (req, res) {
+    req.session['release2-1-resumeApplication'] = req.body;
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu#helper');
+    } else {
+      res.redirect('/release2-1/yscMenu');
+    }
   });
 
 
@@ -581,7 +590,7 @@ module.exports = function (app) {
 
   app.post('/release2-1/healthcareprofessional', function (req, res) {
     req.session['release2-1-healthcareprofessional'] = req.body;
-
+console.log( req.body);
     if (req.body.saveAndMenu) {
       res.redirect('/release2-1/yscMenu#healthcareprofessional');
     } else {
@@ -589,27 +598,6 @@ module.exports = function (app) {
     }
   });
 
-
-  /*******************
-  hcptest
-  *******************/
-  app.get('/release2-1/hcptest', function (req, res) {
-      res.render('release2-1/hcptest', {
-        answers : req.session['release2-1-hcptest'],
-        'edit'  : req.body.saveAndMenu,
-        data    : aboutYou.getTableData()
-      });
-  });
-
-  app.post('/release2-1/hcptest', function (req, res) {
-    req.session['release2-1-hcptest'] = req.body;
-
-    if (req.body.saveAndMenu) {
-      res.redirect('/release2-1/yscMenu#hcptest');
-    } else {
-      res.redirect('/release2-1/conditionDetails');
-    }
-  });
 
   /*******************
   specialAids
@@ -1030,7 +1018,12 @@ module.exports = function (app) {
 
   app.post('/release2-1/additionalInfo', function (req, res) {
     req.session['release2-1-additionalInfo'] = req.body;
-    res.redirect('/release2-1/yscMenu');
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu');
+    } else {
+      res.redirect('/release2-1/checkYourAnswers');
+    }
   });
 
   /*******************
@@ -1074,6 +1067,59 @@ module.exports = function (app) {
   app.post('/release2-1/validationPage', function (req, res) {
     req.session['release2-1-validationPage'] = req.body;
     res.redirect('/release2-1/yourCondition');
+  });
+
+  /*******************
+  timeoutPage
+  *******************/
+  app.get('/release2-1/timeoutPage', function (req, res) {
+      res.render('release2-1/timeoutPage', {
+        answers : req.session['release2-1-timeoutPage'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/timeoutPage', function (req, res) {
+    req.session['release2-1-timeoutPage'] = req.body;
+    res.redirect('/release2-1/yscMenu');
+  });
+
+  /*******************
+  checkYourAnswers
+  *******************/
+  app.get('/release2-1/checkYourAnswers', function (req, res) {
+      res.render('release2-1/checkYourAnswers', {
+        answers : req.session['release2-1-checkYourAnswers'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/checkYourAnswers', function (req, res) {
+    req.session['release2-1-checkYourAnswers'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu#checkYourAnswers');
+    } else {
+      res.redirect('/release2-1/submitApplication');
+    }
+  });
+
+  /*******************
+  submitApplication
+  *******************/
+  app.get('/release2-1/submitApplication', function (req, res) {
+      res.render('release2-1/submitApplication', {
+        answers : req.session['release2-1-submitApplication'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/submitApplication', function (req, res) {
+    req.session['release2-1-submitApplication'] = req.body;
+    res.redirect('/release2-1/thankYou');
   });
 
 

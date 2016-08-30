@@ -80,12 +80,14 @@ var data = [ {
       "question"         : "Do you want to get text messages about the progress of your claim?",
       "question2"        : "Mobile number",
       "question3"        : "You will get your decision letter in the post. Do you need this in a different format eg braille, large print or CD?",
+      "question4"        : "Do you want a copy of your completed application to be posted to you?",
       "checkbox1"        : "Large print",
       "checkbox2"        : "Braille",
       "checkbox3"        : "Audio CD",
       "checkbox4"        : "Other",
       "textareaQ"        : "What format do you need?",
       "textareaHintText" : "This can only be provided if it's necessary because of your disability.",
+      "copyHintText"     : "You'll get it within 6 weeks of submitting your application",
       "validateLink"     : "/release2-1/validationPage#contactPref",
       "backLink"         : "/release2-1/contactDetails"
     },
@@ -832,7 +834,7 @@ var data = [ {
       "heading"          : "Additional information",
       "introText"        : "<strong>Include anything else that explains how your condition or disability affects you.</strong>",
       "validateLink"     : "/release2-1/validationPage#additionalInfo",
-      "backLink"         : "/release2-1/yscMenu"
+      "backLink"         : "/release2-1/money"
     },
   ],
   "declaration" : [
@@ -866,6 +868,25 @@ var data = [ {
     {
       "page"             : "36",
       "heading"          : "Validation Page",
+      "validateLink"     : "/release2-1/validationPage#declaration",
+      "backLink"         : "/release2-1/YSCMenu"
+    },
+  ],
+
+  "submitApplication" : [
+    {
+      "page"             : "36",
+      "heading"          : "Submit Application",
+      "validateLink"     : "/release2-1/validationPage",
+      "backLink"         : "/release2-1/checkYourAnswers"
+    },
+  ],
+
+  "checkYourAnswers" : [
+    {
+      "page"             : "37",
+      "heading"          : "Check your answers",
+      "introText"        : "Work in progress",
       "validateLink"     : "/release2-1/validationPage#declaration",
       "backLink"         : "/release2-1/YSCMenu"
     },

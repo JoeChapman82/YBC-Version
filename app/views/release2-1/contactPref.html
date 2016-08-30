@@ -52,25 +52,14 @@
             {{ elements.genericInput('mobile',question.question2, answers.mobile) }}
           </div>
 
-					<div class="form-group" id="form-group-receiveCopy">
-	<fieldset class="inline">
-		<legend class="form-label" id="receiveCopy" for="receiveCopy">
-		<span class="frequency-question">Do you want a copy of your completed application to be posted to you?</span>
+		{% set seq4  = [
+			{"id":"receiveMyCopy","value":"Yes"},
+			{"id":"receiveCopy", "value":"No"}
+		] %}
+		{{ elements.radioSelect('receiveMyCopy',question.question4,question.copyHintText,answers.receiveMyCopy,seq4,"inline") }}
 
-		 <p class="form-hint">You&#39;ll get it within 6 weeks of submitting your application.</p>
-	</legend>
+	</fieldset>
 
-	<label class="block-label" for="receiveCopy-Yes" >
-				<input id="receiveCopy-Yes" type="radio" name="receiveCopy" value="Yes">
-				Yes
-		</label>
-					<label class="block-label" for="receiveCopy-No" >
-				<input id="receiveCopy-No" type="radio" name="receiveCopy" value="No">
-				No
-		</label>
-
-	</fieldset> 
-	</div>
 
 					{{ elements.submit(page,question) }}
 

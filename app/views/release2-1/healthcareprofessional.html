@@ -54,10 +54,10 @@
 	 	{"id":"hcpType", "value":"Other","showPanel":"otherHCP"}
 	 ] %}
 
-	 {{ elements.dropDown('hcpType', question.question2, answers.hcpType, seq) }}
+	 {{ elements.dropDown('hcpType' + i, question.question2, answers["hcpType" + i], seq) }}
 
-	 <div class="form-group {% if answers.hcpType == 'Other' %}js-hidden{% endif %}" id="otherHCP">
-	 {{ elements.genericInput('otherHCP', question.question3, answers.otherHCP) }}
+	 <div class="form-group {% if answers.hcpType != 'Other' %}js-hidden{% endif %}">
+	 {{ elements.genericInput('otherHCP' + i, question.question3, answers["otherHCP" + i]) }}
 	</div>
 
 	 <!-- End of dropdown -->
@@ -66,11 +66,11 @@
 
 										<fieldset class="form-group">
 											<legend class="form-label">Address</legend>
-											{{ elements.textInput('HCPaddress1',answers.HCPaddress1) }}
-											{{ elements.textInput('HCPaddress2',answers.HCPaddress2) }}
-											{{ elements.textInput('HCPaddress3',answers.HCPaddress3) }}
-											<legend class="form-label">Postcode</legend>
-											{{ elements.genericInput('HCPpostcode', answers.HCPpostcode) }}
+											{{ elements.textInput('HCPaddress1' + i,answers["HCPaddress1" + i]) }}
+											{{ elements.textInput('HCPaddress2' + i,answers["HCPaddress2" + i]) }}
+											{{ elements.textInput('HCPaddress3' + i,answers["HCPaddress3" + i]) }}
+
+											{{ elements.genericInput('HCPpostcode' + i, "Postcode",answers["HCPpostcode" + i]) }}
 										</fieldset>
 
 										{{ elements.genericInputList("phone" + i,question.phoneHd, answers["phone" + i]) }}
@@ -78,7 +78,7 @@
 										{{ elements.genericInputList("lastSeen" + i,question.lastSeenHd, answers["lastSeen" + i]) }}
 
 										{% if loop.last %}
-										{{ elements.textarea("moreHCP",question.question4  |  safe,answers.moreHCP) }}
+										{{ elements.textarea("moreHCP" + i,question.question4  |  safe,answers["moreHCP" + i]) }}
 									{% endif %}
 
 								</li>
@@ -88,18 +88,17 @@
 						</ul>
 
 
-						<details class="help-text form-group">
-		        <summary><span class="summary">If you change your mind about getting information from the professional(s) you've listed, contact us</span></summary>
+			<p>If you change your mind about getting information from the professional(s) you've listed,
+				<a href="#" data-hide="false" class="link-show" data-target="contact-details">contact us </a>
+			</p>
+			<div id="contact-details" class="panel-indent js-hidden">
+		  	<p>Phone 0345 850 3322</p>
+		  	<p>Textphone 0345 601 6677</p>
+		  	<p>Monday to Friday, 8am to 6pm</p>
+		  	<a href="https://www.gov.uk/call-charges" target="_blank">Find out about call charges</a>
+		  </div>
 
-		          <div class="panel-indent">
-		            <p>phone: <span class="tel">0345 850 3322</span></p>
-		            <p>textphone: <span class="tel">0345 601 6677</span></p>
-		            <p>Monday to Friday, 8am to 6pm</p>
-									<a href="https://www.gov.uk/call-charges" target="_blank">Find out about call charges</a>
-		          </div>
-		        </details>
           </div>
-
 
 					{{ elements.submit(page,question) }}
 

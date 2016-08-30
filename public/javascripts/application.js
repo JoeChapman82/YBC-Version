@@ -327,4 +327,22 @@ $(document).ready(function() {
         source: substringMatcher(country)
     });
 
+    $('.hcp-select').change(function(){
+      if ($(this).val()==='Other'){
+        $(this).parent().next().show()
+      } else {
+        $(this).parent().next().hide()
+      }
+    })
+
+    $(".link-show").click(function () {
+		var dataTarget = $(this).attr('data-target'),
+			dataHide   = $(this).attr('data-hide');
+		$("#"+dataTarget).removeClass('js-hidden');
+		if (dataHide !== 'false') {
+			$(this).hide();
+		}
+		return false;
+	});
+
 });

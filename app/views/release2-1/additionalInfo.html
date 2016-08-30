@@ -17,12 +17,9 @@
 
 				<form action="/release2-1/additionalInfo{% if edit %}?edit=true{% endif %}" method="post" class="form">
 					{{ elements.header(page,question) }}
-					{{ elements.textarea2("additionalInfo","",answers.additionalInfo,"","","",30000) }}
+					{{ elements.textarea2("additionalInfo","",answers.additionalInfo,"","","",25000) }}
 
-					<div id="submit-group" class="form-group">
-						<input type="submit" class="button" value="Save and continue" name="saveAndMenu">
-						<a href="/release2-1/yscMenu" class="link-back">Back</a>
-					</div>
+						{{ elements.submit(page,question) }}
 
         </form>
 			</div>

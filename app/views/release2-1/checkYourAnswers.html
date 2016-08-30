@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-1/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.checkYourAnswers %}
+<main id="content" role="main">
+		{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-full">
+
+				<form action="/release2-1/checkYourAnswers{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+
+
+          <!-- stuff goes here -->
+
+
+          <!-- end of stuff -->
+
+        {{ elements.submit(page,question) }}
+        </form>
+      </div>
+
+{{ elements.validation(page,question) }}
+  </div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}
