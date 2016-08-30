@@ -413,6 +413,7 @@ open
 <div class="column-third" style="float:right; width:22.5%">
 <div>
   <br>
+  <h3 class="heading-small"><u><strong>YSC Options</strong></u></h2>
   <a href="/release2-1/YscMenu">Return to Menu</a>
 </div>
   <div id="validation">
@@ -425,7 +426,7 @@ open
 {% macro dropDown(id,question,answer,dropOptions) %}
 <fieldset class="form-group">
   <legend id="{{ id }}" for="{{ id }}">
-    <span class="frequency-question">{{ question }}</span>
+    <span>{{ question }}</span>
   </legend>
   <select id="{{ id }}" class="form-control form-select-control">
     {% for item in dropOptions %}

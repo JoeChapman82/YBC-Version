@@ -163,6 +163,7 @@ var data = [ {
       "rowHd"            : "Condition",
       "conditionHd"      : "Name of condition",
       "startedHd"        : "When it started",
+      "question"         : "<strong>Enter other medications</strong>",
       "removeLink"       : "",
       "validateLink"     : "/release2-1/validationPage#conditionDetails",
       "backLink"         : "/release2-1/healthcareprofessional"

@@ -56,7 +56,7 @@
 
 	 {{ elements.dropDown('hcpType', question.question2, answers.hcpType, seq) }}
 
-	 <div class="form-group {% if answers.hcpType != 'Other' %}js-hidden{% endif %}" id="otherHCP">
+	 <div class="form-group {% if answers.hcpType == 'Other' %}js-hidden{% endif %}" id="otherHCP">
 	 {{ elements.genericInput('otherHCP', question.question3, answers.otherHCP) }}
 	</div>
 

@@ -15,12 +15,35 @@
 	<div class="grid-row">
 			<div class="column-two-thirds">
 
-
 				<form action="/release2-1/conditionDetails{% if edit %}?edit=true{% endif %}" method="post" class="form">
 					{{ elements.header(page,question) }}
 
+					<!-- size check -->
+					<div>
+						<label>Condition</label>
+						<label style="float:right; width:34%;">When it started</label>
+					</div>
+
+					<div class="form-group">
+            <input id="testId" style="border:2px solid #777777; height:30px;" name="testId" size="44" type="text" value="">
+            <input id="testId2" style="border:2px solid #777777; height:30px;" name="testId2" size="15" type="text" value="">
+					</div>
+
+					<div class="form-group">
+            <input id="testId" style="border:2px solid #777777; height:30px;" name="testId" size="44" type="text" value="">
+            <input id="testId2" style="border:2px solid #777777; height:30px;" name="testId2" size="15" type="text" value="">
+					</div>
+
+					<div class="form-group">
+						<input id="testId" style="border:2px solid #777777; height:30px;" name="testId" size="44" type="text" value="">
+						<input id="testId2" style="border:2px solid #777777; height:30px;" name="testId2" size="15" type="text" value="">
+					</div>
+
+					<!-- size check end -->
+
+
 					<ul class="list-user-input">
-						{% for i in range(1, 11) -%}
+						{% for i in range(1, 5) -%}
 
 							<li id="condition-row-{{i}}" class="condition-row {% if not loop.first and not answers['condition' + i] %} js-hidden {% endif %}">
 								<h2 class="heading-small">{{ question.rowHd }} {{i}} </h2>
@@ -32,6 +55,10 @@
 									{{ elements.genericInputList("condition" + i,question.conditionHd, answers["condition" + i],"condtion-1") }}
 
 									{{ elements.genericInputList("started" + i,question.startedHd, answers["started" + i],"started-1") }}
+
+									{% if loop.last %}
+									{{ elements.textarea("moreConditions",question.question  |  safe,answers.moreConditions) }}
+								{% endif %}
 
 							</li>
 						{% endfor %}
