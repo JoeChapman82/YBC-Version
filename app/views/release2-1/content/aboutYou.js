@@ -891,6 +891,15 @@ var data = [ {
     },
   ],
 
+  "cookiesPage" : [
+    {
+      "page"             : "A6",
+      "heading"          : "Cookies",
+      "validateLink"     : "/release2-1/validationPage#declaration",
+      "backLink"         : "/release2-1/YSCMenu"
+    },
+  ],
+
   "checkYourAnswers" : [
     {
       "page"             : "37",

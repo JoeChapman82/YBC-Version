@@ -1122,5 +1122,26 @@ console.log( req.body);
     res.redirect('/release2-1/thankYou');
   });
 
+  /*******************
+  cookiesPage
+  *******************/
+  app.get('/release2-1/cookiesPage', function (req, res) {
+      res.render('release2-1/cookiesPage', {
+        answers : req.session['release2-1-cookiesPage'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/cookiesPage', function (req, res) {
+    req.session['release2-1-cookiesPage'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu');
+    } else {
+      res.redirect('/release2-1/yscMenu');
+    }
+  });
+
 
 };
