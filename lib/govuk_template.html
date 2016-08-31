@@ -68,13 +68,13 @@
     </div>
 
     <div id="global-cookie-message">
-
+      
         {% block cookie_message %}{% endblock %}
-
+      
     </div>
     <!--end global-cookie-message-->
 
-
+    
     <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
       <div class="header-wrapper">
         <div class="header-global">
@@ -89,7 +89,7 @@
       </div>
     </header>
     <!--end header-->
-
+    
 
     {% block after_header %}{% endblock %}
 
@@ -108,16 +108,10 @@
             {% block footer_support_links %}{% endblock %}
 
             <div class="open-government-licence">
-
-              <ul>
-              				    <li><a rel="external" target="_blank" href="https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter">Privacy</a></li>
-              				    <li><a rel="external" target="_blank" href="/release2-1/cookiesPage">Cookies</a></li>
-              				    <li><a rel="external" target="_blank" href="https://www.gov.uk/government/publications">Publications</a></li>
-              			    </ul>
-
-<p><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/" class="heading-medium">Open Government Licence</a></p>
-                {% block licence_message %}<p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v2.0</a>, except where otherwise stated</p>{% endblock %}
-
+              <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+              
+                {% block licence_message %}<p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>{% endblock %}
+              
             </div>
           </div>
 
