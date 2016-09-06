@@ -443,10 +443,16 @@ module.exports = function (app) {
   app.post('/release2-1/monitoringCondition', function (req, res) {
     req.session['release2-1-monitoringCondition'] = req.body;
 
-    if (req.body.saveAndMenu) {
+    if(req.body.monitorCondition === 'Yes') {
+       if (req.body.saveAndMenu) {
+         res.redirect('/release2-1/helpMonitoring?edit=true');
+       } else {
+         res.redirect('/release2-1/helpMonitoring');
+       }
+  }  else if (req.body.saveAndMenu) {
       res.redirect('/release2-1/yscMenu#monitoringCondition');
     } else {
-      res.redirect('/release2-1/helpMonitoring');
+      res.redirect('/release2-1/submitEvidence');
     }
   });
 

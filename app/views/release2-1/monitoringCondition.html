@@ -19,10 +19,10 @@
 					{{ elements.header(page,question) }}
 
 					{% set seq  = [
-						{"id":"monitored","value":"Yes","showPanel":"monitoredDetails"},
-						{"id":"monitored", "value":"No"}
+						{"id":"monitorCondition","value":"Yes","showPanel":"monitoredDetails"},
+						{"id":"monitorCondition", "value":"No"}
 					] %}
-					{{ elements.radioSelect('monitored',question.question,"",answers.monitored,seq,"inline") }}
+					{{ elements.radioSelect('monitorCondition',question.question,"",answers.monitorCondition,seq,"inline") }}
 
 
 					{{ elements.submit(page,question) }}
