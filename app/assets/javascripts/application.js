@@ -327,6 +327,10 @@ $(document).ready(function() {
         source: substringMatcher(country)
     });
 
+    /*******************************
+    YSC version scripts
+    ********************************/
+
     $('.hcp-select').change(function(){
       if ($(this).val()==='Other'){
         $(this).parent().next().show()
@@ -344,5 +348,19 @@ $(document).ready(function() {
 		}
 		return false;
 	});
+
+  $(".add-another-row").click(function() {
+
+      var dataTarget = $(this).attr('data-target');
+      $("tr." + dataTarget + ".js-hidden").first().removeClass('js-hidden');
+
+      if ($("tr." + dataTarget + ".js-hidden").length === 0) {
+          $(this).next().show()
+          $(this).addClass('js-hidden');
+      }
+
+      return false;
+  });
+
 
 });

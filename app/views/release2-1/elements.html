@@ -462,6 +462,16 @@ open
 {% endmacro %}
 <!-- end of other dropdown -->
 
+<!-- macro for tables -->
+
+{% macro tableConditions(id,question,answer) %}
+  <td id="{{id}}" name="{{id}}">
+    <input type="text" class="form-control" id="{{id}}" name="({{id}})" value="">
+    </td>
+  {% endmacro %}
+
+
+<!-- back button -->
 {% macro backButton(data,questions,backlink) %}
       <a href="{{questions.backLink}}" class="link-back">{{data.backText}}</a>
 {% endmacro %}

@@ -1143,5 +1143,26 @@ console.log( req.body);
     }
   });
 
+  /*******************
+  testPage
+  *******************/
+  app.get('/release2-1/testPage', function (req, res) {
+    res.render('release2-1/testPage', {
+      answers : req.session['release2-1-testPage'],
+      'edit'  : req.body.saveAndMenu,
+      data    : aboutYou.getTableData()
+    });
+  });
+
+  app.post('/release2-1/testPage', function (req, res) {
+    req.session['release2-1-testPage'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu#nationality');
+    } else {
+      res.redirect('/release2-1/medications');
+    }
+  });
+
 
 };

@@ -6,9 +6,56 @@
 
 {% block content %}
 
+
 {% import "release2-1/elements.html" as elements %}
 {% for page in data %}
 {% for question in page.conditionDetails %}
+
+<head>
+  <style>
+
+  table.condition .form-group {
+  	margin-bottom:0;
+  }
+
+  .form-control,
+  textarea {
+  	border:2px solid #6f777b;
+  }
+
+  legend.form-label-bold {
+  	display:inline-block;
+  	width:100%;
+  }
+
+  .form-label{
+  	width: 100%;
+  }
+
+  table.condition .form-control {
+    width: 95%;
+  }
+
+  table.condition textarea.form-control-3-4 {
+  	font-size:19px;
+  }
+
+  table.condition .numeric,
+  table.condition th.numeric {
+    width: 25%;
+    text-align: left;
+  }
+
+  table.condition th,
+  table.condition td {
+    border: none;
+    padding: 0.5em 1em 0.5em 0;
+   }
+
+</style>
+</head>
+
+
 <main id="content" role="main">
 	{{ elements.backButton(page,question) }}
 
@@ -18,62 +65,59 @@
 				<form action="/release2-1/conditionDetails{% if edit %}?edit=true{% endif %}" method="post" class="form">
 					{{ elements.header(page,question) }}
 
-					<!-- size check -->
-					<div>
-						<label>Condition</label>
-						<label style="float:right; width:34%;">When it started</label>
-					</div>
-
-					<div class="form-group">
-            <input id="testId" style="border:2px solid #777777; height:30px;" name="testId" size="44" type="text" value="">
-            <input id="testId2" style="border:2px solid #777777; height:30px;" name="testId2" size="15" type="text" value="">
-					</div>
-
-					<div class="form-group">
-            <input id="testId" style="border:2px solid #777777; height:30px;" name="testId" size="44" type="text" value="">
-            <input id="testId2" style="border:2px solid #777777; height:30px;" name="testId2" size="15" type="text" value="">
-					</div>
-
-					<div class="form-group">
-						<input id="testId" style="border:2px solid #777777; height:30px;" name="testId" size="44" type="text" value="">
-						<input id="testId2" style="border:2px solid #777777; height:30px;" name="testId2" size="15" type="text" value="">
-					</div>
-
-					<!-- size check end -->
 
 
-					<ul class="list-user-input">
-						{% for i in range(1, 5) -%}
+            <div class="form-group">
+  <table class="condition">
+    <thead>
+    <tr>
+      <th>List your conditions or disabilities</th>
+      <th class="numeric">When it started</th>
+    </tr>
+    </thead>
 
-							<li id="condition-row-{{i}}" class="condition-row {% if not loop.first and not answers['condition' + i] %} js-hidden {% endif %}">
-								<h2 class="heading-small">{{ question.rowHd }} {{i}} </h2>
+    <tr id="condition-row" class="condition-row">
+  {{ elements.tableConditions("condition",question.question2, answers) }}
+  {{ elements.tableConditions("started",question.question2, answers) }}
+  </tr>
 
-									{% if not loop.first %}
-										<a href="#" class="remove">{{ question.removeLink }}</a>
-									{% endif %}
+  <tr id="condition-row" class="condition-row">
+{{ elements.tableConditions("condition2",question.question2, answers) }}
+{{ elements.tableConditions("started2",question.question2, answers) }}
+</tr>
 
-									{{ elements.genericInputList("condition" + i,question.conditionHd, answers["condition" + i],"condtion-1") }}
+    {% for i in range(1, 19) -%}
 
-									{{ elements.genericInputList("started" + i,question.startedHd, answers["started" + i],"started-1") }}
+  <tr id="condition-row-{{i}}" class="condition-row {% if not loop.first and not answers['condition' + i] %} js-hidden {% endif %}">
+{{ elements.tableConditions("condition" + i,question.question2, answers["condition" + i]) }}
+{{ elements.tableConditions("started" + i,question.question2, answers["started" + i]) }}
+</tr>
 
-									{% if loop.last %}
-									{{ elements.textarea("moreConditions",question.question  |  safe,answers.moreConditions) }}
-								{% endif %}
+{% endfor %}
 
-							</li>
-						{% endfor %}
+</table>
 
-						<li><a href="add-another" class="add-another" data-target="condition-row">Add another condition</a></li>
+<a href="add-another" class="add-another-row" data-target="condition-row">Add another condition</a>
 
-					</ul>
+<div class="condition-row js-hidden" id="moreConditions">
+  <label for="moreConditions">
+    <span class="form-label"><strong>List any other conditions or disabilities you have and when they started to affect you.</strong></span>
+  </label>
+  <textarea  {% if characterCount != false %} maxlength="1500" {% endif %} class="form-control form-control-3-4" id="moreConditions" name="moreConditions">{{answer}}</textarea>
+  {% if characterCount != false %}
+    <span class="font-xsmall form-control-3-4 character-count"><span class="char-count">{{ maxlength }}</span> characters left</span>
+  {% endif %}
+</div>
 
-					{{ elements.submit(page,question) }}
+            </div>
+
+          {{ elements.submit(page,question) }}
 
         </form>
-			</div>
-				{{ elements.helpline(page) }}
+      </div>
+        {{ elements.helpline(page) }}
 {{ elements.validation(page,question) }}
-	</div>
+  </div>
 
 </main>
 

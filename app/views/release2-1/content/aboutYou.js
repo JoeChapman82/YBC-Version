@@ -165,7 +165,7 @@ var data = [ {
       "rowHd"            : "Condition",
       "conditionHd"      : "Name of condition",
       "startedHd"        : "When it started",
-      "question"         : "<strong>Enter other medications</strong>",
+      "question"         : "<strong>Enter other conditions</strong>",
       "removeLink"       : "",
       "validateLink"     : "/release2-1/validationPage#conditionDetails",
       "backLink"         : "/release2-1/healthcareprofessional"
@@ -869,7 +869,7 @@ var data = [ {
       "page"             : "36",
       "heading"          : "Validation Page",
       "validateLink"     : "/release2-1/validationPage#declaration",
-      "backLink"         : "/release2-1/YSCMenu"
+      "backLink"         : "/release2-1/yscMenu"
     },
   ],
 
@@ -887,7 +887,7 @@ var data = [ {
       "page"             : "u2",
       "heading"          : "Delete saved answers",
       "validateLink"     : "/release2-1/validationPage#declaration",
-      "backLink"         : "/release2-1/YSCMenu"
+      "backLink"         : "/release2-1/yscMenu"
     },
   ],
 
@@ -896,7 +896,7 @@ var data = [ {
       "page"             : "A6",
       "heading"          : "Cookies",
       "validateLink"     : "/release2-1/validationPage#declaration",
-      "backLink"         : "/release2-1/YSCMenu"
+      "backLink"         : "/release2-1/yscMenu"
     },
   ],
 
@@ -906,7 +906,20 @@ var data = [ {
       "heading"          : "Check your answers",
       "introText"        : "Work in progress",
       "validateLink"     : "/release2-1/validationPage#declaration",
-      "backLink"         : "/release2-1/YSCMenu"
+      "backLink"         : "/release2-1/yscMenu"
+    },
+  ],
+
+  "testPage" : [
+    {
+      "page"             : "x",
+      "heading"          : "Your treatments and therapies",
+      "introText"        : "Treatments and therapies can include chemotherapy, physiotherapy, dialysis or, medical massages or exercises.",
+      "question"         : "Are you having, or do you have planned, any treatment or therapy?",
+      "question2"        : "Do you have any treatment or therapy in your home?",
+      "question4"        : "List more medications here",
+      "validateLink"     : "/release2-1/validationPage#declaration",
+      "backLink"         : "/release2-1/yscMenu"
     },
   ],
 
