@@ -1149,6 +1149,28 @@ console.log( req.body);
     }
   });
 
+
+  /*******************
+  applicationSent
+  *******************/
+  app.get('/release2-1/applicationSent', function (req, res) {
+      res.render('release2-1/applicationSent', {
+        answers : req.session['release2-1-applicationSent'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/applicationSent', function (req, res) {
+    req.session['release2-1-applicationSent'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu');
+    } else {
+      res.redirect('/release2-1/yscMenu');
+    }
+  });
+
   /*******************
   testPage
   *******************/

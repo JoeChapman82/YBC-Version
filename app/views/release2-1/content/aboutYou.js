@@ -910,6 +910,15 @@ var data = [ {
     },
   ],
 
+  "applicationSent" : [
+    {
+      "page"             : "40",
+      "heading"          : "Your application has been sent",
+      "validateLink"     : "/release2-1/validationPage",
+      "backLink"         : "/release2-1/checkYourAnswers"
+    },
+  ],
+
   "testPage" : [
     {
       "page"             : "x",

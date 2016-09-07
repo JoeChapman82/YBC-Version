@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-1/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.applicationSent %}
+<main id="content" role="main">
+
+
+	<div class="grid-row">
+		<div class="column-two-thirds">
+
+			<form action="/release2-1/yscMenu" class="form">
+	<a href="/" class="link-back">Back</a>
+
+
+	<header>
+	<h1 class="form-title heading-xlarge ">Your application has been sent</h1>
+	</header>
+	<br>
+
+				<p>The application you are trying to access was sent on <strong>date</strong></p>
+      <p>Wou should get a letter by <strong>date + 6 weeks</strong>. It will either tell you the decision, ask for more information or invite you to meet a medical professional.</p>
+
+				<div class="form-group">
+
+				</div>
+
+			</form>
+		</div>
+
+<div>
+	{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+</div>
+</div>
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}
