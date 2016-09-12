@@ -13,7 +13,7 @@
 		{{ elements.backButton(page,question) }}
 
 	<div class="grid-row">
-			<div class="column-full">
+			<div class="column-two-thirds">
 
 				<form action="/release2-1/checkYourAnswers{% if edit %}?edit=true{% endif %}" method="post" class="form">
 					{{ elements.header(page,question) }}
@@ -27,7 +27,7 @@
         {{ elements.submit(page,question) }}
         </form>
       </div>
-
+{{ elements.helpline(page) }}
 {{ elements.validation(page,question) }}
   </div>
 

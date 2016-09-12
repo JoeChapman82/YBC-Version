@@ -1,0 +1,1390 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-1/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.checkAnswersFull %}
+<main id="content" role="main">
+
+
+	<div class="grid-row">
+		<div class="column-full">
+
+			<form action="/release2-1/checkAnswersFull{% if edit %}?edit=true{% endif %}" method="post" class="form">
+
+				<header>
+					<h1 class="form-title heading-xlarge ">
+			Check your answers		</h1>
+				</header>
+				<br>
+
+				<div class="column-full">
+		  <div class="answers-cont">
+		    <h2 class="heading-medium">Helper details</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">Name</span>
+			        <span class="answer">Helper name - input here</span>
+			      </li>
+			      <li>
+			        <span class="question">How you know them</span>
+			        <span class="answer">how you know them - input here</span>
+			      </li>
+			    </ul>
+		    <a href="/release2-1/helper"	aria-label="Change your answers for Helper details">Change your answers</a>
+		  </div>
+		</div>
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">About you</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">Full name</span>
+			        <span class="answer">Mr First name input here Middle name input ehre  Last name input here</span>
+			      </li>
+			      <li>
+			        <span class="question">National Insurance number</span>
+			        <span class="answer">JA123456A</span>
+			      </li>
+			      <li>
+			        <span class="question">Date of birth</span>
+			        <span class="answer">12/12/1972</span>
+			      </li>
+			    </ul>
+			    <a href="/release2-1/aboutYou"
+			      aria-label="Change your answers for About you">
+			      Change your answers</a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Your contact details</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">Your address</span>
+			        <span class="answer">
+			          Your address line one input here<br />
+			          Your address line two input here<br />
+			          Your address line two input here<br />
+			          LS1 1LL<br />
+			        </span>
+			      </li>
+			        <li>
+			          <span class="question">Where you need letters to be sent to</span>
+			          <span class="answer">
+			            Correspondence address line 1 input here<br />
+			            Correspondence address line 2 input here<br />
+			            Correspondence address line 3 input here<br />
+			            LS1 1CC<br />
+			          </span>
+			        </li>
+			      <li>
+			        <span class="question">Phone number</span>
+			        <span class="answer">
+			        	07770 123123
+				        	<br />You need to be contacted using a textphone
+			        </span>
+			      </li>
+			      <li>
+			        <span class="question">Alternative phone number</span>
+			        <span class="answer">07897 234345</span>
+			      </li>
+			    </ul>
+			    <a href="/release2-1/contactDetails"
+			      aria-label="Change your answers for Your contact details">
+			      Change your answers</a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">How you want to be contacted</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">Text message updates</span>
+			        <span class="answer">Yes</span>
+			      </li>
+			        <li>
+			          <span class="question">Mobile number</span>
+			          <span class="answer">07987 345364</span>
+			        </li>
+			      <li>
+			        <span class="question">Get decision letter in alternative format</span>
+			        <span class="answer">
+			          Yes
+			            Other
+			           - Additional format, other free text answer input here
+			        </span>
+			      </li>
+			      <li>
+			      	<span class="question">Get a copy of your completed application to be posted to you</span>
+			        <span class="answer">Yes</span>
+			      </li>
+			    </ul>
+			    <a href="/release2-1/contactPref"
+			      aria-label="Change your answers for How you want to be contacted">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Nationality and where you live</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">Your nationality</span>
+			        <span class="answer">
+			            Another nationality input here
+			        </span>
+			      </li>
+			      <li>
+			        <span class="question">Living in England, Scotland or Wales?</span>
+			        <span class="answer">
+			            Country you live in input here
+			        </span>
+			      </li>
+			      <li>
+			        <span class="question">Have you been out of the country for more than 4 weeks in the last 3 years?</span>
+			        <span class="answer">Yes</span>
+			      </li>
+			    </ul>
+			    <a href="/release2-1/nationality"
+			      aria-label="Change your answers for Nationality and where you live">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Where you are now</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">Your currently staying in</span>
+				        <span class="answer">hospital</span>
+				      </li>
+				        <li>
+				          <span class="question">When you started staying there</span>
+				          <span class="answer">hospital etc start date input here</span>
+				        </li>
+				        <li>
+				          <span class="question">Address</span>
+				          <span class="answer">
+				            Hospital etc address line 1 input here<br />
+				            Hospital etc address line 2 input here<br />
+				            Hospital etc address line 3 input here<br />
+				            LS1 1SS<br />
+				          </span>
+				        </li>
+				    </ul>
+			    <a href="/release2-1/currentWhereabouts"
+			      aria-label="Change your answers for Where you are now">
+			      Change your answers</a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Payments from abroad</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">Have you or any of your close family worked abroad or been paid benefits from outside the United Kingdom?</span>
+			        <span class="answer">Yes</span>
+			     </li>
+			       <li>
+			         <span class="question">Have you or your close family claimed or been paid any benefits or pensions from any of these countries?</span>
+			         <span class="answer">Yes</span>
+			       </li>
+			       <li>
+			         <span class="question">Have you or your close family worked or paid National Insurance in any of these countries?</span>
+			         <span class="answer">Yes</span>
+			       </li>
+			    </ul>
+			    <a href="/release2-1/paymentsFromAbroad"
+			      aria-label="Change your answers for Payments from abroad">
+			      Change your answers</a>
+			 </div>
+			</div>
+
+
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Professionals who know about your condition</h2>
+			      <div class="column-two-thirds">
+			        <p>You agree to us contacting professionals who will share information about your condition with us</p>
+			      </div>
+			        <ul class="column-two-thirds">
+			          <li>
+			            <h3 class="heading-small">Professional 1</h3>
+			            <ul>
+			              <li>
+			                <span class="question">Their profession</span>
+			                <span class="answer">
+			                		Other
+			                			- Other profession input here
+			                </span>
+			              </li>
+			              <li>
+			                <span class="question">Their name</span>
+			                <span class="answer">HCP 1 name input here</span>
+			              </li>
+			              <li>
+			                <span class="question">Their address</span>
+			                <span class="answer">
+			                  HCP 1 address line 1 input here<br />
+			                  HCP 1 address line 2 input here<br />
+			                  HCP 1 address line 3 input here<br />
+			                  LS1 1LL
+			                </span>
+			              </li>
+			              <li>
+			                <span class="question">Their phone number</span>
+			                <span class="answer">07897 897879</span>
+			              </li>
+			              <li>
+			                <span class="question">When you last saw them</span>
+			                <span class="answer">HCP 1 last seen date input here</span>
+			              </li>
+
+			            </ul>
+			          </li>
+			          <li>
+			            <h3 class="heading-small">Professional 2</h3>
+			            <ul>
+			              <li>
+			                <span class="question">Their profession</span>
+			                <span class="answer">
+			                		Community Psychiatric Nurse
+			                </span>
+			              </li>
+			              <li>
+			                <span class="question">Their name</span>
+			                <span class="answer">HCP 2 name input here</span>
+			              </li>
+			              <li>
+			                <span class="question">Their address</span>
+			                <span class="answer">
+			                  HCP 2 address line 1 input here<br />
+			                  HCP 2 address line 2 input here<br />
+			                  HCP 2 address line 3 input here<br />
+			                  LS9 9LL
+			                </span>
+			              </li>
+			              <li>
+			                <span class="question">Their phone number</span>
+			                <span class="answer">07879 789778</span>
+			              </li>
+			              <li>
+			                <span class="question">When you last saw them</span>
+			                <span class="answer">HCP 2 last seen date input here</span>
+			              </li>
+
+			            </ul>
+			          </li>
+
+								<br>
+						<p><strong>***** Note! HCP Details 3 - 5 will appear here. They have been removed from this example *****</strong></p>
+						<br>
+
+			            </ul>
+									<ul>
+
+
+			                  <li>
+			                    <span class="question">Other professionals who know about your condition.</span>
+			                    <span class="answer">Additional HCP details input here</span>
+			                 </li>
+			        </ul>
+			      <a class="change-my-answer"href="/release2-1/healthcareprofessional"
+			      aria-label="Change your answers for Professionals who know about your condition">
+			Change your answers    </a>
+
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Your conditions and disabilities</h2>
+			        <ul class="column-two-thirds">
+			            <li>
+			              <h3 class="heading-small">Condition 1</h3>
+			              <ul>
+			                <li>
+			                  <span class="question">Name of condition</span>
+			                  <span class="answer">condition 1 input here</span>
+			                </li>
+			                <li>
+			                  <span class="question">How long has it affected you</span>
+			                  <span class="answer">started 1 input here</span>
+			                </li>
+			              </ul>
+			            </li>
+			            <li>
+			              <h3 class="heading-small">Condition 2</h3>
+			              <ul>
+			                <li>
+			                  <span class="question">Name of condition</span>
+			                  <span class="answer">condition 2 input here</span>
+			                </li>
+			                <li>
+			                  <span class="question">How long has it affected you</span>
+			                  <span class="answer">started 2 input here</span>
+			                </li>
+			              </ul>
+			            </li>
+			            <li>
+			              <h3 class="heading-small">Condition 3</h3>
+			              <ul>
+			                <li>
+			                  <span class="question">Name of condition</span>
+			                  <span class="answer">condition 3 input here</span>
+			                </li>
+			                <li>
+			                  <span class="question">How long has it affected you</span>
+			                  <span class="answer">started 3 input here</span>
+			                </li>
+			              </ul>
+			            </li>
+									<br>
+			        <p><strong>***** Note! Conditions 4 - 20 will appear here. They have been removed from this example *****</strong></p>
+							<br>
+			              </ul>
+										<ul>
+				          <li>
+				            <span class="question">List any other conditions or disabilities you have, for each include when they started to affect you.</span>
+				            <span class="answer">Additional conditions input here</span>
+				          </li>
+			        </ul>
+			      <a class="change-my-answer"href="/release2-1/conditionDetails"
+			        aria-label="Change your answers for Your conditions and disabilities">
+			Change your answers      </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Your medications</h2>
+			          <ul class="column-two-thirds">
+			              <li>
+			                <h3 class="heading-small">Medication 1</h3>
+			                <ul>
+			                  <li>
+			                    <span class="question">Name of medication</span>
+			                    <span class="answer">Medication 1 input here</span>
+			                  </li>
+			                  <li>
+			                    <span class="question">Dosage</span>
+			                    <span class="answer">Dosage 1</span>
+			                  </li>
+			                  <li>
+			                    <span class="question">How often you take it</span>
+			                    <span class="answer">How often 1</span>
+			                  </li>
+			                </ul>
+			              </li>
+			              <li>
+			                <h3 class="heading-small">Medication 2</h3>
+			                <ul>
+			                  <li>
+			                    <span class="question">Name of medication</span>
+			                    <span class="answer">Medication 2 input here</span>
+			                  </li>
+			                  <li>
+			                    <span class="question">Dosage</span>
+			                    <span class="answer">Dosage 2</span>
+			                  </li>
+			                  <li>
+			                    <span class="question">How often you take it</span>
+			                    <span class="answer">How often 2</span>
+			                  </li>
+			                </ul>
+			              </li>
+			              <li>
+			                <h3 class="heading-small">Medication 3</h3>
+			                <ul>
+			                  <li>
+			                    <span class="question">Name of medication</span>
+			                    <span class="answer">Medication 3 input here</span>
+			                  </li>
+			                  <li>
+			                    <span class="question">Dosage</span>
+			                    <span class="answer">Dosage 3</span>
+			                  </li>
+			                  <li>
+			                    <span class="question">How often you take it</span>
+			                    <span class="answer">How often 3</span>
+			                  </li>
+			                </ul>
+			              </li>
+										<br>
+				        <p><strong>***** Note! Medications 4 - 20 will appear here. They have been removed from this example *****</strong></p>
+								<br>
+			                </ul>
+			            <ul>
+			                      <li>
+				                    <span class="question">List any other medication you take. Include how often you take it and the dosage.</span>
+				                    <span class="answer">Additional medications input here</span>
+				                  </li>
+			          </ul>
+			      <a class="change-my-answer"href="/release2-1/medications"
+			        aria-label="Change your answers for Your medications">
+			Change your answers      </a>
+			  </div>
+			</div>
+
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+
+			    <h2 class="heading-medium">Managing your medication</h2>
+					<ul class="column-two-thirds">
+					    <li>
+					    	<span class="question">Your condition affects you:</span>
+				          	<span class="answer">
+						    	<ul class="list-bullet">
+			        <li>remembering to take your medication</li>
+			        <li>making sure you have enough medication</li>
+			        <li>getting medication out of the packaging</li>
+			        <li>swallowing</li>
+			          <li>Medication another way input here</li>
+					            </ul>
+					       	</span>
+					   	</li>
+					   		 <li>
+						    	<span class="question">When managing your medication:</span>
+					          	<span class="answer">
+							    	<ul class="list-bullet">
+			        <li>Someone needs to remind you to take it</li>
+			        <li>Someone needs to help you take it</li>
+			        <li>You rely on aids or something else to help</li>
+			        <li>You manage without help, but with difficulty</li>
+			          <li>How you manage in another way input here</li>
+						            </ul>
+						       	</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">Your condition affects you managing your medication:</span>
+					          	<span class="answer">How often medication input here</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">You manage your medication:</span>
+					          	<span class="answer">In your own words for managing medications input here</span>
+						   	</li>
+					</ul>
+
+			    <a class="change-my-answer" href="/release2-1/manageMedications" aria-label="Change your answers for Managing your medication">
+			Change your answers    </a>
+
+			   </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Your treatments and therapies</h2>
+			        <ul class="column-two-thirds">
+				            <li>
+				              <h3 class="heading-small">Treatment 1</h3>
+				              <ul>
+				                <li>
+				                  <span class="question">Name of treatment or therapy</span>
+				                  <span class="answer">Treatment 1 input here</span>
+				                </li>
+				                <li>
+				                  <span class="question">When or how often</span>
+				                  <span class="answer">How often 1 input here</span>
+				                </li>
+				              </ul>
+				            </li>
+				            <li>
+				              <h3 class="heading-small">Treatment 2</h3>
+				              <ul>
+				                <li>
+				                  <span class="question">Name of treatment or therapy</span>
+				                  <span class="answer">Treatment 2 input here</span>
+				                </li>
+				                <li>
+				                  <span class="question">When or how often</span>
+				                  <span class="answer">How often 2 input here</span>
+				                </li>
+				              </ul>
+				            </li>
+				            <li>
+				              <h3 class="heading-small">Treatment 3</h3>
+				              <ul>
+				                <li>
+				                  <span class="question">Name of treatment or therapy</span>
+				                  <span class="answer">Treatment 3 input here</span>
+				                </li>
+				                <li>
+				                  <span class="question">When or how often</span>
+				                  <span class="answer">How often 3 input here</span>
+				                </li>
+				              </ul>
+											  </li>
+
+											<br>
+									<p><strong>***** Note! Treatments 4 - 20 will appear here. They have been removed from this example *****</strong></p>
+									<br>
+
+				              </ul>
+				            <ul>
+			                 <li>
+				                  <span class="question">Do you have treatment or therapy at your home address?</span>
+				                  <span class="answer">Yes </span>
+				                </li>
+			                   <li>
+				                  <span class="question">List any other treatments you have and how often you have them.</span>
+				                  <span class="answer">Additional treatments input here</span>
+				                </li>
+			        </ul>
+			    <a class="change-my-answer"href="/release2-1/treatments"
+			      aria-label="Change your answers for Your treatments and therapies">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Managing your treatment</h2>
+			      <ul class="column-two-thirds">
+			        <li>
+			          <span class="question">How many hours a week they help you</span>
+			          <span class="answer">Hours help for treatment input here</span>
+			        </li>
+			        <li>
+			          <span class="question">Why you rely on someone to help manage your treatment or therapy at home</span>
+			          <span class="answer">Why does someone need to help you manage your treatment or therapy at home -  input here</span>
+			        </li>
+			        <li>
+			          <span class="question">How someone helps manage your treatment or therapy at home</span>
+			          <span class="answer">How does someone help you manage your treatment or therapy at home -  Input here</span>
+			        </li>
+			      </ul>
+			    <a class="change-my-answer"href="/release2-1/manageTreatments"
+			      aria-label="Change your answers for Managing your treatment">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Side effects</h2>
+			      <ul class="column-two-thirds">
+			        <li>
+			          <span class="question">Describe the side effects you get</span>
+			          <span class="answer">Describe the side effects you get and how often you get them. - input here</span>
+			        </li>
+			      </ul>
+			    <a class="change-my-answer"href="/release2-1/sideEffects"
+			      aria-label="Change your answers for Side effects">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Monitoring your condition</h2>
+			      <ul class="column-two-thirds">
+			        <li>
+			          <span class="question">Do you have a condition that, if not monitored, means you could be at risk or a danger to yourself or others?</span>
+			           <span class="answer">Yes</span>
+			        </li>
+			      </ul>
+			    <a class="change-my-answer"href="/release2-1/monitoringCondition"
+			      aria-label="Change your answers for Monitoring your condition">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Help monitoring your condition</h2>
+			      <ul class="column-two-thirds">
+			        <li>
+			          <span class="question">you rely on someone else to help monitor your condition</span>
+			          <span class="answer">Yes</span>
+			        </li>
+			        <li>
+			          <span class="question">How do they monitor your condition?</span>
+			          <span class="answer">How do they monitor your condition - input here</span>
+			        </li>
+			         <li>
+			          <span class="question">Why do you rely on someone else to monitor your condition?</span>
+			          <span class="answer">Why does someone need to monitor your condition - input here</span>
+			        </li>
+			      </ul>
+			    <a class="change-my-answer"href="/release2-1/helpMonitoring"
+			      aria-label="Change your answers for Help monitoring your condition">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Information you can send</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">You are sending the following information</span>
+			        <span class="answer">
+			            <ul class="list-bullet">
+			                <li>medical reports</li>
+			                <li>care or treatment plans</li>
+			                <li>medical test results (including any relevant sight and hearing tests)</li>
+			                <li>hospital discharge letters</li>
+			                <li>Education, Health and Care Plan (was &#39;Statement of Special Needs&#39;)</li>
+			                <li>Other evidence to send input here</li>
+			            </ul>
+			        </span>
+			      </li>
+			    </ul>
+			    <a class="change-my-answer"href="/release2-1/submitEvidence"
+			      aria-label="Change your answers for Information you can send">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Aids and adaptations</h2>
+			    <ul class="column-two-thirds">
+			      <li>
+			        <span class="question">Where do you have to use aids or adaptations?</span>
+			        <span class="answer">
+			            <ul class="list-bullet">
+			                <li>Getting in or out of your home <br /> List the aids or adaptations you have to use to get in or out of your home.
+			 - input here</li>
+			                <li>Hallway or stairs <br /> List the aids or adaptations you have to use in your hallway or on your stairs. - input here</li>
+			                <li>Kitchen or dining area <br /> List the aids or adaptations you have to use in your kitchen or dining area. - input here</li>
+			                <li>Lounge or sitting room <br /> List aids or adaptations you have to use in your lounge or sitting room.
+			 - input here</li>
+			                <li>Your bedroom <br /> List aids or adaptations you have to use in your bedroom. - input here</li>
+			                <li>Bathroom or toilet <br /> List aids or adaptations you have to use in your bathroom or toilet. - input here</li>
+			                <li>Outside <br /> List the aids or adaptations you have to use when you&#39;re outside. - input here</li>
+			            </ul>
+			        </span>
+			      </li>
+			      <li>
+			        <span class="question">List any other aids or adaptations you have to use all or most of the time</span>
+			        <span class="answer">List any other aids or adaptations you have to use all or most of the time. - input here</span>
+			      </li>
+			    </ul>
+			    <a class="change-my-answer"href="/release2-1/specialAids"
+			      aria-label="Change your answers for Aids and adaptations">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+
+			    <h2 class="heading-medium">Getting up and moving around</h2>
+
+					<ul class="column-two-thirds">
+					    <li>
+					    	<span class="question">Your condition affects you:</span>
+				          	<span class="answer">
+						    	<ul class="list-bullet">
+			        <li>being motivated to get up</li>
+			        <li>sitting up</li>
+			        <li>getting out of bed</li>
+			        <li>standing</li>
+			        <li>moving between rooms</li>
+			        <li>using the stairs</li>
+			          <li>Getting up in another way input here</li>
+					            </ul>
+					       	</span>
+					   	</li>
+					   		 <li>
+						    	<span class="question">When getting up and move around:</span>
+					          	<span class="answer">
+							    	<ul class="list-bullet">
+			        <li>Someone has to encourage you to get out of bed</li>
+			        <li>Someone has to help you move</li>
+			        <li>You rely on aids or something else to help</li>
+			        <li>You manage without help, but with difficulty</li>
+			          <li>How you get up, in another way, input here</li>
+						            </ul>
+						       	</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">Your condition affects you moving around your home:</span>
+					          	<span class="answer">Getting up, explain how often in your own words input here</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">You get up and move around on a typical day:</span>
+					          	<span class="answer">In your own words, getting up, input here</span>
+						   	</li>
+					</ul>
+
+			    <a class="change-my-answer" href="/release2-1/gettingUp" aria-label="Change your answers for Getting up and moving around">
+			Change your answers    </a>
+
+			   </div>
+			</div>
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Your sight</h2>
+			      <ul class="column-two-thirds">
+			        <li>
+			          <span class="question">Does your condition affect your sight?</span>
+			          <span class="answer">Yes</span>
+			        </li>
+			        <li>
+			          <span class="question">How often is your sight affected?</span>
+			          <span class="answer">How often are you affected - input here</span>
+			        </li>
+			        <li>
+			          <span class="question">How does your condition affect your sight?</span>
+			          <span class="answer">How does your condition affect your sight - input here</span>
+			        </li>
+			      </ul>
+			    <a class="change-my-answer"href="/release2-1/sight"
+			      aria-label="Change your answers for Your sight">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Your hearing</h2>
+			      <ul class="column-two-thirds">
+			        <li>
+			          <span class="question">Does your condition affect your hearing?</span>
+			          <span class="answer">Yes</span>
+			        </li>
+			        <li>
+			          <span class="question">What do you find difficult, or need help with?</span>
+			          <span class="answer">
+			            <ul class="list-bullet">
+			                  	 <li>You need a hearing aid
+			                  	 <li>You need two hearing aids
+			                  	 <li>You have a cochlear implant
+			                     <li>You rely on someone to help communicate <br /> How they help you - input here</li>
+			                     <li>You cannot hear at all <br /> Explain how you communicate - input here</li>
+			                     <li>You rely on something else <br /> Explain what you rely on - input here</li>
+			            </ul>
+			          </span>
+			        </li>
+			        <li>
+			          <span class="question">How does your condition affect your hearing?</span>
+			          <span class="answer">Explain how your condition affects your hearing - input here</span>
+			        </li>
+			      </ul>
+			    <a class="change-my-answer"href="/release2-1/hearing"
+			      aria-label="Change your answers for Your hearing">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+			    <h2 class="heading-medium">Your speech</h2>
+			      <ul class="column-two-thirds">
+			        <li>
+			          <span class="question">Does your condition affect your speech?</span>
+			          <span class="answer">Yes</span>
+			        </li>
+			        <li>
+			          <span class="question">How often is your speech affected?</span>
+			          <span class="answer">How often are you affected - input here</span>
+			        </li>
+			        <li>
+			          <span class="question">How does your condition affect your speech?</span>
+			          <span class="answer">Explain how your condition affect your speech. - input here</span>
+			        </li>
+			      </ul>
+			    <a class="change-my-answer"href="/release2-1/speech"
+			      aria-label="Change your answers for Your speech">
+			Change your answers    </a>
+			  </div>
+			</div>
+
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+
+			    <h2 class="heading-medium">Using the toilet</h2>
+
+
+
+
+
+
+
+					<ul class="column-two-thirds">
+					    <li>
+					    	<span class="question">Your condition affects you:</span>
+				          	<span class="answer">
+						    	<ul class="list-bullet">
+			        <li>getting on or off the toilet</li>
+			        <li>cleaning yourself</li>
+			        <li>controlling your bladder</li>
+			        <li>controlling your bowel</li>
+			          <li>Using the toilet, in another way - input here</li>
+					            </ul>
+					       	</span>
+					   	</li>
+					   		 <li>
+						    	<span class="question">When using the toilet:</span>
+					          	<span class="answer">
+							    	<ul class="list-bullet">
+			        <li>Someone has to encourage you to use the toilet</li>
+			        <li>Someone has to help you manage your catheter or stoma</li>
+			        <li>You rely on aids or something else to help</li>
+			        <li>You manage without help, but with difficulty</li>
+			          <li>How do you use the toilet, in another way - input here</li>
+						            </ul>
+						       	</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">Your condition affects you using the toilet:</span>
+					          	<span class="answer">How often are you affected using the toilet in your own words - input here</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">You manage to use the toilet on a typical day:</span>
+					          	<span class="answer">In your own words, using the toilet - input here</span>
+						   	</li>
+					</ul>
+
+			    <a class="change-my-answer" href="/release2-1/toilet" aria-label="Change your answers for Using the toilet">
+			Change your answers    </a>
+
+			   </div>
+			</div>
+
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+
+			    <h2 class="heading-medium">Washing yourself</h2>
+					<ul class="column-two-thirds">
+					    <li>
+					    	<span class="question">Your condition affects you:</span>
+				          	<span class="answer">
+						    	<ul class="list-bullet">
+			        <li>being motivated to wash</li>
+			        <li>knowing when or how to wash</li>
+			        <li>getting into or out of the bath or shower</li>
+			        <li>washing your feet or legs</li>
+			        <li>washing your back</li>
+			        <li>washing between your shoulders and waist</li>
+			        <li>washing your hair</li>
+			        <li>standing or balancing</li>
+			          <li>washing yourself, in another way - input here</li>
+					            </ul>
+					       	</span>
+					   	</li>
+					   		 <li>
+						    	<span class="question">When washing yourself:</span>
+					          	<span class="answer">
+							    	<ul class="list-bullet">
+			        <li>Someone has to encourage you to wash</li>
+			        <li>Someone has to wash you, supervise you or help you</li>
+			        <li>You rely on aids or something else to help</li>
+			        <li>You manage without help, but with difficulty</li>
+			          <li>How do you wash, in another way - input here</li>
+						            </ul>
+						       	</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">Your condition affects you washing yourself:</span>
+					          	<span class="answer">Explain how often, washing - input here</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">You manage to wash yourself on a typical day:</span>
+					          	<span class="answer">In your own words, washing - input here</span>
+						   	</li>
+					</ul>
+
+			    <a class="change-my-answer" href="/release2-1/washing" aria-label="Change your answers for Washing yourself">
+			Change your answers    </a>
+
+			   </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+
+			    <h2 class="heading-medium">Getting dressed</h2>
+					<ul class="column-two-thirds">
+					    <li>
+					    	<span class="question">Your condition affects you:</span>
+				          	<span class="answer">
+						    	<ul class="list-bullet">
+			        <li>being motivated to get dressed or changed</li>
+			        <li>choosing suitable clothes eg for the weather</li>
+			        <li>putting on shoes or socks</li>
+			        <li>tying shoe laces</li>
+			        <li>fastening buttons or using zips</li>
+			        <li>fastening a bra</li>
+			        <li>putting on jumpers or t-shirts</li>
+			        <li>putting on trousers or skirts</li>
+			          <li>Getting dressed, in another way - input here</li>
+					            </ul>
+					       	</span>
+					   	</li>
+					   		 <li>
+						    	<span class="question">When getting dressed:</span>
+					          	<span class="answer">
+							    	<ul class="list-bullet">
+			        <li>Someone has to encourage you to get dressed or changed</li>
+			        <li>Someone has to help you to get dressed or changed</li>
+			        <li>You rely on aids or something else to help</li>
+			        <li>You manage without help, but with difficulty</li>
+			          <li>How do you get dressed, In another way - input here</li>
+						            </ul>
+						       	</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">Your condition affects you getting dressed:</span>
+					          	<span class="answer">Explain how often, getting dressed - input here</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">You get dressed or changed on a typical day:</span>
+					          	<span class="answer">In your own words, getting dressed - input here</span>
+						   	</li>
+					</ul>
+
+			    <a class="change-my-answer" href="/release2-1/gettingDressed" aria-label="Change your answers for Getting dressed">
+			Change your answers    </a>
+
+			   </div>
+			</div>
+
+
+
+			<div class="column-full">
+			  <div class="answers-cont">
+
+			    <h2 class="heading-medium">Making a hot meal from fresh ingredients</h2>
+
+					<ul class="column-two-thirds">
+					    <li>
+					    	<span class="question">Your condition affects you:</span>
+				          	<span class="answer">
+						    	<ul class="list-bullet">
+			        <li>being motivated to make a hot meal from fresh ingredients</li>
+			        <li>understanding how to make a hot meal from fresh ingredients</li>
+			        <li>being able to make a hot meal safely</li>
+			        <li>chopping or peeling</li>
+			        <li>opening tins or jars</li>
+			        <li>using a hob</li>
+			        <li>using a microwave</li>
+			        <li>lifting pans</li>
+			        <li>putting food on a plate</li>
+			          <li>Preparing food, In another way - input here</li>
+					            </ul>
+					       	</span>
+					   	</li>
+					   		 <li>
+						    	<span class="question">When preparing and cook a hot meal from fresh ingredients:</span>
+					          	<span class="answer">
+							    	<ul class="list-bullet">
+			        <li>Someone would have to encourage or remind you</li>
+			        <li>Someone would have to supervise you, help you or cook for you</li>
+			        <li>You would rely on aids or something else to help</li>
+			        <li>You would manage without help, but with difficulty</li>
+			          <li>How would you prepare food, In another way - Input here</li>
+						            </ul>
+						       	</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">Your condition affects you making a hot meal from fresh ingredients:</span>
+					          	<span class="answer">How often prepare food, input here</span>
+						   	</li>
+
+					   		<li>
+						    	<span class="question">You would prepare or cook a hot meal from fresh ingredients on a typical day:</span>
+					          	<span class="answer">In your own words, prepare food - input here</span>
+						   	</li>
+					</ul>
+
+			    <a class="change-my-answer" href="/release2-1/hotMeal" aria-label="Change your answers for Making a hot meal from fresh ingredients">
+			Change your answers    </a>
+
+			   </div>
+			</div>
+
+			<div class="column-full">
+			  <div class="answers-cont">
+
+			    <h2 class="heading-medium">Eating and drinking</h2>
+						<ul class="column-two-thirds">
+							<li>
+								<span class="question">Your condition affects you:</span>
+										<span class="answer">
+									<ul class="list-bullet">
+
+					<li>being motivated to eat or drink</li>
+	<li>knowing when to eat or drink</li>
+	<li>knowing how much to eat or drink</li>
+	<li>cutting up food</li>
+	<li>holding cutlery</li>
+	<li>putting food or drink in your mouth</li>
+	<li>chewing food</li>
+	<li>swallowing</li>
+		<li>Eating and drinking, In another way - Input here</li>
+					</ul>
+			</span>
+	</li>
+		 <li>
+			<span class="question">When eating and drinking:</span>
+					<span class="answer">
+				<ul class="list-bullet">
+	<li>Someone has to encourage or remind you to eat or drink</li>
+	<li>Someone has to supervise or help you to eat or drink</li>
+	<li>You rely on aids or something else to help</li>
+	<li>You manage without help, but with difficulty</li>
+		<li>How eating and drinking - Input here</li>
+						</ul>
+				</span>
+		</li>
+
+		<li>
+			<span class="question">Your condition affects you eating and drinking:</span>
+					<span class="answer">How often, Eating and drinking - Input here</span>
+		</li>
+
+		<li>
+			<span class="question">You eat and drink on a typical day:</span>
+					<span class="answer">In your own words, Eating and drinking - input here</span>
+		</li>
+</ul>
+
+<a class="change-my-answer" href="/release2-1/eatingAndDrinking" aria-label="Change your answers for Eating and drinking">
+Change your answers    </a>
+
+</div>
+</div>
+
+
+<div class="column-full">
+<div class="answers-cont">
+<h2 class="heading-medium">Getting out and walking about</h2>
+
+
+	<ul class="column-two-thirds">
+		<li>
+			<span class="question">Does your condition affect you getting out and walking about?</span>
+			<span class="answer">Getting out, How often - Input here</span>
+		</li>
+		<li>
+			<span class="question">How far can you walk without stopping?</span>
+			<span class="answer">
+					<ul class="list-bullet">
+	<li>You cannot leave your home</li>
+	<li>5 to 20 metres (eg to the street outside your home)</li>
+	<li>20 to 50 metres (eg to the end of your street)</li>
+	<li>50 to 100 metres (eg around the supermarket)</li>
+	<li>100 to 200 metres (eg to the local shop)</li>
+	<li>Over 200 metres (eg around town)</li>
+	<li>Explain in your own words</li>
+					</ul>
+			</span>
+		</li>
+		<li>
+			<span class="question">How do you get out and walk about?</span>
+			<span class="answer">How, Getting out - input here</span>
+		</li>
+	</ul>
+<a class="change-my-answer" href="/release2-1/gettingOut"
+aria-label="Change your answers for Getting out and walking about">
+Change your answers    </a>
+</div>
+</div>
+
+
+
+<div class="column-full">
+<div class="answers-cont">
+
+<h2 class="heading-medium">Mixing and communicating with people</h2>
+
+<ul class="column-two-thirds">
+	<li>
+		<span class="question">Your condition affects you:</span>
+				<span class="answer">
+			<ul class="list-bullet">
+	<li>Mixing with people you do not know</li>
+	<li>Mixing with people you know</li>
+	<li>Understanding simple sentences</li>
+	<li>Understanding long or complicated sentences</li>
+	<li>Getting across what you want to say</li>
+	<li>Understanding how people are behaving towards you</li>
+	<li>acting appropriately</li>
+	<li>mixing with people without feeling anxious or distressed</li>
+		<li>Mixing, In another way - input here</li>
+					</ul>
+			</span>
+	</li>
+		 <li>
+			<span class="question">When mixing with people:</span>
+					<span class="answer">
+				<ul class="list-bullet">
+	<li>Someone has to encourage you to mix with people</li>
+	<li>Someone has to explain things to you</li>
+	<li>Someone has to supervise you</li>
+	<li>You manage without help, but with difficulty</li>
+		<li>How, mixing - input here</li>
+						</ul>
+				</span>
+		</li>
+
+		<li>
+			<span class="question">Your condition affects you mixing with people:</span>
+					<span class="answer">How often, mixing - input here</span>
+		</li>
+
+		<li>
+			<span class="question">You mix with people when you have to:</span>
+					<span class="answer">In your own words, mixing - input here</span>
+		</li>
+</ul>
+
+<a class="change-my-answer" href="/release2-1/mixing" aria-label="Change your answers for Mixing and communicating with people">
+Change your answers    </a>
+
+</div>
+</div>
+
+
+<div class="column-full">
+<div class="answers-cont">
+
+<h2 class="heading-medium">Planning a local journey</h2>
+
+<ul class="column-two-thirds">
+	<li>
+		<span class="question">You would plan a local journey to somewhere you have never been before:</span>
+				<span class="answer">
+			<ul class="list-bullet">
+	<li>Someone else would have to plan the journey</li>
+	<li>Someone would have to help you understand maps or bus timetables</li>
+	<li>You would manage without help, but with difficulty</li>
+		<li>Planning a journey, in another way  - input here</li>
+					</ul>
+			</span>
+	</li>
+
+
+		<li>
+			<span class="question">You would plan a local journey if you had to:</span>
+					<span class="answer">In your own words, planning a journey - input here</span>
+		</li>
+</ul>
+
+<a class="change-my-answer" href="/release2-1/localJourney" aria-label="Change your answers for Planning a local journey">
+Change your answers    </a>
+
+</div>
+</div>
+
+
+
+<div class="column-full">
+<div class="answers-cont">
+
+<h2 class="heading-medium">Following a route</h2>
+
+<ul class="column-two-thirds">
+	<li>
+		<span class="question">Your condition affects you:</span>
+				<span class="answer">
+			<ul class="list-bullet">
+	<li>following a route to somewhere you have never been</li>
+	<li>following a route to somewhere you know</li>
+	<li>knowing where to go</li>
+	<li>using public transport</li>
+	<li>asking for help</li>
+	<li>recovering from getting lost</li>
+	<li>dealing with any unexpected changes to the route</li>
+	<li>following directions on a map or sat nav</li>
+		<li>Following a route, in another way - input here</li>
+					</ul>
+			</span>
+	</li>
+		 <li>
+			<span class="question">When following a route:</span>
+					<span class="answer">
+				<ul class="list-bullet">
+	<li>Someone would have to be with you</li>
+	<li>You would rely on an assistance dog or something else to help you find your way</li>
+	<li>You would manage without help, but with difficulty</li>
+		<li>How, Follow a route - input here</li>
+						</ul>
+				</span>
+		</li>
+
+
+		<li>
+			<span class="question">You would follow a route if you had to:</span>
+					<span class="answer">In your own words, follow a route - input here</span>
+		</li>
+</ul>
+
+<a class="change-my-answer" href="/release2-1/somewhereNeverBeenBefore" aria-label="Change your answers for Following a route">
+Change your answers    </a>
+
+</div>
+</div>
+
+
+
+<div class="column-full">
+<div class="answers-cont">
+
+<h2 class="heading-medium">Understanding written information</h2>
+
+<ul class="column-two-thirds">
+	<li>
+		<span class="question">Your condition affects your understanding of:</span>
+				<span class="answer">
+			<ul class="list-bullet">
+	<li>words or simple sentences</li>
+	<li>long or complicated sentences</li>
+	<li>symbols such as pound signs (£) or exclamation marks (!)</li>
+	<li>dates</li>
+	<li>signs, such as safety signs</li>
+	<li>something else</li>
+					</ul>
+			</span>
+	</li>
+		 <li>
+			<span class="question">How you work out what they mean:</span>
+					<span class="answer">
+				<ul class="list-bullet">
+	<li>Someone has to explain things to you</li>
+	<li>Someone has to remind you what things mean</li>
+	<li>You manage without help, but with difficulty</li>
+		<li>How, understanding written - input here</li>
+						</ul>
+				</span>
+		</li>
+
+
+		<li>
+			<span class="question">You understand written information on a typical day:</span>
+					<span class="answer">In your own words, understanding written - input here</span>
+		</li>
+</ul>
+
+<a class="change-my-answer" href="/release2-1/understanding" aria-label="Change your answers for Understanding written information">
+Change your answers    </a>
+
+</div>
+</div>
+
+
+
+<div class="column-full">
+<div class="answers-cont">
+
+<h2 class="heading-medium">Dealing with money</h2>
+
+
+
+
+
+
+
+
+
+<ul class="column-two-thirds">
+	<li>
+		<span class="question">Your condition affects you:</span>
+				<span class="answer">
+			<ul class="list-bullet">
+	<li>You need to be encouraged to pay bills</li>
+	<li>Understanding bills</li>
+	<li>Budgeting</li>
+	<li>Understanding how much things cost</li>
+	<li>Knowing how much change you should get</li>
+	<li>Overspending</li>
+		<li>Understanding money, in another way - input here</li>
+					</ul>
+			</span>
+	</li>
+		 <li>
+			<span class="question">When dealing with money:</span>
+					<span class="answer">
+				<ul class="list-bullet">
+	<li>Someone has to explain things to you</li>
+	<li>Someone has to remind you or encourage you to pay bills</li>
+	<li>Someone legally has to deal with money for you</li>
+	<li>You manage without help, but with difficulty</li>
+		<li>How, deal with money - input here</li>
+						</ul>
+				</span>
+		</li>
+
+
+		<li>
+			<span class="question">You deal with money if you have to:</span>
+					<span class="answer">In your own words, deal with money - input here</span>
+		</li>
+</ul>
+
+<a class="change-my-answer" href="/release2-1/money" aria-label="Change your answers for Dealing with money">
+Change your answers    </a>
+
+</div>
+</div>
+
+<div class="column-full">
+<div class="answers-cont">
+<h2 class="heading-medium">Additional information</h2>
+<ul class="column-two-thirds">
+<li>
+ <span class="question">Include anything else that explains how your condition or disability affects you.</span>
+ <span class="answer">Additional information - input here</span>
+</li>
+</ul>
+<a class="change-my-answer" href="/release2-1/additionalInfo"
+aria-label="Change your answers for Additional information">
+Change your answers   </a>
+</div>
+</div>
+
+
+	{{ elements.submit(page,question) }}
+			</form>
+		</div>
+
+<div>
+	</div>
+</div>
+</div>
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

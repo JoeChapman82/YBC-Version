@@ -197,10 +197,10 @@
 							</li>
 	          </ul>
 
-						<a href="/release2-1/yscMenu"><h2 class="heading-medium heading-highlight"><span class="h2">Final section</span></h2></a>
+						<h2 class="heading-medium heading-highlight"><span class="h2">Final section</span></h2>
 						<ul>
 							<li>
-						<div class="column-two-thirds">37 - Check and change</div>
+						<div class="column-two-thirds">37 - Check your answers</div>
 						{{ elements.EnterChangeAnswers(checkYourAnswers,"checkYourAnswers") }}
 					</li>
 					<li>
@@ -213,7 +213,7 @@
 	</li>
 				</ul>
 
-				<a href="/release2-1/yscMenu#emailLogin"><h2 class="heading-medium heading-highlight"><span class="h2">Other Pages</span></h2></a>
+				<h2 class="heading-medium heading-highlight"><span class="h2">Additional Pages</span></h2>
 				<ul>
 					<li>
 				<div class="column-two-thirds">A1 - Enter your email page</div>
@@ -240,6 +240,31 @@
 	{{ elements.EnterChangeAnswers(cookiesPage,"cookiesPage") }}
 </li>
 		</ul>
+
+	<h2 class="heading-medium heading-highlight"><span class="h2">Error Pages</span></h2>
+		<ul>
+			<li>
+		<div class="column-two-thirds">E1 - Something's gone wrong page</div>
+		{{ elements.EnterChangeAnswers(somethingGoneWrong,"somethingGoneWrong") }}
+	</li>
+	<li>
+<div class="column-two-thirds">E2 - Page cannot be found page</div>
+{{ elements.EnterChangeAnswers(pageNotFound,"pageNotFound") }}
+</li>
+</ul>
+
+<h2 class="heading-medium heading-highlight"><span class="h2">Check your answers - example pages</span></h2>
+<ul>
+	<li>
+<div class="column-two-thirds">C1 - Check your answers - full</div>
+{{ elements.EnterChangeAnswers(checkAnswersFull,"checkAnswersFull") }}
+</li>
+<li>
+<div class="column-two-thirds">C2 - Check your answers - minimal answers</div>
+{{ elements.EnterChangeAnswers(pageNotFound,"pageNotFound") }}
+</li>
+</ul>
+
 						<div class="column-two-thirds">
 						    <a href="/" class="link-back">Back</a>
 							</div>

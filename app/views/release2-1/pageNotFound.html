@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-1/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.pageNotFound %}
+<main id="content" role="main">
+
+
+	<div class="grid-row">
+		<div class="column-two-thirds">
+
+			<form action="/release2-1/pageNotFound" class="form">
+
+
+	<header>
+	<h1 class="form-title heading-xlarge ">This page cannot be found</h1>
+	</header>
+	<br>
+				<p>Check that you've entered the correct web address, or try;</p>
+        <ul class="list-bullet">
+          <li>
+            <a href="http://gov.uk">GOV.UK homepage</a>
+          </li>
+        </ul>
+
+			</form>
+		</div>
+
+<div>
+	{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+</div>
+</div>
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

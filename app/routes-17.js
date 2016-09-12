@@ -1172,6 +1172,69 @@ console.log( req.body);
   });
 
   /*******************
+  somethingGoneWrong
+  *******************/
+  app.get('/release2-1/somethingGoneWrong', function (req, res) {
+      res.render('release2-1/somethingGoneWrong', {
+        answers : req.session['release2-1-somethingGoneWrong'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/somethingGoneWrong', function (req, res) {
+    req.session['release2-1-somethingGoneWrong'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu');
+    } else {
+      res.redirect('/release2-1/yscMenu');
+    }
+  });
+
+  /*******************
+  pageNotFound
+  *******************/
+  app.get('/release2-1/pageNotFound', function (req, res) {
+      res.render('release2-1/pageNotFound', {
+        answers : req.session['release2-1-pageNotFound'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/pageNotFound', function (req, res) {
+    req.session['release2-1-pageNotFound'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu');
+    } else {
+      res.redirect('/release2-1/yscMenu');
+    }
+  });
+
+  /*******************
+  checkAnswersFull
+  *******************/
+  app.get('/release2-1/checkAnswersFull', function (req, res) {
+      res.render('release2-1/checkAnswersFull', {
+        answers : req.session['release2-1-checkAnswersFull'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/checkAnswersFull', function (req, res) {
+    req.session['release2-1-checkAnswersFull'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu');
+    } else {
+      res.redirect('/release2-1/yscMenu');
+    }
+  });
+
+  /*******************
   testPage
   *******************/
   app.get('/release2-1/testPage', function (req, res) {

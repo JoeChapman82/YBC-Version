@@ -556,7 +556,7 @@ var data = [ {
       "helpLabel"        : "Someone has to help you to get dressed or changed",
       "relyLabel"        : "You rely on aids or something else to help",
       "manageLabel"      : "You manage without help, but with difficulty",
-      "question4"        : "In your own words, describe howr condition affects you getting dressed on a typical day.",
+      "question4"        : "In your own words, describe how condition affects you getting dressed on a typical day.",
       "helpTextHd"       : "Include if:",
       "helpText"         : ["it takes a long time","what you’re able to do depends on the type of day you’re having","you risk having an accident or hurting yourself","getting dressed has an effect on your condition"],
       "frequency"          : [
@@ -904,7 +904,7 @@ var data = [ {
     {
       "page"             : "37",
       "heading"          : "Check your answers",
-      "introText"        : "Work in progress",
+      "introText"        : "This page is currently under development. In the meantime, you can view example pages from the YSC Menu",
       "validateLink"     : "/release2-1/validationPage#declaration",
       "backLink"         : "/release2-1/yscMenu"
     },
@@ -916,6 +916,33 @@ var data = [ {
       "heading"          : "Your application has been sent",
       "validateLink"     : "/release2-1/validationPage",
       "backLink"         : "/release2-1/checkYourAnswers"
+    },
+  ],
+
+  "somethingGoneWrong" : [
+    {
+      "page"             : "E1",
+      "heading"          : "Something's gone wrong",
+      "validateLink"     : "/release2-1/validationPage",
+      "backLink"         : "/release2-1/yscMenu"
+    },
+  ],
+
+  "pageNotFound" : [
+    {
+      "page"             : "E2",
+      "heading"          : "Page not found",
+      "validateLink"     : "/release2-1/validationPage",
+      "backLink"         : "/release2-1/yscMenu"
+    },
+  ],
+
+  "checkAnswersFull" : [
+    {
+      "page"             : "EC1",
+      "heading"          : "Check your answers",
+      "validateLink"     : "/release2-1/validationPage",
+      "backLink"         : "/release2-1/yscMenu"
     },
   ],
 
