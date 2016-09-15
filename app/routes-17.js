@@ -1235,6 +1235,27 @@ console.log( req.body);
   });
 
   /*******************
+  checkAnswersMinimal
+  *******************/
+  app.get('/release2-1/checkAnswersMinimal', function (req, res) {
+      res.render('release2-1/checkAnswersMinimal', {
+        answers : req.session['release2-1-checkAnswersMinimal'],
+        'edit'  : req.body.saveAndMenu,
+        data    : aboutYou.getTableData()
+      });
+  });
+
+  app.post('/release2-1/checkAnswersMinimal', function (req, res) {
+    req.session['release2-1-checkAnswersMinimal'] = req.body;
+
+    if (req.body.saveAndMenu) {
+      res.redirect('/release2-1/yscMenu');
+    } else {
+      res.redirect('/release2-1/yscMenu');
+    }
+  });
+
+  /*******************
   testPage
   *******************/
   app.get('/release2-1/testPage', function (req, res) {

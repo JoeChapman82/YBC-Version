@@ -1,0 +1,572 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-1/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.checkAnswersFull %}
+<main id="content" role="main">
+
+
+	<div class="grid-row">
+		<div class="column-full">
+
+			<form action="/release2-1/checkAnswersFull{% if edit %}?edit=true{% endif %}" method="post" class="form">
+
+
+				<header>
+						<h1 class="form-title heading-xlarge ">
+				Check your answers		</h1>
+					</header>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Helper details</h2>
+				    	<div class="column-two-thirds"><p>You do not have someone helping you fill in this application</p></div>
+				    <a href="/pipDigital/user-data/helperDetails"
+							aria-label="Change your answers for Helper details">
+				Change your answers		</a>
+				  </div>
+				</div>
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">About you</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">Full name</span>
+				        <span class="answer">Mr name middle name  Last name</span>
+				      </li>
+				      <li>
+				        <span class="question">National Insurance number</span>
+				        <span class="answer">JA123123A</span>
+				      </li>
+				      <li>
+				        <span class="question">Date of birth</span>
+				        <span class="answer">12/12/1987</span>
+				      </li>
+				    </ul>
+				    <a href="/pipDigital/user-data/personalDetails"
+				      aria-label="Change your answers for About you">
+				      Change your answers</a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Your contact details</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">Your address</span>
+				        <span class="answer">
+				          My address<br />
+
+
+				          LS1 1LL<br />
+				        </span>
+				      </li>
+				      <li>
+				        <span class="question">Phone number</span>
+				        <span class="answer">
+
+				        </span>
+				      </li>
+				      <li>
+				        <span class="question">Alternative phone number</span>
+				        <span class="answer"></span>
+				      </li>
+				    </ul>
+				    <a href="/pipDigital/user-data/contact"
+				      aria-label="Change your answers for Your contact details">
+				      Change your answers</a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">How you want to be contacted</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">Text message updates</span>
+				        <span class="answer">No</span>
+				      </li>
+				      <li>
+				        <span class="question">Get decision letter in alternative format</span>
+				        <span class="answer">
+				          No
+				        </span>
+				      </li>
+				      <li>
+				      	<span class="question">Get a copy of your completed application to be posted to you</span>
+				        <span class="answer">No</span>
+				      </li>
+				    </ul>
+				    <a href="/pipDigital/user-data/contactPreferences"
+				      aria-label="Change your answers for How you want to be contacted">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Nationality and where you live</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">Your nationality</span>
+				        <span class="answer">
+				            British
+				        </span>
+				      </li>
+				      <li>
+				        <span class="question">Living in England, Scotland or Wales?</span>
+				        <span class="answer">
+				            Yes
+				        </span>
+				      </li>
+				      <li>
+				        <span class="question">Have you been out of the country for more than 4 weeks in the last 3 years?</span>
+				        <span class="answer">No</span>
+				      </li>
+				    </ul>
+				    <a href="/pipDigital/user-data/nationality"
+				      aria-label="Change your answers for Nationality and where you live">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Where you are now</h2>
+				    	<div class="column-two-thirds"><p>You are currently not staying in a hospital, a care or nursing home, sheltered housing, a residential college, a hospital or a hospice</p></div>
+				    <a href="/pipDigital/user-data/payability"
+				      aria-label="Change your answers for Where you are now">
+				      Change your answers</a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Payments from abroad</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">Have you or any of your close family worked abroad or been paid benefits from outside the United Kingdom?</span>
+				        <span class="answer">No</span>
+				     </li>
+				    </ul>
+				    <a href="/pipDigital/user-data/paymentsFromAbroad"
+				      aria-label="Change your answers for Payments from abroad">
+				      Change your answers</a>
+				 </div>
+				</div>
+
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Professionals who know about your condition</h2>
+				      <div class="column-two-thirds">
+				        <p>You do not agree to us contacting professionals who will share information about your condition with us</p>
+				      </div>
+				      <a class="change-my-answer"href="/pipDigital/healthcare/healthcareprofessional"
+				      aria-label="Change your answers for Professionals who know about your condition">
+				Change your answers    </a>
+
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Your conditions and disabilities</h2>
+				        <ul class="column-two-thirds">
+				            <li>
+				              <h3 class="heading-small">Condition 1</h3>
+				              <ul>
+				                <li>
+				                  <span class="question">Name of condition</span>
+				                  <span class="answer">My only condition</span>
+				                </li>
+				                <li>
+				                  <span class="question">How long has it affected you</span>
+				                  <span class="answer">just a moment ago</span>
+				                </li>
+				              </ul>
+				            </li>
+				        </ul>
+				      <a class="change-my-answer"href="/pipDigital/activities/conditionDetails"
+				        aria-label="Change your answers for Your conditions and disabilities">
+				Change your answers      </a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Your medications</h2>
+				        <div class="column-two-thirds">
+				          <p>You are currently not taking any medications</p>
+				        </div>
+				      <a class="change-my-answer"href="/pipDigital/activities/medications"
+				        aria-label="Change your answers for Your medications">
+				Change your answers      </a>
+				  </div>
+				</div>
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Your treatments and therapies</h2>
+				      <div class="column-two-thirds">
+				        <p>You are currently are having no or not planned to have any treatment or therapy.</p>
+				      </div>
+				    <a class="change-my-answer"href="/pipDigital/activities/treatments"
+				      aria-label="Change your answers for Your treatments and therapies">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Side effects</h2>
+				      <div class="column-two-thirds">
+				        <p>You do not get any side effects from your medication, treatment or therapy</p>
+				      </div>
+				    <a class="change-my-answer"href="/pipDigital/activities/sideEffects"
+				      aria-label="Change your answers for Side effects">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Monitoring your condition</h2>
+				      <div class="column-two-thirds">
+				        <p>You do not have a condition that needs to be monitored.</p>
+				      </div>
+				    <a class="change-my-answer"href="/pipDigital/activities/monitoringYourCondition"
+				      aria-label="Change your answers for Monitoring your condition">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Information you can send</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">You are sending the following information</span>
+				        <span class="answer">
+				            <ul class="list-bullet">
+				                <li>You are not sending any medical information</li>
+				            </ul>
+				        </span>
+				      </li>
+				    </ul>
+				    <a class="change-my-answer"href="/pipDigital/user-data/submitEvidence"
+				      aria-label="Change your answers for Information you can send">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Aids and adaptations</h2>
+				    <ul class="column-two-thirds">
+				      <li>
+				        <span class="question">Where do you have to use aids or adaptations?</span>
+				        <span class="answer">
+				            <ul class="list-bullet">
+				                <li>You do not have to use aids or adaptations <br /> </li>
+				            </ul>
+				        </span>
+				      </li>
+				      <li>
+				        <span class="question">List any other aids or adaptations you have to use all or most of the time</span>
+				        <span class="answer"></span>
+				      </li>
+				    </ul>
+				    <a class="change-my-answer"href="/pipDigital/user-data/specialAids"
+				      aria-label="Change your answers for Aids and adaptations">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Getting up and moving around</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you moving around your home</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/gettingAround" aria-label="Change your answers for Getting up and moving around">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Your sight</h2>
+				      <div class="column-two-thirds">
+				        <p>Your condition does not affect your sight</p>
+				      </div>
+				    <a class="change-my-answer"href="/pipDigital/activities/seeing"
+				      aria-label="Change your answers for Your sight">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Your hearing</h2>
+				      <div class="column-two-thirds">
+				        <p>Your condition does not affect your hearing</p>
+				      </div>
+				    <a class="change-my-answer"href="/pipDigital/activities/hearing"
+				      aria-label="Change your answers for Your hearing">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Your speech</h2>
+				      <div class="column-two-thirds">
+				        <p>Your condition does not affect your speech</p>
+				      </div>
+				    <a class="change-my-answer"href="/pipDigital/activities/speaking"
+				      aria-label="Change your answers for Your speech">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Using the toilet</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you using the toilet</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/toilet" aria-label="Change your answers for Using the toilet">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Washing yourself</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you washing yourself</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/washing" aria-label="Change your answers for Washing yourself">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Getting dressed</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you getting dressed or changed</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/gettingDressed" aria-label="Change your answers for Getting dressed">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Making a hot meal from fresh ingredients</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you making a hot meal from fresh ingredients.</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/preparingandcookingfood" aria-label="Change your answers for Making a hot meal from fresh ingredients">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Eating and drinking</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you eating or drinking</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/eatinganddrinking" aria-label="Change your answers for Eating and drinking">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+				    <h2 class="heading-medium">Getting out and walking about</h2>
+
+
+					      <div class="column-two-thirds">
+					        <p>Your condition does not affect you getting out or walking about</p>
+					      </div>
+				    <a class="change-my-answer" href="/pipDigital/activities/goingOut"
+				    aria-label="Change your answers for Getting out and walking about">
+				Change your answers    </a>
+				  </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Mixing and communicating with people</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you mixing with people</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/gettingOn" aria-label="Change your answers for Mixing and communicating with people">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Planning a local journey</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you planning a local journey</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/localJourney" aria-label="Change your answers for Planning a local journey">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Following a route</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition would not affect you following a route.</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/goingSomewherebeenBefore" aria-label="Change your answers for Following a route">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Understanding written information</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you understanding written information</p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/understanding" aria-label="Change your answers for Understanding written information">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+
+
+				<div class="column-full">
+				  <div class="answers-cont">
+
+				    <h2 class="heading-medium">Dealing with money</h2>
+
+					    			<div class="column-two-thirds"><p>Your condition does not affect you dealing with money </p></div>
+
+
+				    <a class="change-my-answer" href="/pipDigital/activities/money" aria-label="Change your answers for Dealing with money">
+				Change your answers    </a>
+
+				   </div>
+				</div>
+
+				<div class="column-full">
+				 <div class="answers-cont">
+				   <h2 class="heading-medium">Additional information</h2>
+				   <ul class="column-two-thirds">
+				     <li>
+				       <span class="question">Include anything else that explains how your condition or disability affects you.</span>
+				       <span class="answer"></span>
+				     </li>
+				   </ul>
+				   <a class="change-my-answer" href="/pipDigital/activities/additionalInfo"
+					aria-label="Change your answers for Additional information">
+				Change your answers   </a>
+				 </div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				{{ elements.submit(page,question) }}
+						</form>
+					</div>
+
+			<div>
+				</div>
+			</div>
+			</div>
+			</main>
+
+			{% endfor %}
+			{% endfor %}
+			{% endblock %}

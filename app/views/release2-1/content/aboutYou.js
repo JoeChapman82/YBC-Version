@@ -946,6 +946,15 @@ var data = [ {
     },
   ],
 
+  "checkAnswersMinimal " : [
+    {
+      "page"             : "EC2",
+      "heading"          : "Check your answers",
+      "validateLink"     : "/release2-1/validationPage",
+      "backLink"         : "/release2-1/yscMenu"
+    },
+  ],
+
   "testPage" : [
     {
       "page"             : "x",
