@@ -852,14 +852,17 @@ var data = [ {
   "thankYou" : [
     {
       "heading"          : "Your application has been sent",
+      "heading1"         : "Some more information",
       "heading2"         : "What happens next?",
-      "p1"               : "You'll get a letter in the next 4 weeks. This will either tell you the decision, ask for more information or invite you to meet a medical professional to discuss how your condition affects you in more detail.",
+      "p1"               : "You said you would send information about the effects of your condition. Write your National Insurance number on each page your send and post it in the next two weeks, or a decision will be made without it.",
+      "p2"               : "You'll get a letter in the next 4 weeks. This will either tell you the decision, ask for more information or invite you to meet a medical professional to discuss how your condition affects you in more detail.",
       "postTo"           : "Post to:",
       "address"          : ["Freepost DWP PIP 3","Mail Handling Site A","Wolverhampton","WV98 1AD"],
       "heading3"         : "Your views can improve this application",
-      "p2"               : "If you have any queries about your claim, call 0113 2327118 or text 07867 687 141.",
-      "p3"               : "You must <a href='#' rel='external'>report any change to your circumstances</a>.",
-      "p4"               : "Now you've finished the application, tell us how you got on. Any feedback you give will not affect your claim.",
+      "p3"               : "If you have any queries about your claim, call 0113 2327118 or text 07867 687 141.",
+      "p4"               : "You must <a href='#' rel='external'>report any change to your circumstances</a>.",
+      "p5"               : "Now you've finished the application, tell us how you got on. Any feedback you give will not affect your claim.",
+      "p6"               : "Post to:",
       "button"           : "Return to GOV.UK"
     },
   ],
