@@ -11,13 +11,13 @@
 {% for page in data %}
 {% for question in page.applicationSent %}
 <main id="content" role="main">
+	{{ elements.backButton(page,question) }}
 
 
 	<div class="grid-row">
 		<div class="column-two-thirds">
 
 			<form action="/release2-1/yscMenu" class="form">
-	<a href="/" class="link-back">Back</a>
 
 
 	<header>

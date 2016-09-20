@@ -10,6 +10,7 @@
 {% for page in data %}
 {% for question in page.thankYou %}
 <main id="content" role="main">
+	{{ elements.backButton(page,question) }}
 
 	<div class="grid-row">
 		<div class="highlighted-event">
