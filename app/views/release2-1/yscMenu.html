@@ -11,13 +11,8 @@
 {% for yscMenu in dataCheckChange %}
 {% for question in yscMenu.yscMenu %}
 <main id="content" role="main">
-	
-	<div class="phase-banner-beta">
-	<p>
-	  <strong class="phase-tag" style="background-color: #9966FF">YSC&nbsp;Version</strong>
-	  <span>This is for information only. No information is saved</span>
-	</p>
-	</div>
+
+{{ elements.yscBanner(page,question) }}
 
 	<div class="grid-row">
 			<form action="/release2-1/yscMenu{% if edit %}?edit=true{% endif %}" method="post" class="form pip-16">
