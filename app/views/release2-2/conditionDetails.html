@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.conditionDetails %}
+
+<head>
+  <style>
+
+  table.condition .form-group {
+  	margin-bottom:0;
+  }
+
+  .form-control,
+  textarea {
+  	border:2px solid #6f777b;
+  }
+
+  legend.form-label-bold {
+  	display:inline-block;
+  	width:100%;
+  }
+
+  .form-label{
+  	width: 100%;
+  }
+
+  table.condition .form-control {
+    width: 95%;
+  }
+
+  table.condition textarea.form-control-3-4 {
+  	font-size:19px;
+  }
+
+  table.condition .numeric,
+  table.condition th.numeric {
+    width: 25%;
+    text-align: left;
+  }
+
+  table.condition th,
+  table.condition td {
+    border: none;
+    padding: 0.5em 1em 0.5em 0;
+   }
+
+</style>
+</head>
+
+
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/conditionDetails{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+
+
+
+            <div class="form-group">
+  <table class="condition">
+    <thead>
+    <tr>
+      <th>List your conditions or disabilities</th>
+      <th class="numeric">When it started</th>
+    </tr>
+    </thead>
+
+    <tr id="condition-row" class="condition-row">
+  {{ elements.tableConditions("condition",question.question2, answers) }}
+  {{ elements.tableConditions("started",question.question2, answers) }}
+  </tr>
+
+  <tr id="condition-row" class="condition-row">
+{{ elements.tableConditions("condition2",question.question2, answers) }}
+{{ elements.tableConditions("started2",question.question2, answers) }}
+</tr>
+
+    {% for i in range(1, 19) -%}
+
+  <tr id="condition-row-{{i}}" class="condition-row {% if not loop.first and not answers['condition' + i] %} js-hidden {% endif %}">
+{{ elements.tableConditions("condition" + i,question.question2, answers["condition" + i]) }}
+{{ elements.tableConditions("started" + i,question.question2, answers["started" + i]) }}
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="add-another" class="add-another-row" data-target="condition-row">Add another condition</a>
+
+<div class="condition-row js-hidden" id="moreConditions">
+  <label for="moreConditions">
+    <span class="form-label"><strong>List any other conditions or disabilities you have and when they started to affect you.</strong></span>
+  </label>
+  <textarea  {% if characterCount != false %} maxlength="1500" {% endif %} class="form-control form-control-3-4" id="moreConditions" name="moreConditions">{{answer}}</textarea>
+  {% if characterCount != false %}
+    <span class="font-xsmall form-control-3-4 character-count"><span class="char-count">{{ maxlength }}</span> characters left</span>
+  {% endif %}
+</div>
+
+            </div>
+
+          {{ elements.submit(page,question) }}
+
+        </form>
+      </div>
+        {{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+  </div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

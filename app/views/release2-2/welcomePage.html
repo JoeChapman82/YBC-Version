@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.welcomePage %}
+<main id="content" role="main">
+	{{ elements.yscBanner(page,question) }}
+
+  <div class="grid-row">
+      <div class="column-two-thirds">
+
+        <form action="/release2-2/welcomePage{% if edit %}?edit=true{% endif %}" method="post" class="form form-group-frequency">
+          {{ elements.header (page,question) }}
+
+          <h1 class="heading-xlarge">Apply for Personal Independence Payment (<abbr>PIP</abbr>)</h1>
+
+          <p>To apply for Personal Independence Payment you need to give details
+            about the effects of your condition or disability. You can ask a friend, family member or
+            <a rel="external" target="_blank" href="https://www.gov.uk/find-a-community-support-group-or-organisation">support organisation</a> to help you.<p>
+
+              <p>Before you start, you'll need:</p>
+              <div class="form-group">
+              <ul class="list list-bullet">
+                <li>your National Insurance Number</li>
+                <li>your bank or building society details</li>
+                <li>contact details of any doctors, nurses, counsellors or other people who help you</li>
+                <li>details of your medication or treatments</li>
+              </ul>
+            </div>
+
+
+          <div class="form-group">
+
+
+  					<input type="submit" class="button" name="retrieve" value='Start now    '>
+  				</div>
+
+        </form>
+      </div>
+      {{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+  </div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

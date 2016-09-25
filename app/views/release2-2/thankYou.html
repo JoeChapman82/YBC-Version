@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.thankYou %}
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+		<div class="highlighted-event">
+			<h1 class="heading-xlarge">{{question.heading}}</h1>
+		</div>
+
+		<div class="column-full-width">
+			<h2 class="heading-medium">{{question.heading1}}</h2>
+			<p>{{question.p1}}</p>
+			<p>{{question.p6}}</p>
+			<p>Freepost DWP PIP 3<br>Mail Handling Site A<br>Wolverhampton<br>WV98 1AD<p>
+
+
+		<div class="column-full-width">
+			<h2 class="heading-medium">{{question.heading2}}</h2>
+			<p>{{question.p2}}</p>
+
+<div>
+			<p>You must promptly <a href="#" onclick="$('#changeOfCircs').toggle();">report any changes to my circumstances</a></p>
+
+		<div id="changeOfCircs" style="display: none">
+			<p>You must call 0345 850 3322, or textphone 0345 601 6677 if:</p>
+			<ul class="list-bullet" style="margin-top:-10px;">
+				<li> your personal details change, eg your name, address or doctor</li>
+				<li>the help you need or your condition changes</li>
+				<li>you stay overnight in a hospital or care home</li>
+				<li>you go abroad for more than 13 weeks</li>
+				<li>you’re imprisoned or held in detention</li>
+			</ul>
+		</div>
+	</div>
+
+			<p>{{question.p3}}</p>
+
+		</div>
+
+		<div class="column-full-width">
+			<h3 class="heading-small">{{question.heading3}}</h2>
+			<p>{{question.p5}}</p>
+			<p><a href="/release2-2/yscMenu">PIP feedback form</a></p>
+			<a href="http://www.gov.uk" class="button">{{question.button}}</a>
+		</div>
+
+	</div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

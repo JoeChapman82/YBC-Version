@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.treatments %}
+
+<head>
+  <style>
+
+  table.condition .form-group {
+  	margin-bottom:0;
+  }
+
+  .form-control,
+  textarea {
+  	border:2px solid #6f777b;
+  }
+
+  legend.form-label-bold {
+  	display:inline-block;
+  	width:100%;
+  }
+
+  .form-label{
+  	width: 100%;
+  }
+
+  table.condition .form-control {
+    width: 95%;
+  }
+
+  table.condition textarea.form-control-3-4 {
+  	font-size:19px;
+  }
+
+  table.condition .numeric,
+  table.condition th.numeric {
+    width: 25%;
+    text-align: left;
+  }
+
+  table.condition th,
+  table.condition td {
+    border: none;
+    padding: 0.5em 1em 0.5em 0;
+   }
+
+</style>
+</head>
+
+
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/treatments{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+
+          {% set seq  = [
+            {"id":"monitored","value":"Yes","showPanel":"treatmentDetails"},
+            {"id":"monitored", "value":"No"}
+          ] %}
+          {{ elements.radioSelect('monitored',question.question,question.qHintText,answers.monitored,seq,"inline") }}
+
+
+            <div class="form-group {% if answers.monitored != 'Yes' %}js-hidden{% endif %}" id="treatmentDetails">
+  <table class="condition">
+    <thead>
+    <tr>
+      <th>List the treatment or therapy</th>
+      <th class=>When or how often</th>
+    </tr>
+    </thead>
+
+    <tr id="condition-row" class="condition-row">
+  {{ elements.tableConditions("condition",question.question2, answers) }}
+  {{ elements.tableConditions("started",question.question2, answers) }}
+  </tr>
+
+  <tr id="condition-row" class="condition-row">
+{{ elements.tableConditions("condition2",question.question2, answers) }}
+{{ elements.tableConditions("started2",question.question2, answers) }}
+</tr>
+
+    {% for i in range(1, 19) -%}
+
+  <tr id="condition-row-{{i}}" class="condition-row {% if not loop.first and not answers['condition' + i] %} js-hidden {% endif %}">
+{{ elements.tableConditions("condition" + i,question.question2, answers["treatment" + i]) }}
+{{ elements.tableConditions("started" + i,question.question2, answers["whenOrHowOften" + i]) }}
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="add-another" class="add-another-row" data-target="condition-row">Add another treatment or therapy</a>
+
+<div class="condition-row js-hidden" id="moreTreatments">
+  <label for="moreTreatments">
+    <span class="form-label"><strong>List any other treatments you have. Include when or how often you have them.</strong></span>
+  </label>
+  <textarea  {% if characterCount != false %} maxlength="1500" {% endif %} class="form-control form-control-3-4" id="moreConditions" name="moreConditions">{{answer}}</textarea>
+  {% if characterCount != false %}
+    <span class="font-xsmall form-control-3-4 character-count"><span class="char-count">{{ maxlength }}</span> characters left</span>
+  {% endif %}
+</div>
+
+
+{% set seq2 =[
+  {"id":"atHome","value":"Yes"},
+  {"id":"atHome","value":"No"}
+  ]%}
+
+  {{elements.radioSelect("atHome",question.question2,"",answers.atHome,seq2,"inline") }}
+
+
+
+            </div>
+
+          {{ elements.submit(page,question) }}
+
+        </form>
+      </div>
+        {{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+  </div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

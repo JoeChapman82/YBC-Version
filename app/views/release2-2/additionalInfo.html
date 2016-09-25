@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.additionalInfo %}
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/additionalInfo{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+					{{ elements.textarea2("additionalInfo","",answers.additionalInfo,"","","",25000) }}
+
+						{{ elements.submit(page,question) }}
+
+        </form>
+			</div>
+			{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

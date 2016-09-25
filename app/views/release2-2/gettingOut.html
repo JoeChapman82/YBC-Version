@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.gettingOut %}
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/gettingOut{% if edit %}?edit=true{% endif %}" method="post" class="form form-group-frequency">
+					{{ elements.header(page,question) }}
+
+
+
+						{% set seq =[
+							{"id":"allTheTime","label":"All the time","value":"All the time","showPanel":"details"},
+							{"id":"moreThanHalf","label":"More than half the time","value":"More than half the time","showPanel":"details"},
+							{"id":"lessThanHalf","label":"Less than half the time","value":"Less than half the time","showPanel":"details"},
+							{"id":"noneTheTime","label":"None of the time","value":"None of the time","hidePanel":"details"},
+							{"id":"tellUsOwn","label":"Tell us how often in your own words","value":"Tell us how often in your own words","showPanel":"details",
+									"target"    : "target2",
+									"textbox"   :  false,
+									"textboxId" : "ownGettingOut",
+									"textboxanswer" : answers.ownGettingOut}
+							] %}
+							{{elements.radioSelect('gettingOutFreq',question.question,question.gettingHint,answers.gettingOutFreq,seq)}}
+
+							<div class="form-group panel-indent
+							 {% if not answers.optionsName  or answers.optionsName == question.doesntLabel %}js-hidden{% endif %}" id="details">
+
+							{% set seq = [
+								{id:"conditionAffect1",label:"You cannot leave your home",value:"You cannot leave your home"},
+								{id:"conditionAffect2",label:"5 to 20 metres (eg to the street outside your home)",value:"5 to 20 metres (eg to the street outside your home)"},
+								{id:"conditionAffect3",label:"20 to 50 metres (eg to the end of your street)",value:"20 to 50 metres (eg to the end of your street)"},
+								{id:"conditionAffect4",label:"50 to 100 metres (eg around the supermarket)",value:"50 to 100 metres (eg around the supermarket)"},
+								{id:"conditionAffect5",label:"100 to 200 metres (eg to the local shop)",value:"100 to 200 metres (eg to the local shop)"},
+								{id:"conditionAffect6",label:"Over 200 metres (eg around town)",value:"Over 200 metres (eg around town)"},
+								{"id":"conditionAffect6", "label":question.otherWayLabel, "value":question.otherWayLabel,
+									"target"         : "conditionAffectOther",
+									"textarea"       : true,
+									"textareaId"     : "conditionAffectOther",
+									"textareaLabel"  : "",
+									"textareaAnswer" : answers.conditionAffectOther
+								}
+							] %}
+							{{ elements.checkbox('conditionAffect',"checkbox",question.question3,'',seq,answers,answers.conditionAffect) }}
+
+{{ elements.textarea("whyDoes",question.question5,answers.whyDoes,"","") }}
+{{ elements.textarea("howDoYou",question.question6,answers.howDoYou,question.gettingHowHint,"","") }}
+
+						</div>
+
+					{{ elements.submit(page,question) }}
+
+        </form>
+			</div>
+				{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

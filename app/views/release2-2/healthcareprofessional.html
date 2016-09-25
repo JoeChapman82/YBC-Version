@@ -1,0 +1,115 @@
+
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.healthcareprofessional %}
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/healthcareprofessional{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+
+					{% set seq  = [
+						{"id":"contactHcp","value":"Yes","showPanel":"hcpDetails"},
+						{"id":"contactHcp", "value":"No"}
+					] %}
+					{{ elements.radioSelect('contactHcp',question.question,"",answers.contactHcp,seq,"inline") }}
+
+					<div class="form-group {% if answers.contactHcp != 'Yes' %}js-hidden{% endif %}" id="hcpDetails">
+						<ul class="list-user-input">
+							{% for i in range(1, 6) -%}
+
+								<li id="condition-row-{{i}}" class="condition-row {% if not loop.first and not answers['name' + i] %} js-hidden {% endif %}">
+
+									<h2 class="heading-small">{{ question.rowHd }} {{i}}</h2>
+									{% if not loop.first %}<a href="#" class="remove">{{ question.removeLink }}</a>{% endif %}
+
+
+	 <!-- dropdown list-->
+
+
+	 {% set seq  = [
+		{"id":"hcpType","value":"Please Select"},
+	 	{"id":"hcpType","value":"Community Psychiatric Nurse"},
+		{"id":"hcpType","value":"Counsellor"},
+		{"id":"hcpType","value":"Doctor"},
+		{"id":"hcpType","value":"GP"},
+		{"id":"hcpType","value":"Key Worker"},
+		{"id":"hcpType","value":"Occupational Therapist"},
+		{"id":"hcpType","value":"Physiotherapist"},
+		{"id":"hcpType","value":"Social Worker"},
+		{"id":"hcpType","value":"Specialist Nurse"},
+		{"id":"hcpType","value":"Teacher"},
+	 	{"id":"hcpType", "value":"Other","showPanel":"otherHCP"}
+	 ] %}
+
+	 {{ elements.dropDown('hcpType' + i, question.question2, answers["hcpType" + i], seq) }}
+
+	 <div class="form-group {% if answers.hcpType != 'Other' %}js-hidden{% endif %}">
+	 {{ elements.genericInput('otherHCP' + i, question.question3, answers["otherHCP" + i]) }}
+	</div>
+
+	 <!-- End of dropdown -->
+
+										{{ elements.genericInputList("name" + i,question.nameHd, answers["name" + i]) }}
+
+										<fieldset class="form-group">
+											<legend class="form-label">Address</legend>
+											{{ elements.textInput('HCPaddress1' + i,answers["HCPaddress1" + i]) }}
+											{{ elements.textInput('HCPaddress2' + i,answers["HCPaddress2" + i]) }}
+											{{ elements.textInput('HCPaddress3' + i,answers["HCPaddress3" + i]) }}
+
+											{{ elements.genericInput('HCPpostcode' + i, "Postcode",answers["HCPpostcode" + i]) }}
+										</fieldset>
+
+										{{ elements.genericInputList("phone" + i,question.phoneHd, answers["phone" + i]) }}
+
+										{{ elements.genericInputList("lastSeen" + i,question.lastSeenHd, answers["lastSeen" + i]) }}
+
+										{% if loop.last %}
+										{{ elements.textarea("moreHCP" + i,question.question4  |  safe,answers["moreHCP" + i]) }}
+									{% endif %}
+
+								</li>
+							{% endfor %}
+
+							<a href="add-another" class="add-another" data-target="condition-row">Add another professional</a>
+						</ul>
+
+
+			<p>If you change your mind about getting information from the professional(s) you've listed,
+				<a href="#" data-hide="false" class="link-show" data-target="contact-details">contact us </a>
+			</p>
+			<div id="contact-details" class="panel-indent js-hidden">
+		  	<p>Phone 0345 850 3322</p>
+		  	<p>Textphone 0345 601 6677</p>
+		  	<p>Monday to Friday, 8am to 6pm</p>
+		  	<a href="https://www.gov.uk/call-charges" target="_blank">Find out about call charges</a>
+		  </div>
+
+          </div>
+
+					{{ elements.submit(page,question) }}
+
+        </form>
+			</div>
+				{{ elements.helpline(page) }}
+				{{ elements.validation(page,question) }}
+			</div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

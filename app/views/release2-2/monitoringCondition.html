@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.monitoringCondition %}
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/monitoringCondition{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+
+					{% set seq  = [
+						{"id":"monitorCondition","value":"Yes","showPanel":"monitoredDetails"},
+						{"id":"monitorCondition", "value":"No"}
+					] %}
+					{{ elements.radioSelect('monitorCondition',question.question,"",answers.monitorCondition,seq,"inline") }}
+
+
+					{{ elements.submit(page,question) }}
+
+        </form>
+			</div>
+			{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

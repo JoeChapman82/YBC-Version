@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.validationPage %}
+<main id="content" role="main">
+	{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/contactPref{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+
+<!--helper page -->
+									<div id="helper">
+									<h3 class="heading-medium">Helper Details Validation</h3>
+									<h2 class="heading-small">Is someone helping you fill in this application?</h2>
+									<p>Checkbox must be selected</p>
+							  	<h2 class="heading-small">The name of the person helping you</h2>
+									<p>No validation</p>
+									<h2 class="heading-small">How you know them</h2>
+									<p>No validation</p>
+					  			</div>
+
+
+<!--aboutYou page -->
+									<div id="aboutYou">
+									<h3 class="heading-medium">Personal Details Validation</h3>
+									<h2 class="heading-small">Your name</h2>
+									<h2 class="heading-small">Title</h2>
+									<p>Option must be selected</p>
+									<h2 class="heading-small">First name</h2>
+									<p>Mandatory field</p>
+									<h2 class="heading-small">Middle name</h2>
+									<p>No validation</p>
+									<h2 class="heading-small">Last name</h2>
+									<p>Must be completed</p>
+									<h2 class="heading-small">National Insurance Number</h2>
+									<p>Mandatory field</p>
+									<p>Must follow traditional NINO format</p>
+									<h2 class="heading-small">Date of birth</h2>
+									<p>Age must fall within valid age range for claiming PIP</p>
+									<p>Date must be a valid date</p>
+									<h2 class="heading-small">Date of birth, Day</h2>
+									<p>Mandatory field</p>
+									<h2 class="heading-small">Date of birth, Month</h2>
+									<p>Mandatory field</p>
+									<h2 class="heading-small">Date of birth, Year</h2>
+									<p>Mandatory field</p>
+									</div>
+
+<!--contactDetails page -->
+									<div id="contactDetails">
+									<h3 class="heading-medium">Contact Details Validation</h3>
+									<h2 class="heading-small">Your address 1</h2>
+									<p>Must be completed</p>
+									<h2 class="heading-small">Your address 2</h2>
+									<p>No validation</p>
+									<h2 class="heading-small">Your address 3</h2>
+									<p>No validation</p>
+									<h2 class="heading-small">You need to have letters sent to a different address</h2>
+									<p>Optional checkbox</p>
+									<h2 class="heading-small">Your phone number</h2>
+									<p>No validation</p>
+									<h2 class="heading-small">You have hearing loss and need to be contacted by textphone</h2>
+									<p>Optional checkbox</p>
+									<h2 class="heading-small">Alternative phone number</h2>
+									<p>No validation</p>
+									</div>
+
+
+
+
+
+</form>
+</div>
+
+								{{ elements.helpline(page) }}
+								{{ elements.validation(page,question) }}
+      </div>
+  </div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

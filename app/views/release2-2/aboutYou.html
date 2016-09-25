@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.aboutYou %}
+<main id="content" role="main">
+
+		{{ elements.backButton(page,question) }}
+
+	<div class="grid-row">
+			<div class="column-two-thirds">
+
+				<form action="/release2-2/aboutYou{% if edit %}?edit=true{% endif %}" method="post" class="form">
+					{{ elements.header(page,question) }}
+
+<legend class="form-label-bold">Your name</legend>
+
+		 <!-- dropdown -->
+		 {% set seq  = [
+			{"id":"yourTitle","value":"Please Select"},
+			{"id":"yourTitle","value":"Mr"},
+			{"id":"yourTitle","value":"Miss"},
+			{"id":"yourTitle","value":"Mrs"}
+
+		 ] %}
+
+		 {{ elements.dropDownTitle('yourTitle', question.question6, answers.yourTitle, seq) }}
+	<!--End title dropdown-->
+
+					{{ elements.genericInput('firstName',question.question, answers.firstName) }}
+					{{ elements.genericInput('middleName',question.question2, answers.middleName) }}
+					{{ elements.genericInput('surname',question.question3, answers.surname) }}
+
+					{{ elements.genericInput('nino',question.question5  |  safe, answers.nino) }}
+
+					{{ elements.date('aboutYou',question.question4  |  safe,answers.dobDay) }}
+
+
+					{{ elements.submit(page,question) }}
+
+
+        </form>
+			</div>
+			{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}

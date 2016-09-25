@@ -20,5 +20,6 @@ module.exports = {
     });
 
   require('./routes-17')(app);
+  require('./routes-2-2')(app);
   }
 };

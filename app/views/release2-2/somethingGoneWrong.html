@@ -1,0 +1,42 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+	GOV.UK prototyping kit
+{% endblock %}
+
+{% block content %}
+
+{% import "release2-2/elements.html" as elements %}
+{% for page in data %}
+{% for question in page.somethingGoneWrong %}
+<main id="content" role="main">
+{{ elements.yscBanner(page,question) }}
+
+
+	<div class="grid-row">
+		<div class="column-two-thirds">
+
+			<form action="/release2-2/somethingGoneWrong" class="form">
+
+
+	<header>
+	<h1 class="form-title heading-xlarge ">Something's gone wrong</h1>
+	</header>
+	<br>
+				<p>Try again in a few moments</p>
+
+			</form>
+		</div>
+
+<div>
+	{{ elements.helpline(page) }}
+{{ elements.validation(page,question) }}
+	</div>
+</div>
+</div>
+</main>
+
+{% endfor %}
+{% endfor %}
+{% endblock %}
