@@ -602,26 +602,3 @@ PIP21
 /***********************
 YSC Version
 ************************/
-
-#yscCurrent {
-
-  border-style:solid;
-  border-width: 1px;
-  border-color:#ABB2B9;
-
-}
-#yscCurrent:before
-{
-content: "LATEST VERSION";
- position: absolute;
- top: 21.2em;
- left: 18.45em;
- padding: 0.2em 0.4em 0.2em 0.4em;
- font-weight: 400;
- text-transform: none;
- background: #666;
- color: white;
- font-size: 13px;
- line-height: 1.4285714286;
-
-}
