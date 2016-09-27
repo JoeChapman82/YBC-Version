@@ -38,9 +38,7 @@
 					{{ elements.genericInput('surname',question.question3, answers.surname) }}
 
 					{{ elements.genericInput('nino',question.question5  |  safe, answers.nino) }}
-
-					{{ elements.date('aboutYou',question.question4  |  safe,answers.dobDay) }}
-
+					{{ elements.date('dateOfBirth',question.question4  |  safe,answers) }}
 
 					{{ elements.submit(page,question) }}
 
